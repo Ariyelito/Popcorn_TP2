@@ -1,0 +1,60 @@
+#contLogIn {
+  display: none;
+  max-width: 400px;
+}
+
+#contRegister {
+  display: none;
+  max-width: 700px;
+}
+.description {
+   overflow: hidden;
+  height: 200px; 
+}
+
+.card:hover {
+  border-color: red;
+  /* height: 600px; */
+  cursor: pointer;
+}
+/* .topnav a {
+  float: left;
+  text-align: center;
+} */
+
+.topnav a:hover {
+  background-color:rgb(153, 0, 0);
+  color: white;
+}
+
+#myNav {
+  padding: 0%;
+  background-color: #dc3545 !important;
+  text-align: center;
+}
+
+#myNav .logo {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 0%;
+}
+
+.navbar-nav a {
+  background-color: #dc3545;
+}
+
+#btnConnecter {
+  width: 100%;
+}
+
+#btnEnregistrer {
+  width: 100%;
+}
+
+p.card-text {
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+
