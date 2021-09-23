@@ -88,9 +88,9 @@ include 'includes/header.php';
             </div>
         </form>
     </div>
-    <form id="formLister" action="server/pages/lister.php" method="POST">
+  <!--  <form id="formLister" action="server/pages/lister.php" method="POST">
        </form>
-    <!-- fin form devenir membre-->
+     fin form devenir membre-->
 
     <!-- container de cards  -->
     <?php include 'includes/cards.php' ?>

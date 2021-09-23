@@ -1,6 +1,6 @@
 <?php
-$title = "Membre";
-include '../../includes/header-m.php';
+$title = "admin";
+include '../../includes/header-a.php';
 
 ?>
 

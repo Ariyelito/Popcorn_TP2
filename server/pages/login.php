@@ -3,6 +3,7 @@ $title = "Membre";
 include '../../includes/header-m.php';
 
 ?>
+
 <!-- log-in container -->
 <div class="container mt-3">
     <?php
@@ -12,12 +13,12 @@ include '../../includes/header-m.php';
     $connectionFile = fopen("../data/connection.txt", "r") or exit("Unable to open file!");
 
     $found = false;
-    while (!feof($connectionFile)) {
+    
+    $isMembre;
+    while (!feof($connectionFile) && !$found) {
         $ligne = fgets($connectionFile) . "<br />";
-        $tabLigne = explode(";", "$ligne;");
-
-        $mailDB = $tabLigne[0];
-        $hash = $tabLigne[1];
+      //  $tabLigne = explode(";", "$ligne;");
+      list($mailDB, $hash,$isActive,$isMembre) = explode(";", "$ligne");
 
         if ($emailEntree == $mailDB) {
             if (password_verify($passwordEntree, $hash)) {
@@ -26,12 +27,25 @@ include '../../includes/header-m.php';
             }
         }
     }
+
+
     if (!$found) {
         echo "Verifier le mot de passe ou l'email";
         echo "<br /><a href=\"../../index.php\">Accueil</a>";
-    } else {
+
+    } else {        
         echo "<h3>Vous êtes connecté ($emailEntree)</h3>";
-    }
+      
+         if($isMembre =='M')
+         {
+         header('Location: ../../membre.php');
+         }
+        else if($isMembre =='A')
+        {
+            header('Location: ../../admin.php');
+        }
+    
+    } 
     fclose($connectionFile);
     ?>
 </div>

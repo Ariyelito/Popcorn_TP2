@@ -65,5 +65,7 @@ let validerMembre = () => {
 }
 
 $('#btnLister').click(()=>{
+   //alert("click");
+
     $('#formLister').submit();
 });

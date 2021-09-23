@@ -32,7 +32,7 @@
             $motDePasse = $_POST['inputPassword'];
 
             $ligne = $nom . ";" . $prenom . ";" . $email . ";" . $sexe . ";" . $date . "\n";
-            $ligneConnection = $email . ";" . password_hash($motDePasse, PASSWORD_DEFAULT) .";1;M". "\n";
+            $ligneConnection = $email . ";" . password_hash($motDePasse, PASSWORD_DEFAULT) .";1;M;". "\n";
 
             fputs($fic, $ligne);
             fclose($fic);

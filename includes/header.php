@@ -29,7 +29,7 @@
                     <a id="btnHome" href="#" class="nav-item nav-link">Accueil</a>
                     <a id="btnReg" href="#" class="nav-item nav-link">Devenir membre</a>
                     <a id="btnLogIn" href="#" class="nav-item nav-link">Se connecter</a>
-                    <a id="btnLister" href="#" class="nav-item nav-link">Lister</a>
+                    <!-- <a id="btnLister" href="#" class="nav-item nav-link">Lister</a> -->
 
                     <!-- $('#btnReg').hide();
                          $('#btnLogIn').hide();
