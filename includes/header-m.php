@@ -25,7 +25,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav">
-                <a  href="../../membre.php" class="nav-item nav-link">Accueil</a>
+                <a  href="membre.php" class="nav-item nav-link">Accueil</a>
                 <a  href="index.php" class="nav-item nav-link">Deconnexion</a>
 
             </div>
