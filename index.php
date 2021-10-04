@@ -1,6 +1,9 @@
 <?php
 $title = "Accueil";
 include 'includes/header.php';
+require_once 'db/connexion.inc.php';
+
+$result = $crud->getMovies();
 ?>
 
 <!-- Fin menu de navigation -->
@@ -93,7 +96,21 @@ include 'includes/header.php';
      fin form devenir membre-->
 
     <!-- container de cards  -->
-    <?php include 'includes/cards.php' ?>
+    <?php $r = $result->fetch(PDO::FETCH_ASSOC) ?>
+    <div class="col mt-3">
+            <div class="card">
+                <img src="client/public/images/theavengers_lob_crd_03_0.jpg" class="card-img-top" alt="...">
+                <div class="card-body description">
+                    <h5 class="card-title"><?php echo $r['titre'] ?></h5>
+                    <p class="card-text">
+                        Joss Whedon </br>
+                        Science Fiction, Action, Adventure </br>
+                        $10
+                    </p>
+                </div>
+            </div>
+        </div>
+    <?php //include 'includes/cards.php' ?>
 
 </div>
 

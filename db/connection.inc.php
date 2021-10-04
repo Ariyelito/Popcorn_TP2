@@ -1,1 +1,0 @@
-<?php // connection a la bd ?>
