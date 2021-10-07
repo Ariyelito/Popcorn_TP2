@@ -23,7 +23,7 @@
         $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         echo '<h1 class="text-success">Hello Database</h1>';
     } catch(PDOException $e) {
-        throw new PDOExcetion($e -> getMessage());
+        throw new PDOException($e -> getMessage());
        // echo '<h1 class="text-danger">No Database Found</h1>';
 
     }
