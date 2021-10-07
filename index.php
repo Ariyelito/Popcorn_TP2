@@ -116,7 +116,6 @@ $result = $crud->getMovies();
    </div>'; 
        }
        echo $rep; */
-     
        echo $crud->chargerFilmsHTML();
     ?>
  
