@@ -11,36 +11,23 @@
 <div class="container mt-3">
     <?php
 
-        define("FICHER_MEMBRE", "../data/membres.txt");
-        define("FICHER_CONNECTION", "../data/connection.txt");
+      
+$nom = $_POST['inputNom'];
+$prenom = $_POST['inputPrenom'];
+$email = $_POST['inputEmail'];
+$sexe = $_POST['inputSexe'];
+$date = $_POST['inputDate'];
+$photo = "";
+$motDePasse = $_POST['inputPassword'];
 
-        if (!$fic = fopen(FICHER_MEMBRE, "a+")) {
-            echo "Fichier non trouvé";
-            exit;
-            }
 
-        if (!$fichierConnection = fopen(FICHER_CONNECTION, "a+")) {
-                echo "Fichier non trouvé";
-                exit;
-            }
+$membre  = new Membre(0,$nom,$prenom,$email,$sexe,$date,$photo,$motDePasse,1,"M");
 
-            $nom = $_POST['inputNom'];
-            $prenom = $_POST['inputPrenom'];
-            $email = $_POST['inputEmail'];
-            $sexe = $_POST['inputSexe'];
-            $date = $_POST['inputDate'];
-            $motDePasse = $_POST['inputPassword'];
+$crudMembre->ajouterMembre($membre);
+$membre->idMembre = $pdo->lastInsertId();
+$crudMembre->ajouterConnexion($membre);
 
-            $ligne = $nom . ";" . $prenom . ";" . $email . ";" . $sexe . ";" . $date . "\n";
-            $ligneConnection = $email . ";" . password_hash($motDePasse, PASSWORD_DEFAULT) .";1;M;". "\n";
-
-            fputs($fic, $ligne);
-            fclose($fic);
-          
-            fputs($fichierConnection, $ligneConnection);
-            fclose($fichierConnection);
-          
-            echo ("Bienvenue sur PopcornTV.ca, $prenom ($email)");
+echo ("Bienvenue sur PopcornTV.ca, $prenom ($email) ".$membre->idMembre);
            
             ?>
 </div>
