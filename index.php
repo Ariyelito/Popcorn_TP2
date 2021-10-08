@@ -95,6 +95,10 @@ require_once 'db/connexion.inc.php';
 
 <!-- container de cards  -->
 
-<?php include 'includes/cards.php' ?>
+<?php
+$isMembre = false;
+$result = $crud->getMovies();
+include 'includes/cards.php' 
+?>
 
 <?php include 'includes/footer.php' ?>
