@@ -38,7 +38,7 @@ include '../../includes/header-m.php';
       
          if($isMembre =='M')
          {
-         header('Location: ../../membre.php');
+         header('Location: ../../membrePage.php');
          }
         else if($isMembre =='A')
         {
