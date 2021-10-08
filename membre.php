@@ -1,12 +1,14 @@
 <?php
 $title = "membre";
 include 'includes/header-m.php';
+require_once 'db/connexion.inc.php';
+$result = $crud->getMovies();
 ?>
-
-<div> Hakam mon 100$</div>
 
 <?php
 $title = "membre";
+$result = $crud->getMovies();
+$isMembre = true;
 include 'includes/cards.php';
 ?>
 

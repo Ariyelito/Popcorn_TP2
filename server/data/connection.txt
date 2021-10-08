@@ -1,3 +1,5 @@
 anas@gmail.com;$2y$10$fFV3RNbvRxHgS.G9.UY61ed0eCi6cRVa4t4c3/Ds3lFUPsO.mwvyC;1;M;
 admin@gmail.com;$2y$10$H/IwXyWj.C6z9OrxKaZz3.dEIuZiAKT62Eyqt7dhcVue079I7mhbi;1;A;
 orl@gmail.com;$2y$10$cr1I9AHDPAPnsVxJzFn8WOFqizIbNJSMKB5PtytAXSeor64k9PuC6;1;M;
+orlando@gmail.com;$2y$10$TIPVZkEmRCdyjVilfv5IOeZHkJX2D//LbaCgX5.4XqeEf.cWps.p2;1;M;
+orlando@gmail.com;$2y$10$Nt.f63/JgoVsfQaBP6h8duTq8RSfRU9MxsmxjySmr0HkTZiTMNSZe;1;A;
