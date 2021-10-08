@@ -11,7 +11,8 @@
 <div class="container mt-3">
     <?php
 
-      
+require_once '../../db/connexion.inc.php';
+
 $nom = $_POST['inputNom'];
 $prenom = $_POST['inputPrenom'];
 $email = $_POST['inputEmail'];
