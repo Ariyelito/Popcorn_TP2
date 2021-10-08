@@ -1,4 +1,5 @@
 <?php 
+   require_once 'Membre.php';
     // connexion a la bd local
 
     $host = 'localhost';
@@ -21,7 +22,7 @@
         $pdo =new PDO($dsn, $user, $pass);
         // show errors
         $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $connected =  '<h1 class="text-success">Hello Database</h1>';
+       // $connected =  '<h1 class="text-success">Hello Database</h1>';
     } catch(PDOException $e) {
         throw new PDOException($e -> getMessage());
        // echo '<h1 class="text-danger">No Database Found</h1>';
@@ -31,6 +32,7 @@
     // initialize CRUD for database operation functions
     require_once 'crud.php';
     $crud = new crud($pdo);
-
+    require_once 'crudMembre.php';
+    $crudMembre = new crudMembre($pdo);
 
 ?>
