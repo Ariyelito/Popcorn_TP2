@@ -3,7 +3,7 @@
     $title = "Bienvenue, $prenom!";
     //$pageEnregistrer
     
-    include '../../includes/header-m.php';
+    include '../../includes/header-new.php';
  
 ?>
 
@@ -33,4 +33,4 @@ echo ("Bienvenue sur PopcornTV.ca, $prenom ($email) ".$membre->idMembre);
             ?>
 </div>
 
-<?php  include '../../includes/footer.php'?>
+<?php  include '../../includes/footer-new.php'?>
