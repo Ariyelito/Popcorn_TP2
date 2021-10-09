@@ -21,5 +21,8 @@ class crud
             return false;
         }
     }
+    public function addMovie(){
+
+    }
 
 }
