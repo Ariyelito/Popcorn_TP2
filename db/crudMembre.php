@@ -58,4 +58,16 @@ class crudMembre
             return false;
         }
     }
+    public function getMembreByEmail($email) {
+        try {
+            $sql = "SELECT * FROM `connexion` WHERE email = '$email'";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetch();
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
 }
