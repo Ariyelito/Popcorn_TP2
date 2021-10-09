@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2021 at 01:16 AM
+-- Generation Time: Oct 10, 2021 at 01:38 AM
 -- Server version: 5.7.17
 -- PHP Version: 5.6.30
 
@@ -46,10 +46,19 @@ DROP TABLE IF EXISTS `connexion`;
 CREATE TABLE `connexion` (
   `email` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `statue` char(1) COLLATE utf8_unicode_ci NOT NULL,
-  `role` int(1) NOT NULL,
+  `statue` tinyint(4) NOT NULL,
+  `role` char(1) COLLATE utf8_unicode_ci NOT NULL,
   `idMembre` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `connexion`
+--
+
+INSERT INTO `connexion` (`email`, `password`, `statue`, `role`, `idMembre`) VALUES
+('hakam@gmail.com', 'aaa', 1, 'A', 4),
+('orlando@gmail.com', 'aaa', 1, 'A', 5),
+('anas@gmail.com', 'aaa', 1, 'A', 6);
 
 -- --------------------------------------------------------
 
@@ -137,6 +146,15 @@ CREATE TABLE `membres` (
   `date` date NOT NULL,
   `photo` varchar(45) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `membres`
+--
+
+INSERT INTO `membres` (`idMembre`, `nom`, `prenom`, `email`, `sexe`, `date`, `photo`) VALUES
+(4, 'hakam', 'almotlak', 'hakam@gmail.com', 'Homme', '2000-01-01', ''),
+(5, 'orlando', 'je sais pas quoi', 'orlando@gmail.com', 'Homme', '2000-01-01', ''),
+(6, 'anas', 'je sais pas quoi', 'anas@gmail.com', 'Homme', '2000-01-01', '');
 
 -- --------------------------------------------------------
 
@@ -326,7 +344,7 @@ ALTER TABLE `locations`
 -- AUTO_INCREMENT for table `membres`
 --
 ALTER TABLE `membres`
-  MODIFY `idMembre` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idMembre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `paiments`
 --
@@ -355,54 +373,54 @@ ALTER TABLE `realisateurs`
 -- Constraints for table `connexion`
 --
 ALTER TABLE `connexion`
-  ADD CONSTRAINT `connexion_ibfk_1` FOREIGN KEY (`idMembre`) REFERENCES `membres` (`idMembre`);
+  ADD CONSTRAINT `connexion_ibfk_1` FOREIGN KEY (`idMembre`) REFERENCES `membres` (`idMembre`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `filmcategorie`
 --
 ALTER TABLE `filmcategorie`
-  ADD CONSTRAINT `filmcategorie_ibfk_1` FOREIGN KEY (`idCategorie`) REFERENCES `categories` (`idCategorie`),
-  ADD CONSTRAINT `filmcategorie_ibfk_2` FOREIGN KEY (`idFilm`) REFERENCES `films` (`idFilm`);
+  ADD CONSTRAINT `filmcategorie_ibfk_1` FOREIGN KEY (`idCategorie`) REFERENCES `categories` (`idCategorie`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `filmcategorie_ibfk_2` FOREIGN KEY (`idFilm`) REFERENCES `films` (`idFilm`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `filmsrealisateurs`
 --
 ALTER TABLE `filmsrealisateurs`
-  ADD CONSTRAINT `filmsrealisateurs_ibfk_1` FOREIGN KEY (`idFilm`) REFERENCES `films` (`idFilm`),
-  ADD CONSTRAINT `filmsrealisateurs_ibfk_2` FOREIGN KEY (`idRealisateur`) REFERENCES `realisateurs` (`idRealisateur`);
+  ADD CONSTRAINT `filmsrealisateurs_ibfk_1` FOREIGN KEY (`idFilm`) REFERENCES `films` (`idFilm`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `filmsrealisateurs_ibfk_2` FOREIGN KEY (`idRealisateur`) REFERENCES `realisateurs` (`idRealisateur`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `locations`
 --
 ALTER TABLE `locations`
-  ADD CONSTRAINT `locations_ibfk_1` FOREIGN KEY (`idFilm`) REFERENCES `films` (`idFilm`),
-  ADD CONSTRAINT `locations_ibfk_2` FOREIGN KEY (`idMembre`) REFERENCES `membres` (`idMembre`);
+  ADD CONSTRAINT `locations_ibfk_1` FOREIGN KEY (`idFilm`) REFERENCES `films` (`idFilm`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `locations_ibfk_2` FOREIGN KEY (`idMembre`) REFERENCES `membres` (`idMembre`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `paiments`
 --
 ALTER TABLE `paiments`
-  ADD CONSTRAINT `paiments_ibfk_1` FOREIGN KEY (`idMembre`) REFERENCES `membres` (`idMembre`);
+  ADD CONSTRAINT `paiments_ibfk_1` FOREIGN KEY (`idMembre`) REFERENCES `membres` (`idMembre`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `paimentsfilms`
 --
 ALTER TABLE `paimentsfilms`
-  ADD CONSTRAINT `paimentsfilms_ibfk_1` FOREIGN KEY (`idFilm`) REFERENCES `films` (`idFilm`),
-  ADD CONSTRAINT `paimentsfilms_ibfk_2` FOREIGN KEY (`idPaiment`) REFERENCES `paiments` (`idPaiment`);
+  ADD CONSTRAINT `paimentsfilms_ibfk_1` FOREIGN KEY (`idFilm`) REFERENCES `films` (`idFilm`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `paimentsfilms_ibfk_2` FOREIGN KEY (`idPaiment`) REFERENCES `paiments` (`idPaiment`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `paniers`
 --
 ALTER TABLE `paniers`
-  ADD CONSTRAINT `paniers_ibfk_1` FOREIGN KEY (`idMembre`) REFERENCES `membres` (`idMembre`);
+  ADD CONSTRAINT `paniers_ibfk_1` FOREIGN KEY (`idMembre`) REFERENCES `membres` (`idMembre`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `paniersfilms`
 --
 ALTER TABLE `paniersfilms`
-  ADD CONSTRAINT `paniersfilms_ibfk_1` FOREIGN KEY (`idPanier`) REFERENCES `paiments` (`idPaiment`),
-  ADD CONSTRAINT `paniersfilms_ibfk_2` FOREIGN KEY (`idFilm`) REFERENCES `films` (`idFilm`);
+  ADD CONSTRAINT `paniersfilms_ibfk_1` FOREIGN KEY (`idPanier`) REFERENCES `paiments` (`idPaiment`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `paniersfilms_ibfk_2` FOREIGN KEY (`idFilm`) REFERENCES `films` (`idFilm`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
