@@ -33,4 +33,4 @@ echo ("Bienvenue sur PopcornTV.ca, $prenom ($email) ".$membre->idMembre);
             ?>
 </div>
 
-<?php  include '../../includes/footer-new.php'?>
+<?php  include '../../includes/footer-membre.php'?>

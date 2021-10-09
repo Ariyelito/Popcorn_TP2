@@ -16,6 +16,14 @@ $('#btnReg').click(()=>{
     $("#contRegister").show();
 });
 
+$('#btnAdmin').click(()=>{
+    $("#contAddFilm").hide();
+});
+
+$('#btnAjouter').click(()=>{
+    $("#contAddFilm").show();
+});
+
 
 let valider = () => {
     let etat = true;

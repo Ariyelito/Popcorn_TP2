@@ -13,7 +13,6 @@ class crudMembre
     public function ajouterMembre(Membre $membre)
     {
         try {
-            
             // define sql statement to be executed
             $sql = "INSERT INTO membres (nom,prenom,email,sexe,date,photo)
                     VALUES(:lastName,:firstName,:email,:sexe,:date,:photo)";
