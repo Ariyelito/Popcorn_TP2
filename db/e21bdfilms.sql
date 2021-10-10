@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2021 at 12:14 AM
+-- Generation Time: Oct 11, 2021 at 12:20 AM
 -- Server version: 5.7.17
 -- PHP Version: 5.6.30
 
@@ -80,18 +80,6 @@ CREATE TABLE `filmcategorie` (
   `idCategorie` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `filmcategorie`
---
-
-INSERT INTO `filmcategorie` (`idFilm`, `idCategorie`) VALUES
-(11, 1),
-(11, 2),
-(12, 1),
-(12, 2),
-(13, 1),
-(13, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -141,13 +129,7 @@ CREATE TABLE `filmsrealisateurs` (
 
 INSERT INTO `filmsrealisateurs` (`idFilm`, `idRealisateur`) VALUES
 (3, 2),
-(1, 1),
-(11, 1),
-(11, 2),
-(12, 1),
-(12, 2),
-(13, 1),
-(13, 2);
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -376,7 +358,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `films`
 --
 ALTER TABLE `films`
-  MODIFY `idFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `locations`
 --
