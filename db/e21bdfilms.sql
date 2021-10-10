@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2021 at 01:38 AM
+-- Generation Time: Oct 11, 2021 at 12:14 AM
 -- Server version: 5.7.17
 -- PHP Version: 5.6.30
 
@@ -35,6 +35,14 @@ CREATE TABLE `categories` (
   `idCategorie` int(11) NOT NULL,
   `nomCategorie` varchar(45) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`idCategorie`, `nomCategorie`) VALUES
+(1, 'Action'),
+(2, 'Drame');
 
 -- --------------------------------------------------------
 
@@ -72,6 +80,18 @@ CREATE TABLE `filmcategorie` (
   `idCategorie` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `filmcategorie`
+--
+
+INSERT INTO `filmcategorie` (`idFilm`, `idCategorie`) VALUES
+(11, 1),
+(11, 2),
+(12, 1),
+(12, 2),
+(13, 1),
+(13, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -87,7 +107,7 @@ CREATE TABLE `films` (
   `date` date NOT NULL,
   `montant` decimal(10,2) NOT NULL,
   `photo` varchar(50) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `films`
@@ -95,13 +115,13 @@ CREATE TABLE `films` (
 
 INSERT INTO `films` (`idFilm`, `titre`, `duree`, `langue`, `date`, `montant`, `photo`) VALUES
 (1, 'The Avengers (2012)', 143, 'Anglais', '2012-04-05', '30.00', 'client/public/images/theavengers_lob_crd_03_0.jpg'),
-(5, 'Grand Isle (2019)', 97, 'Anglais', '2019-06-12', '27.00', 'client/public/images/grandile.jpg'),
-(6, 'The Good Doctor (2017)', 104, 'Anglais', '2017-07-04', '42.00', 'client/public/images/goodDoctor.jpg'),
-(9, 'Cruella (2021)', 134, 'Anglais', '2019-05-28', '23.00', 'client/public/images/cruella.jpg'),
-(11, 'Wrath of Man (2021)', 119, 'Anglais', '2021-05-07', '41.00', 'client/public/images/wrathofman.jpg'),
-(12, 'Game of Thrones (2011)', 57, 'Anglais', '2011-07-24', '48.00', 'client/public/images/got.jpg'),
-(15, 'Fury (2014)', 135, 'Anglais', '2014-10-17', '27.00', 'client/public/images/fury.jpg'),
-(16, 'Jolt (2021)', 91, 'Anglais', '2021-07-15', '33.00', 'client/public/images/jolt.jpg');
+(2, 'Grand Isle (2019)', 97, 'Anglais', '2019-06-12', '27.00', 'client/public/images/grandile.jpg'),
+(3, 'The Good Doctor (2017)', 104, 'Anglais', '2017-07-04', '42.00', 'client/public/images/goodDoctor.jpg'),
+(4, 'Cruella (2021)', 134, 'Anglais', '2019-05-28', '23.00', 'client/public/images/cruella.jpg'),
+(5, 'Wrath of Man (2021)', 119, 'Anglais', '2021-05-07', '41.00', 'client/public/images/wrathofman.jpg'),
+(6, 'Game of Thrones (2011)', 57, 'Anglais', '2011-07-24', '48.00', 'client/public/images/got.jpg'),
+(7, 'Fury (2014)', 135, 'Anglais', '2014-10-17', '27.00', 'client/public/images/fury.jpg'),
+(8, 'Jolt (2021)', 91, 'Anglais', '2021-07-15', '33.00', 'client/public/images/jolt.jpg');
 
 -- --------------------------------------------------------
 
@@ -114,6 +134,20 @@ CREATE TABLE `filmsrealisateurs` (
   `idFilm` int(11) NOT NULL,
   `idRealisateur` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `filmsrealisateurs`
+--
+
+INSERT INTO `filmsrealisateurs` (`idFilm`, `idRealisateur`) VALUES
+(3, 2),
+(1, 1),
+(11, 1),
+(11, 2),
+(12, 1),
+(12, 2),
+(13, 1),
+(13, 2);
 
 -- --------------------------------------------------------
 
@@ -228,8 +262,16 @@ CREATE TABLE `prix` (
 DROP TABLE IF EXISTS `realisateurs`;
 CREATE TABLE `realisateurs` (
   `idRealisateur` int(11) NOT NULL,
-  `nom` int(11) NOT NULL
+  `nom` varchar(45) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `realisateurs`
+--
+
+INSERT INTO `realisateurs` (`idRealisateur`, `nom`) VALUES
+(1, 'Zak Penn'),
+(2, 'David Shore');
 
 --
 -- Indexes for dumped tables
@@ -329,12 +371,12 @@ ALTER TABLE `realisateurs`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `idCategorie` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCategorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `films`
 --
 ALTER TABLE `films`
-  MODIFY `idFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `idFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `locations`
 --
@@ -364,7 +406,7 @@ ALTER TABLE `prix`
 -- AUTO_INCREMENT for table `realisateurs`
 --
 ALTER TABLE `realisateurs`
-  MODIFY `idRealisateur` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idRealisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
