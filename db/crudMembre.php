@@ -70,4 +70,26 @@ class crudMembre
             return false;
         }
     }
+    public function getAllMembres(){
+        try {
+            $sql = "SELECT * FROM `membres`";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+    public function getMembreConnexion($email) {
+        try {
+            $sql = "SELECT * FROM `connexion` WHERE email = '$email'";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetch();
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
 }
