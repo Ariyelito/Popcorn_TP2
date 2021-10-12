@@ -91,4 +91,15 @@ class crud
         }
     }
 
+    public function getFilmById($id){
+        try {
+            $sql = "SELECT * FROM `films` where idFilm=$id";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
 }
