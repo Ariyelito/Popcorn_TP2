@@ -61,6 +61,7 @@ foreach($result as $membre){
     $rep .= "<td>".$membre['email']."</td>";
     $rep .= "<td>".getStatut($connexion['statue'])."</td>";
     $rep .= "<td>".getRole($connexion['role'])."</td>";
+    
   
     $rep .="</tr>";
 }
