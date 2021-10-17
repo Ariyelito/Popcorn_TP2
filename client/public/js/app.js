@@ -78,4 +78,7 @@ $('#btnLister').click(()=>{
 
     $('#formLister').submit();
 });
+// $('#btnPopCorn').click(()=>{
+//     window.location.href = 'admin.php';
+// });
 
