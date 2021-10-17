@@ -20,7 +20,7 @@
     <!-- Menu de navigation -->
     <nav id="myNav" class="topnav navbar navbar-expand-sm navbar-dark bg-danger bg-gradient">
 
-        <a class="topnav logo navbar-brand" href="admin.php">Popcorn TV</a>
+        <a id="btnPopCorn" class="topnav logo navbar-brand" href="admin.php">Popcorn TV</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@
             <div class="navbar-nav">
                 <a id="btnAdmin" href="#" class="nav-item nav-link">Accueil</a>
                 <a id="btnAjouter" href="#" class="nav-item nav-link">Ajouter un film</a>
-                <a id="btnLister" href="#" class="nav-item nav-link">Lister</a>
+                <a id="btnLister" href="#" class="nav-item nav-link">Lister Membres</a>
                 <a id="btnHome" href="index.php" class="nav-item nav-link">Deconnexion</a>
             </div>
         </div>
