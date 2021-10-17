@@ -30,6 +30,7 @@ foreach($result as $membre){
     $rep .= "<td>".$membre['email']."</td>";
     $rep .= "<td>".getStatut($connexion['statue'])."</td>";
     $rep .= "<td>".getRole($connexion['role'])."</td>";
+    $rep .= "<td><button onclick=\"location.href='deleteMembre.php?idMembre=".$membre['idMembre']."'\">supprimer</button></td>";
     
   
     $rep .="</tr>";
