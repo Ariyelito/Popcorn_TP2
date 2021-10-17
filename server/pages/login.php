@@ -74,4 +74,7 @@ include '../../includes/header-m.php';
     // fclose($connectionFile);
     ?>
 </div>
-<?php include '../../includes/footer.php' ?>
+<?php 
+$root = "../../";
+include '../../includes/footer.php';
+?>

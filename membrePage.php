@@ -12,4 +12,7 @@ $isMembre = true;
 include 'includes/cards.php';
 ?>
 
-<?php include 'includes/footer.php' ?>
+<?php 
+$root = "";
+include 'includes/footer.php';
+?>

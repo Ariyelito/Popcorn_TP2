@@ -29,6 +29,9 @@ $crud->addRealisateursPourFilm($film->idFilm,$idRealisateurs);
 echo ("Le film ".$film->idFilm." a été bien ajouté à la base de données.");
 ?>
 </div>
-<?php  include '../../includes/footer-membre.php'?>
+<?php 
+$root = "../../";
+include '../../includes/footer.php';
+?>
 
 

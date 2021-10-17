@@ -8,3 +8,8 @@ require_once '../../db/connexion.inc.php';
         echo $r['titre'];
     }
 ?>
+
+<?php 
+$root = "../../";
+include '../../includes/footer.php';
+?>

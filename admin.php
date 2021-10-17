@@ -1,5 +1,6 @@
 <?php
-$title = "admin";
+$title = "Admin";
+$root = "";
 include 'includes/header-a.php';
 require_once 'db/connexion.inc.php';
 $result = $crud->getMovies();
@@ -8,6 +9,13 @@ $result = $crud->getMovies();
 // $result3 = $crud->getCategories();
 
 ?>
+
+<?php
+$isMembre = true;
+$result = $crud->getMovies();
+include 'includes/cards.php' 
+?>
+
 <form id="formLister" action="server/pages/lister.php" method="POST"> </form>
 
 <!-- Form ajouter un film-->
@@ -90,4 +98,7 @@ $result = $crud->getMovies();
 </div>
 
 
-<?php include 'includes/footer-membre.php' ?>
+<?php 
+$root = "";
+include 'includes/footer.php';
+?>

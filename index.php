@@ -73,9 +73,15 @@ require_once 'db/connexion.inc.php';
                 </label>
             </div>
         </div>
-        <div class="col-6 mt-3">
+        <!-- <div class="col-6 mt-3">
             <label for="inputBd">Date de naissance :</label>
-            <input type="date" id="inputBd" name="inputDate" value="2000-01-01" min="1900-01-01" max="2003-12-31">
+            <input type="date" id="inputBd" name="inputBd" value="2000-01-01" min="1900-01-01" max="2003-12-31">
+        </div> -->
+        <div class="col-6 mt-3">
+            <div class="form-group">
+                <label for="inputDate">Date de naissance :</label>
+                <input type="text" class="form-control" id="inputBd" name="inputBd">
+            </div>
         </div>
         <div class="col-md-6">
             <label for="inputPassword" class="form-label">Mot de passe</label>
@@ -96,9 +102,12 @@ require_once 'db/connexion.inc.php';
 <!-- container de cards  -->
 
 <?php
-$isMembre = false;
+//$isMembre = false;
 $result = $crud->getMovies();
-include 'includes/cards.php' 
+include 'includes/cards.php'; 
 ?>
 
-<?php include 'includes/footer.php' ?>
+<?php 
+$root = "";
+include 'includes/footer.php';
+?>

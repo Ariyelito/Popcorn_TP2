@@ -22,6 +22,7 @@ $('#btnAdmin').click(()=>{
 
 $('#btnAjouter').click(()=>{
     $("#contAddFilm").show();
+    $("#contCards").hide();
 });
 
 
