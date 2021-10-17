@@ -92,4 +92,22 @@ class crudMembre
             return false;
         }
     }
+    public function deleteMembre($id){
+        try {
+
+            $stmt = $this->db->prepare( "DELETE FROM membres WHERE idMembre =:id" );
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+    
+            
+            // if(  $stmt->rowCount() ) {
+            //     return $id;
+            // }
+            return $stmt;
+            
+            } catch (PDOException $e) {
+                echo $e->getMessage();
+                return false;
+            }
+    }
 }
