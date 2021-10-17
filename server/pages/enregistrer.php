@@ -17,7 +17,7 @@ $nom = $_POST['inputNom'];
 $prenom = $_POST['inputPrenom'];
 $email = $_POST['inputEmail'];
 $sexe = $_POST['inputSexe'];
-$date = $_POST['inputDate'];
+$date = $_POST['inputBd'];
 $photo = "";
 $motDePasse = $_POST['inputPassword'];
 
