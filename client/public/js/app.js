@@ -18,6 +18,7 @@ $('#btnReg').click(()=>{
 
 $('#btnAdmin').click(()=>{
     $("#contAddFilm").hide();
+   // window.location.href = "index.php";
 });
 
 $('#btnAjouter').click(()=>{
