@@ -2,6 +2,7 @@
     $title = "Liste des membres";
     $root = "../../";
     include '../../includes/header-a.php';
+    require_once '../../db/connexion.inc.php';
  
 ?>
 
@@ -9,7 +10,7 @@
         <?php
 
 
-require_once '../../db/connexion.inc.php';
+
 
 $result = $crudMembre->getAllMembres();
 $result = $result->fetchAll();
