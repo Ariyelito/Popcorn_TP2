@@ -63,4 +63,8 @@ p.card-text {
 }
 
 
-
+.posToast{
+	position:absolute;
+	top:5%;
+	left:40%;
+}

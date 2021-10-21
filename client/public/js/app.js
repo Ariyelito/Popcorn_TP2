@@ -83,3 +83,14 @@ $('#btnLister').click(()=>{
 //     window.location.href = 'admin.php';
 // });
 
+let initialiser = (id,msg) =>{
+    let textToast = document.getElementById("textToast");
+    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+    var toastList = toastElList.map(function (toastEl) {
+        return new bootstrap.Toast(toastEl)
+    })
+    if(id!==-1){
+        textToast.innerHTML = msg;
+        toastList[0].show();
+    }
+}

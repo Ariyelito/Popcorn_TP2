@@ -5,7 +5,7 @@ $id = $_GET['idMembre'];
 $result = $crudMembre->deleteMembre($id);
 if($result->rowCount()){
     
-    echo "Le membre avec le id = $id a été supprimé";
+    header("Location:lister.php?id=$id&msg=Le+film+à+été+enlevé");
     
 }
 else echo "Deletion failed";
