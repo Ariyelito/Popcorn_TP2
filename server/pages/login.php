@@ -23,11 +23,13 @@ include '../../includes/header-m.php';
     echo "Not found";
     else {
         if($passwordEntree == $result['password']){
+            $idMembre = $result['idMembre'];
         echo "<h3>Vous êtes connecté ($emailEntree)</h3>";
       
          if($result['role']=='M')
          {
-         header('Location: ../../membrePage.php');
+          
+         header('Location: ../../membrePage.php?idMembre='.$idMembre);
          }
         else if($result['role'] =='A')
         {
@@ -35,7 +37,7 @@ include '../../includes/header-m.php';
         }
     
         }else{
-            echo "password ne pas bon";
+            echo "password n'est pas bon";
         }
     }
      // $r = $result->fetch(PDO::FETCH_ASSOC);

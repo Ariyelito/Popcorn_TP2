@@ -101,5 +101,73 @@ class crud
             return false;
         }
     }
+  
+
+    public function addPanier(panier $panier ){
+       
+     
+        if($this->panierExiste($panier->idMembre)){
+           $this->addFilmDansLePanier($panier);
+            return true;
+        }else{
+          
+        try{
+         
+                $sql = " INSERT INTO `paniers` (`idMembre`) VALUES ($panier->idMembre)";
+                $result = $this->db->query($sql);
+              //  $this->addFilmDansLePanier($panier);
+                return true;
+            } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+    }
+   
+    public function panierExiste($idMembre){
+       echo $idMembre;
+       
+        try{
+            $sql = "SELECT * FROM paniers p WHERE p.idMembre = $idMembre";
+            $result = $this->db->query($sql);
+            $nb=  $result->rowCount();
+      
+            if($nb>0){
+             
+                return true;
+               
+            }else 
+            {
+            
+                return false;}
+            
+        }
+            
+        catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+
+    }
+    }
+
+
+
+
+    public function addFilmDansLePanier(Panier $panier ){
+     
+      /*
+        try {
+          echo $panier->films;
+             $sql =  "INSERT INTO paniersfilms (idPanier,idFilm) VALUES($panier->idPanier, $panier->films)";
+             $result = $this->db->query($sql);
+           
+             return true;
+         } catch (PDOException $e) {
+             echo $e->getMessage();
+             return false;
+         }*/
+     }
+
+
 
 }

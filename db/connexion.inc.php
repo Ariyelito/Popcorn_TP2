@@ -1,6 +1,7 @@
 <?php 
    require_once 'Membre.php';
    require_once 'Film.php';
+   require_once 'Panier.php';
     // connexion a la bd local
 
     $host = 'localhost';
