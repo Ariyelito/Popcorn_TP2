@@ -27,6 +27,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav">
                 <a href="membre.php" class="nav-item nav-link">Accueil</a>
+                <button type="button" class="btn btn-primary">
+                    Panier <span class="badge bg-secondary">4</span>
+                </button>
                 <a href="index.php" class="nav-item nav-link">Deconnexion</a>
                 <a href="listerPanier.php" class="nav-item nav-link">Panier</a>
             </div>
