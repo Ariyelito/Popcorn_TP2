@@ -1,6 +1,7 @@
 <?php
 $title = "Admin";
 $root = "";
+$lister = false;
 include 'includes/header-a.php';
 require_once 'db/connexion.inc.php';
 $result = $crud->getMovies();
