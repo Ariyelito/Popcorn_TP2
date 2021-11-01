@@ -2,7 +2,9 @@
 
 <?php
 $title = "admin";
-// include '../../includes/header-a.php';
+$lister = false;
+$root = "../../";
+include '../../includes/header-a.php';
 require_once '../../db/connexion.inc.php';
 ?>
 <div class="container mt-3">

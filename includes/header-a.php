@@ -37,9 +37,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav">
                 <a id="btnAdmin" href="<?php echo $root ?>admin.php" class="nav-item nav-link">Accueil</a>
+                <?php if(!$lister){?>
                 <a id="btnAjouter" href="#" class="nav-item nav-link">Ajouter un film</a>
                 <a id="btnLister" href="#" class="nav-item nav-link">Lister Membres</a>
-                <a id="btnHome" href="index.php" class="nav-item nav-link">Deconnexion</a>
+                <?php }?>
+                <a id="btnHome" href="<?php echo $root ?>index.php" class="nav-item nav-link">Deconnexion</a>
             </div>
         </div>
     </nav>

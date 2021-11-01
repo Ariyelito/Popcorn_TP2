@@ -107,15 +107,13 @@ class crud
        
      
         if($this->panierExiste($panier->idMembre)){
-           $this->addFilmDansLePanier($panier);
-            return true;
+            return;
         }else{
           
         try{
          
                 $sql = " INSERT INTO `paniers` (`idMembre`) VALUES ($panier->idMembre)";
-                $result = $this->db->query($sql);
-              //  $this->addFilmDansLePanier($panier);
+                $this->db->query($sql);
                 return true;
             } catch (PDOException $e) {
             echo $e->getMessage();
@@ -133,14 +131,10 @@ class crud
             $nb=  $result->rowCount();
       
             if($nb>0){
-             
                 return true;
-               
             }else 
-            {
-            
-                return false;}
-            
+            {   
+               return false;}
         }
             
         catch (PDOException $e) {
@@ -185,19 +179,37 @@ class crud
 
     public function addFilmDansLePanier(Panier $panier ){
      
-      /*
+ 
         try {
-          echo $panier->films;
-             $sql =  "INSERT INTO paniersfilms (idPanier,idFilm) VALUES($panier->idPanier, $panier->films)";
-             $result = $this->db->query($sql);
-           
+         
+             $sql =  "INSERT INTO paniersfilms (idPanier,idFilm) VALUES($idPanier, $idFilm)";
+             $this->db->query($sql);
              return true;
          } catch (PDOException $e) {
              echo $e->getMessage();
              return false;
-         }*/
+         }
      }
 
-
+     public function getPanierParIdMembre($idMembre){
+        try {
+            $sql = "SELECT * FROM `paniers` where idMembre=$idMembre";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+     }
+     public function getPanierParIdPanier($idPanier){
+        try {
+            $sql = "SELECT * FROM `paniers` where idPanier=$idPanier";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
 
 }
