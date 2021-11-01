@@ -28,6 +28,7 @@
             <div class="navbar-nav">
                 <a href="membre.php" class="nav-item nav-link">Accueil</a>
                 <a href="index.php" class="nav-item nav-link">Deconnexion</a>
+                <a href="listerPanier.php" class="nav-item nav-link">Panier</a>
             </div>
         </div>
     </nav>

@@ -125,7 +125,7 @@ class crud
     }
    
     public function panierExiste($idMembre){
-       echo $idMembre;
+      
        
         try{
             $sql = "SELECT * FROM paniers p WHERE p.idMembre = $idMembre";
@@ -150,7 +150,37 @@ class crud
     }
     }
 
+    public function getPanier($idMembre){
+        $idMembre = getIdPAnier($idMembre);
+        try{
+            $sql = "SELECT * FROM paniersfilms p WHERE p.idMembre = $idMembre";
+            $result = $this->db->query($sql);         
+            
+            return $result;               
+        }
+            
+        catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
 
+         }
+
+    }
+
+    public function getIdPAnier($idMembre){
+        try{
+            $sql = "SELECT idPanier FROM paniers p WHERE p.idMembre = $idMembre";
+            $result = $this->db->query($sql);         
+            
+            return $result;               
+        }
+            
+        catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+
+         }
+    }
 
 
     public function addFilmDansLePanier(Panier $panier ){
