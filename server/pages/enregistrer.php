@@ -28,9 +28,9 @@ $crudMembre->ajouterMembre($membre);
 $membre->idMembre = $pdo->lastInsertId();
 $crudMembre->ajouterConnexion($membre);
 
-echo ("Bienvenue sur PopcornTV.ca, $prenom ($email) ".$membre->idMembre);
+header('Location: ../../membrePage.php');
            
-            ?>
+?>
 </div>
 
 <?php 
