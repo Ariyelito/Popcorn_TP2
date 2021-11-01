@@ -151,9 +151,9 @@ class crud
     }
 
     public function getPanier($idMembre){
-        $idMembre = getIdPAnier($idMembre);
+        $idPanier = getIdPAnier($idMembre);
         try{
-            $sql = "SELECT * FROM paniersfilms p WHERE p.idMembre = $idMembre";
+            $sql = "SELECT * FROM paniersfilms p WHERE p.idPanier = $idPanier;
             $result = $this->db->query($sql);         
             
             return $result;               
