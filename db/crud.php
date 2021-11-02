@@ -159,7 +159,6 @@ class crud
 
 
     public function addFilmDansLePanier($idPanier, $idFilm ){
-     
  
         try {
          
@@ -192,6 +191,85 @@ class crud
             return false;
         }
     }
+
+    public function payer($idMembre ,$idPanier, $nbJour){
+
+        try {
+            $prix = $this->getPrix($nbJour)->fetch()['montant'];
+            $montant = $this->calculerMontant($idPanier,$prix);
+            
+            
+            $sql =  "INSERT INTO paiments (montant, date,idMembre) VALUES($montant, NOW(),$idMembre)";
+            $this->db->query($sql);
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+  private function ajouterFilmsPayments($idPaiment,$idPanier){
+    // try {
+         
+    //     $sql =  "INSERT INTO paimentsFilms (idPaiment,idFilm) VALUES($idPaiment, $idFilm)";
+    //     $this->db->query($sql);
+    //     return true;
+    // } catch (PDOException $e) {
+    //     echo $e->getMessage();
+    //     return false;
+    // }
+  }
+    private function getPrix($nbJour){
+        try {
+            $sql = "SELECT * FROM `prix` where nbJour=$nbJour";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+    private function getIdFilmsDansPanier($idPanier){
+        try {
+            $stmt = $this->db->prepare("SELECT idFilm FROM `paniersfilms` where idPanier=$idPanier");
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+    private function calculerMontant($idPanier,$prix){
     
+        $objects = $this->getIdFilmsDansPanier($idPanier);
+        
+         $montant = 0 ; 
+
+        foreach($objects as $films){
+            foreach($films as $idFilm){
+                $film = $this->getFilmById($idFilm)->fetch();
+           
+                $montant += $film['montant'] * $prix;
+            }
+           
+        }
+
+        echo $montant."dsdsd";
+        
+     return $montant;
+    }
+
+    public function viderPanier($idPanier){
+        try {
+
+            $stmt = $this->db->prepare( "DELETE FROM paniersfilms WHERE idPanier =$idPanier" );
+            $stmt->execute();
+
+            return true;
+            
+            } catch (PDOException $e) {
+                echo $e->getMessage();
+                return false;
+            }
+    }
 
 }
