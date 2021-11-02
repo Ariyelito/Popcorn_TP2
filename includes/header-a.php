@@ -38,10 +38,10 @@
             <div class="navbar-nav">
                 <a id="btnAdmin" href="<?php echo $root ?>admin.php" class="nav-item nav-link">Accueil</a>
                 <?php if(!$lister){?>
-                <a id="btnAjouter" href="#" class="nav-item nav-link">Ajouter un film</a>
-                <a id="btnLister" href="#" class="nav-item nav-link">Lister Membres</a>
+                <a id="btnAjouter" href="#" class="nav-item nav-link">Films</a>
+                <a id="btnLister" href="#" class="nav-item nav-link">Membres</a>
                 <?php }?>
-                <a id="btnHome" href="<?php echo $root ?>index.php" class="nav-item nav-link">Deconnexion</a>
+                <a id="btnLogIn" href="<?php echo $root ?>index.php" class="nav-item nav-link float-end">Se déconnecter</a>
             </div>
         </div>
     </nav>
