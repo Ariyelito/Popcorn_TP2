@@ -18,14 +18,16 @@ require_once '../../db/connexion.inc.php';
 
     $panier  = $crud->getPanierParIdMembre($idMembre)->fetch();
     if($panier){
-
+      
         $crud->addFilmDansLePanier($panier['idPanier'],$idFilm);
     }
    else {
+  
     $panier = new Panier(0,$idMembre,$idFilm); 
     $crud->addPanier($panier);
-    $panier->idPanier = $pdo->lastInsertId();
-    $crud->addFilmDansLePanier($panier->$idPanier,$idFilm);
+    $panier = $crud->getPanierParIdMembre($idMembre)->fetch();
+   
+    $crud->addFilmDansLePanier($panier['idPanier'],$idFilm);
    }
    
     
