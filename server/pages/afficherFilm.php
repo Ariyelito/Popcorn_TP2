@@ -2,7 +2,8 @@
 require_once '../../db/connexion.inc.php';
 
   
-    $idMembre = $_GET['idMembre'];
+    session_start();
+    $idMembre = $_SESSION['idMembre'];
     $idFilm = $_GET['idFilm'];
     
    /*$str=  $_SERVER['QUERY_STRING'];

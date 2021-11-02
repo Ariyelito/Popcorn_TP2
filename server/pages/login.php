@@ -25,7 +25,11 @@ include '../../includes/header-m.php';
         if($passwordEntree == $result['password']){
             $idMembre = $result['idMembre'];
         echo "<h3>Vous êtes connecté ($emailEntree)</h3>";
-      
+        
+        // session pour save idMembre
+        session_start();
+        $_SESSION['idMembre'] =  $idMembre;
+
          if($result['role']=='M')
          {
           

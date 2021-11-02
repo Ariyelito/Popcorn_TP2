@@ -10,13 +10,24 @@ include '../../includes/header-a.php';
 require_once '../../db/connexion.inc.php';
 
 
-    $idMembre = $_GET['idMembre'];
+    session_start();
+    $idMembre = $_SESSION['idMembre'];
     $idFilm = $_GET['idFilm'];
-  
-    $panier  = new Panier(0,$idMembre,$idFilm);
+    
+    
+
+    $panier  = $crud->getPanierParIdMembre($idMembre)->fetch();
+    if($panier){
+
+        $crud->addFilmDansLePanier($panier['idPanier'],$idFilm);
+    }
+   else {
+    $panier = new Panier(0,$idMembre,$idFilm); 
     $crud->addPanier($panier);
     $panier->idPanier = $pdo->lastInsertId();
-//    $crud->addFilmDansLePanier($membre);
+    $crud->addFilmDansLePanier($panier->$idPanier,$idFilm);
+   }
+   
     
 
 ?>
