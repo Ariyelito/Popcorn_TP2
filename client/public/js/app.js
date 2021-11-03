@@ -26,6 +26,14 @@ $('#btnAjouter').click(()=>{
     $("#contCards").hide();
 });
 
+$('#btnLister').click(()=>{
+    //alert("click");
+ 
+     $('#formLister').submit();
+ });
+
+ 
+
 
 let valider = () => {
     let etat = true;
@@ -73,15 +81,6 @@ let validerMembre = () => {
     return etat;
 
 }
-
-$('#btnLister').click(()=>{
-   //alert("click");
-
-    $('#formLister').submit();
-});
-// $('#btnPopCorn').click(()=>{
-//     window.location.href = 'admin.php';
-// });
 
 let initialiser = (id,msg) =>{
     let textToast = document.getElementById("textToast");

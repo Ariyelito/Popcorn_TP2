@@ -17,20 +17,25 @@
   max-width: 800px;
 }
 
-.description {
+/* .description {
    overflow: hidden;
   height: 200px; 
-}
+} */
 
 .card:hover {
   border-color: red;
   /* height: 600px; */
   cursor: pointer;
 }
-/* .topnav a {
-  float: left;
+
+p.card-text {
   text-align: center;
-} */
+  margin-top: 20px;
+}
+
+.card-title {
+  text-align: center;
+}
 
 .topnav a:hover {
   /* background-color:rgb(153, 0, 0); */
@@ -60,19 +65,20 @@
 #btnAddFilm {
   width: 100%;
 }
-p.card-text {
-  text-align: center;
-  margin-top: 20px;
+
+#btnRetour{
+  float: 50%;
+}
+
+.btnCard {
+  border-top-left-radius: 0%;
+  border-top-right-radius: 0%;
 }
 
 .posToast{
 	position:absolute;
 	top:5%;
 	left:40%;
-}
-
-#btnRetour{
-  float: 50%;
 }
 
 #footerText{

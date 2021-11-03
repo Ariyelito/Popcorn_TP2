@@ -10,20 +10,28 @@
        }else {
            $idMembre = -1;
        }
-       
+
         while($r = $result->fetch(PDO::FETCH_ASSOC)) { ?>
 
         <div class="col mt-3">
-            <div onclick="location.href='./server/pages/afficherFilm.php?idFilm=<?php echo $r['idFilm']?>'" class="card">
+            <div id="cardFilm" class="card" onclick="location.href='./server/pages/afficherFilm.php?idFilm=<?php echo $r['idFilm']?>'">
                 <img src="<?php echo $r['photo'] ?>" class="card-img-top" alt="poster officiel du film">
-                <div class="card-body description">
+                <div class="card-body">
                     <h5 class="card-title"><?php echo $r['titre'] ?></h5>
                     <p class="card-text">
                     <?php echo $r['montant'] ?> </br>
                     <?php echo $r['date'] ?> </br>
                     <?php echo $r['langue'] ?>
+                    <!-- add realisateur bd connection (use .card-subtitle) -->
                     </p>
                 </div>
+                <?php if($connected){ ?>
+                    <div class="btn-group">
+                        <!-- <a href="server/pages/afficherFilm.php?idFilm=<?php echo $r['idFilm']?>">Details</a> -->
+                        <a class="btn bg-gradient btn-danger btnCard" href="ajouterPanier.php?idFilm=<?php echo $r['idFilm']?>">Ajouter au panier</a>
+                    </div>
+                <?php } ?>
+                
                 <input type="hidden" name="idFilm" value="<?php echo $r['idFilm']?>">                
                 <input type="hidden" name="idMembre" value="<?php echo $idMembre?>">
             </div>

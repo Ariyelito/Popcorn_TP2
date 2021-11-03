@@ -100,10 +100,10 @@ require_once 'db/connexion.inc.php';
 </div>
 
 <!-- container de cards  -->
-
 <?php
 //$isMembre = false;
 $result = $crud->getMovies();
+$connected = false;
 include 'includes/cards.php'; 
 ?>
 
