@@ -41,6 +41,8 @@
                 <a id="btnAjouter" href="#" class="nav-item nav-link">Films</a>
                 <a id="btnLister" href="#" class="nav-item nav-link">Membres</a>
                 <?php }?>
+            </div>
+            <div class="navbar-nav navItemRight">
                 <a id="btnLogIn" href="<?php echo $root ?>index.php" class="nav-item nav-link float-end">Se déconnecter</a>
             </div>
         </div>

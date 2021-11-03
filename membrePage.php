@@ -10,7 +10,7 @@ $result = $crud->getMovies();
 <?php
 $title = "membre";
 $result = $crud->getMovies();
-$connected = true;
+$member = true;
 include 'includes/cards.php';
 ?>
 

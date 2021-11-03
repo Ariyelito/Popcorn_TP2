@@ -25,7 +25,7 @@
                     <!-- add realisateur bd connection (use .card-subtitle) -->
                     </p>
                 </div>
-                <?php if($connected){ ?>
+                <?php if($member){ ?>
                     <div class="btn-group">
                         <!-- <a href="server/pages/afficherFilm.php?idFilm=<?php echo $r['idFilm']?>">Details</a> -->
                         <a class="btn bg-gradient btn-danger btnCard" href="ajouterPanier.php?idFilm=<?php echo $r['idFilm']?>">Ajouter au panier</a>

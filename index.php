@@ -103,7 +103,7 @@ require_once 'db/connexion.inc.php';
 <?php
 //$isMembre = false;
 $result = $crud->getMovies();
-$connected = false;
+$member = false;
 include 'includes/cards.php'; 
 ?>
 

@@ -12,8 +12,9 @@ $result = $crud->getMovies();
 ?>
 
 <?php
-$isMembre = true;
 $result = $crud->getMovies();
+$member = false;
+$admin = true;
 include 'includes/cards.php' 
 ?>
 

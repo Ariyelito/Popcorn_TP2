@@ -54,6 +54,11 @@ p.card-text {
   margin-right: 0%;
 }
 
+.navItemRight {
+  margin-left: auto;
+  margin-right: 10px;
+}
+
 #btnConnecter {
   width: 100%;
 }
