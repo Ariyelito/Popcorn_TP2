@@ -41,7 +41,7 @@ require_once '../../db/connexion.inc.php';
                 </div>
                 <input type="hidden" name="idFilm" value="<?php echo $r['idFilm']?>">   
                <form action ></form>
-                <button  name='addFilm' onclick="location.href='./ajouterPanier.php?idFilm=<?php echo $idFilm. '&idMembre='.$idMembre?>'" >Ajouter Au panier</button>             
+                <button  name='addFilm' onclick="location.href='./ajouterPanier.php?idFilm=<?php echo $idFilm?>'" >Ajouter Au panier</button>             
               
                 
             </div>

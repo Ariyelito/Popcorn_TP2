@@ -3,8 +3,21 @@ $title = "Votre panier";
 $root = "../../";
 require_once '../../includes/header-m.php';
 require_once '../../db/connexion.inc.php';
-$result = $crud->getPanier();
-?>
+session_start();
+
+
+
+$result = $crud->getPanierParIdMembre( $_SESSION["idMembre"]);
+while($r = $result->fetch(PDO::FETCH_ASSOC)) { ?>
+
+
+
+
+
+
+
+
+<?php }?>
 
 <!-- interface du panier -->
 
