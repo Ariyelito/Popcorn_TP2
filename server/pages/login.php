@@ -1,5 +1,6 @@
 <?php
 $title = "Membre";
+$root = "../../";
 include '../../includes/header-m.php';
 
 ?>
