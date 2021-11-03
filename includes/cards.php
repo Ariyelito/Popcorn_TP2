@@ -5,11 +5,11 @@
     <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
 
         <?php
-        if(isset($_GET['idMembre'])) {
+       /* if(isset($_GET['idMembre'])) {
         $idMembre = $_GET['idMembre']; 
        }else {
            $idMembre = -1;
-       }
+       }*/
 
         while($r = $result->fetch(PDO::FETCH_ASSOC)) { ?>
 
@@ -28,12 +28,12 @@
                 <?php if($member){ ?>
                     <div class="btn-group">
                         <!-- <a href="server/pages/afficherFilm.php?idFilm=<?php echo $r['idFilm']?>">Details</a> -->
-                        <a class="btn bg-gradient btn-danger btnCard" href="ajouterPanier.php?idFilm=<?php echo $r['idFilm']?>">Ajouter au panier</a>
+                        <a class="btn bg-gradient btn-danger btnCard" href="./server/pages/ajouterPanier.php?idFilm=<?php echo $r['idFilm']?>">Ajouter au panier</a>
                     </div>
                 <?php } ?>
                 
                 <input type="hidden" name="idFilm" value="<?php echo $r['idFilm']?>">                
-                <input type="hidden" name="idMembre" value="<?php echo $idMembre?>">
+               
             </div>
         </div>
         <?php } ?>
