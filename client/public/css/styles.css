@@ -13,6 +13,10 @@
   max-width: 600px;
 }
 
+#contListMembre {
+  max-width: 800px;
+}
+
 .description {
    overflow: hidden;
   height: 200px; 
@@ -45,7 +49,6 @@
   margin-right: 0%;
 }
 
-
 #btnConnecter {
   width: 100%;
 }
@@ -62,9 +65,16 @@ p.card-text {
   margin-top: 20px;
 }
 
-
 .posToast{
 	position:absolute;
 	top:5%;
 	left:40%;
+}
+
+#btnRetour{
+  float: 50%;
+}
+
+#footerText{
+  text-align: right;
 }

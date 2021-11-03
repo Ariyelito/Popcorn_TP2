@@ -10,9 +10,9 @@ $result = $crudMembre->getAllMembres();
 
 
 <h1 class="h1 text-center">Liste des membres</h2>
-<div class="container mt-3" id="recordsContainer">
-    <table class="table table-danger table-striped">
-        <thead>
+<div id="contListMembre" class="container mt-3">
+    <table class="table table-striped table-hover table-borderless">
+        <thead class="table-danger">
             <th scope="col">ID</th> 
             <th scope="col">Prénom</th> 
             <th scope="col">Nom</th>
@@ -34,16 +34,19 @@ $result = $crudMembre->getAllMembres();
                 <td><?php echo getRole($connexion['role'])?></td>
                 <td>
                     <div class="btn-group">
-                        <a href="modifierMembre.php?id=<?php echo $r['idMembre']?> " class="btn bg-gradient btn-warning">Update</a>
-                        <a onclick="return confirm('Are you sure want to delete this record?')" href="deleteMembre.php?idMembre=<?php echo $r['idMembre']?> " class="btn bg-gradient btn-danger">Delete</a>
+                        <a href="modifierMembre.php?id=<?php echo $r['idMembre']?> " class="btn bg-gradient btn-outline-warning">Update</a>
+                        <a onclick="return confirm('Are you sure want to delete this record?')" 
+                            href="deleteMembre.php?idMembre=<?php echo $r['idMembre']?> " class="btn bg-gradient btn-outline-danger">Delete
+                        </a>
                     </div>
                 </td>
-
-
             </tr>
-            <?php }  ?>
+            <?php } ?>
         </tbody>
-
+    </table>
+    <div class="container">
+        <a id="btnRetour" class="btn btn-success bg-gradient" href="../../admin.php">Retour</a>
+    </div>
 </div>
 <?php
 function getStatut($statut)
@@ -63,6 +66,5 @@ else if ($role == 'M')  return "Membre";
 ?>
 
 <?php
-
 include '../../includes/footer.php';
 ?>
