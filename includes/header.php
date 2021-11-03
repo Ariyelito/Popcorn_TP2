@@ -19,7 +19,7 @@
     
 
         <!-- Menu de navigation -->
-        <nav id="myNav" class="topnav navbar navbar-expand-sm navbar-dark bg-danger bg-gradient">
+        <nav id="myNav" class="topnav navbar fixed-top navbar-expand-sm navbar-dark bg-danger bg-gradient">
             
                 <a class="topnav logo navbar-brand" href="index.php">Popcorn TV</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

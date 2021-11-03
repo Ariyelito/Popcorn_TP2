@@ -17,7 +17,7 @@
 
 
     <!-- Menu de navigation -->
-    <nav id="myNav" class="topnav navbar navbar-expand-sm navbar-dark bg-danger bg-gradient">
+    <nav id="myNav" class="topnav navbar fixed-top navbar-expand-sm navbar-dark bg-danger bg-gradient">
 
         <a class="topnav logo navbar-brand" href="membre.php">Popcorn TV</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -26,7 +26,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav">
-                <a href="membre.php" class="nav-item nav-link">Accueil</a>
+                <a href="../../membrePage.php" class="nav-item nav-link">Accueil</a>
                 <a href="server/pages/listerPanier.php" class="nav-item nav-link ">Panier <span class="badge bg-secondary">4</span></a>
             </div>
             <div class="navbar-nav navItemRight">

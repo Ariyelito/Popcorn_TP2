@@ -21,7 +21,7 @@ include 'includes/cards.php'
 <form id="formLister" action="server/pages/lister.php" method="POST"> </form>
 
 <!-- Form ajouter un film-->
-<div id="contAddFilm" class="container mt-3">
+<div id="contAddFilm" class="container mt-5">
     <h1 class="h1">Ajouter un film</h1>
     <form id="formRegister" class="row" action="server/pages/ajouterFilm.php" method="POST"
         onSubmit="return validerFilm()">
@@ -61,7 +61,7 @@ include 'includes/cards.php'
             </div>
         </div>
 
-        <div class="col-6 col-sm-4 mt-3">
+        <div class="col-6 col-sm-4 mt-5">
             <div class="form-group">
                 <label for="inputCout">Coût :</label>
                 <input type="text" class="form-control" id="inputCout" name="inputCout">

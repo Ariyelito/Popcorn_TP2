@@ -9,10 +9,10 @@ require_once 'db/connexion.inc.php';
 
 <!-- Form connexion utilisateur -->
 
-<div id="contLogIn" class="container">
+<div id="contLogIn" class="container mt-5">
     <h1 class="h1">Se connecter</h1>
 
-    <form id="myForm" class="row" action="server/pages/login.php" method="POST" onSubmit="return valider()">
+    <form id="myForm" class="row mt-1" action="server/pages/login.php" method="POST" onSubmit="return valider()">
 
         <div class="form-group col-12">
 
@@ -41,9 +41,9 @@ require_once 'db/connexion.inc.php';
 </div>
 <!-- Fin Form connection -->
 <!-- Form devenir membre -->
-<div id="contRegister" class="container mt-3">
+<div id="contRegister" class="container mt-5">
     <h1 class="h1">Devenir membre</h1>
-    <form id="formRegister" class="row" action="server/pages/enregistrer.php" method="POST"
+    <form id="formRegister" class="row mt-1" action="server/pages/enregistrer.php" method="POST"
         onSubmit="return validerMembre()">
 
         <div class="col-md-6">

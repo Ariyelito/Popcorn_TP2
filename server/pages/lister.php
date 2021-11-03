@@ -9,7 +9,7 @@ $result = $crudMembre->getAllMembres();
 ?>
 
 
-<h1 class="h1 text-center">Liste des membres</h2>
+<h1 class="h1 text-center mt-5">Liste des membres</h2>
 <div id="contListMembre" class="container mt-3">
     <table class="table table-striped table-hover table-borderless">
         <thead class="table-danger">
