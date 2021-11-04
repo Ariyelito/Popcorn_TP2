@@ -1,35 +1,94 @@
-
-<div class="container mt-3">
-    <?php
-
+<?php
 
 $lister = false;
 $root = "../../";
-include '../../includes/header-a.php';
+include '../../includes/header01.php';
 
 require_once '../../db/connexion.inc.php';
 
+?>
 
-   if(session_status() == PHP_SESSION_NONE){
-    echo "il faut login";
+
+<div class="container mt-5">
+ <?php 
+
+
+ if(session_status() == 1){
+   $msg= "1 Vous devez vous connecter ou crée un Compte avant d'ajouter un film à votre panier.". session_status();
+   afficherMessage($msg);
     exit;
    }
-    session_start();
+
+   if (!isset($_SESSION['idMembre'])) { 
+    $msg= "Erreur, Vous devez vous connecter ou crée un Compte avant d'ajouter un film à votre panier.";  
+   afficherMessage($msg);
+    exit;
+}
+
+    $idMembre = $_SESSION['idMembre'];
+    $idFilm = $_GET['idFilm'];
+    
+   
+    
+   
+    $panier  = $crud->getPanierParIdMembre($idMembre)->fetch();
+    if($panier){      
+        $crud->addFilmDansLePanier($panier['idPanier'],$idFilm);
+    }
+   else {  
+    $panier = new Panier(0,$idMembre,$idFilm); 
+    $crud->addPanier($panier);
+    $panier = $crud->getPanierParIdMembre($idMembre)->fetch();
+   
+    $crud->addFilmDansLePanier($panier['idPanier'],$idFilm);
+   }
+
+   $msgFilmAdd = "Film ajouter au panier";
+   afficherMessage($msgFilmAdd);
+   ?>
+
+   <?php function afficherMessage($msg) { ?>
+  <br>
+    <p><?php echo $msg?></p>
+ 
+ 
+ <?php } ?>
+ 
+   </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+<?php /*  
+
+echo session_status();
+  if(session_status() == 1){
+    echo "Vous devez vous connecter ou crée un Compte avant d'ajouter un film à votre panier.";
+    exit;
+   }
+
     $idMembre = $_SESSION['idMembre'];
     $idFilm = $_GET['idFilm'];
     
     if(!$idMembre){
-        header("il faut login");
+        echo "Vous devez vous connecter ou crée un Compte avant d'ajouter un film à votre panier.";
+        exit;
     }
     
 
     $panier  = $crud->getPanierParIdMembre($idMembre)->fetch();
-    if($panier){
-      
+    if($panier){      
         $crud->addFilmDansLePanier($panier['idPanier'],$idFilm);
     }
-   else {
-  
+   else {  
     $panier = new Panier(0,$idMembre,$idFilm); 
     $crud->addPanier($panier);
     $panier = $crud->getPanierParIdMembre($idMembre)->fetch();
@@ -38,10 +97,9 @@ require_once '../../db/connexion.inc.php';
    }
    
     
-
+*/
 ?>
 </div>
-
 
 <?php 
 
