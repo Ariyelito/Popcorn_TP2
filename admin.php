@@ -61,7 +61,7 @@ include 'includes/cards.php'
             </div>
         </div>
 
-        <div class="col-6 col-sm-4 mt-5">
+        <div class="col-6 col-sm-4 mt-3">
             <div class="form-group">
                 <label for="inputCout">Coût :</label>
                 <input type="text" class="form-control" id="inputCout" name="inputCout">

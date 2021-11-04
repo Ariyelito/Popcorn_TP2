@@ -139,14 +139,13 @@ class crud
     }
 
     public function getPanier($idPanier){
-       // $idPanier = getIdPAnier($idMembre);
+      
         try{
             $sql = "SELECT * FROM paniersfilms p WHERE p.idPanier = $idPanier";
             $result = $this->db->query($sql);         
             
             return $result;               
-        }
-            
+        } 
         catch (PDOException $e) {
         echo $e->getMessage();
         return false;
@@ -155,13 +154,10 @@ class crud
 
     }
 
-  
-
-
     public function addFilmDansLePanier($idPanier, $idFilm ){
  
         try {
-         
+            
              $sql =  "INSERT INTO paniersfilms (idPanier,idFilm) VALUES($idPanier, $idFilm)";
              $this->db->query($sql);
              return true;
@@ -171,6 +167,9 @@ class crud
          }
      }
 
+     public function filmExisteDansPanier($idPanier,$idFilm){
+        
+     }
      public function getPanierParIdMembre($idMembre){
         try {
             $sql = "SELECT * FROM `paniers` where idMembre=$idMembre";
@@ -197,8 +196,7 @@ class crud
         try {
             $prix = $this->getPrix($nbJour)->fetch()['montant'];
             $montant = $this->calculerMontant($idPanier,$prix);
-            
-            
+                  
             $sql =  "INSERT INTO paiments (montant, date,idMembre) VALUES($montant, NOW(),$idMembre)";
             $this->db->query($sql);
             return true;
@@ -253,7 +251,7 @@ class crud
            
         }
 
-        echo $montant."dsdsd";
+       
         
      return $montant;
     }
