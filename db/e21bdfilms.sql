@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2021 at 12:20 AM
+-- Generation Time: Nov 04, 2021 at 03:36 AM
 -- Server version: 5.7.17
 -- PHP Version: 5.6.30
 
@@ -66,7 +66,8 @@ CREATE TABLE `connexion` (
 INSERT INTO `connexion` (`email`, `password`, `statue`, `role`, `idMembre`) VALUES
 ('hakam@gmail.com', 'aaa', 1, 'A', 4),
 ('orlando@gmail.com', 'aaa', 1, 'A', 5),
-('anas@gmail.com', 'aaa', 1, 'A', 6);
+('anas@gmail.com', 'aaa', 1, 'A', 6),
+('test22@gmail.com', 'aaa', 1, 'M', 8);
 
 -- --------------------------------------------------------
 
@@ -170,7 +171,8 @@ CREATE TABLE `membres` (
 INSERT INTO `membres` (`idMembre`, `nom`, `prenom`, `email`, `sexe`, `date`, `photo`) VALUES
 (4, 'hakam', 'almotlak', 'hakam@gmail.com', 'Homme', '2000-01-01', ''),
 (5, 'orlando', 'je sais pas quoi', 'orlando@gmail.com', 'Homme', '2000-01-01', ''),
-(6, 'anas', 'je sais pas quoi', 'anas@gmail.com', 'Homme', '2000-01-01', '');
+(6, 'anas', 'je sais pas quoi', 'anas@gmail.com', 'Homme', '2000-01-01', ''),
+(8, 'test', 'test', 'test22@gmail.com', 'Homme', '2000-01-01', '');
 
 -- --------------------------------------------------------
 
@@ -185,6 +187,13 @@ CREATE TABLE `paiments` (
   `date` date NOT NULL,
   `idMembre` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `paiments`
+--
+
+INSERT INTO `paiments` (`idPaiment`, `montant`, `date`, `idMembre`) VALUES
+(20, '717.40', '2021-11-02', 4);
 
 -- --------------------------------------------------------
 
@@ -210,6 +219,13 @@ CREATE TABLE `paniers` (
   `idMembre` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `paniers`
+--
+
+INSERT INTO `paniers` (`idPanier`, `idMembre`) VALUES
+(19, 4);
+
 -- --------------------------------------------------------
 
 --
@@ -221,6 +237,14 @@ CREATE TABLE `paniersfilms` (
   `idPanier` int(11) NOT NULL,
   `idFilm` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `paniersfilms`
+--
+
+INSERT INTO `paniersfilms` (`idPanier`, `idFilm`) VALUES
+(19, 1),
+(19, 1);
 
 -- --------------------------------------------------------
 
@@ -234,6 +258,14 @@ CREATE TABLE `prix` (
   `nbJour` smallint(6) NOT NULL,
   `montant` decimal(5,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `prix`
+--
+
+INSERT INTO `prix` (`idPrix`, `nbJour`, `montant`) VALUES
+(1, 3, '1.70'),
+(2, 7, '1.40');
 
 -- --------------------------------------------------------
 
@@ -358,7 +390,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `films`
 --
 ALTER TABLE `films`
-  MODIFY `idFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idFilm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `locations`
 --
@@ -368,22 +400,22 @@ ALTER TABLE `locations`
 -- AUTO_INCREMENT for table `membres`
 --
 ALTER TABLE `membres`
-  MODIFY `idMembre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idMembre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `paiments`
 --
 ALTER TABLE `paiments`
-  MODIFY `idPaiment` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPaiment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `paniers`
 --
 ALTER TABLE `paniers`
-  MODIFY `idPanier` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPanier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `prix`
 --
 ALTER TABLE `prix`
-  MODIFY `idPrix` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPrix` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `realisateurs`
 --
@@ -443,7 +475,7 @@ ALTER TABLE `paniers`
 -- Constraints for table `paniersfilms`
 --
 ALTER TABLE `paniersfilms`
-  ADD CONSTRAINT `paniersfilms_ibfk_1` FOREIGN KEY (`idPanier`) REFERENCES `paiments` (`idPaiment`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `paniersfilms_ibfk_1` FOREIGN KEY (`idPanier`) REFERENCES `paniers` (`idPanier`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `paniersfilms_ibfk_2` FOREIGN KEY (`idFilm`) REFERENCES `films` (`idFilm`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
