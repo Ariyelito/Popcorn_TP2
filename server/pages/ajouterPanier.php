@@ -10,10 +10,17 @@ include '../../includes/header-a.php';
 require_once '../../db/connexion.inc.php';
 
 
+   if(session_status() == PHP_SESSION_NONE){
+    echo "il faut login";
+    exit;
+   }
     session_start();
     $idMembre = $_SESSION['idMembre'];
     $idFilm = $_GET['idFilm'];
     
+    if(!$idMembre){
+        header("il faut login");
+    }
     
 
     $panier  = $crud->getPanierParIdMembre($idMembre)->fetch();
