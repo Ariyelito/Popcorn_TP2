@@ -34,7 +34,7 @@ include '../../includes/header-m.php';
          if($result['role']=='M')
          {
           
-         header('Location: ../../membrePage.php?idMembre='.$idMembre);
+         header('Location: ../../membrePage.php');
          }
         else if($result['role'] =='A')
         {

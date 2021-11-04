@@ -1,7 +1,7 @@
 <?php
 $title = "membre";
 $root = "";
-include 'includes/header-m.php';
+include 'includes/header01.php';
 require_once 'db/connexion.inc.php';
 $result = $crud->getMovies();
 
