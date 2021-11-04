@@ -34,10 +34,11 @@
                       session_start();
                       if (isset($_SESSION['idMembre'])) { 
                           ?>
-                        </div>
+                        
                         <a id="btnHome" href="<?php echo $root?>membrePage.php" class="nav-item nav-link">Accueil</a>
                         <a href="<?php echo $root?>server/pages/listerPanier.php" class="nav-item nav-link ">Panier <span class="badge bg-secondary">4</span></a>
-                         <div class="navbar-nav navItemRight" >
+                        </div> 
+                        <div class="navbar-nav navItemRight" >
                              <a id="btnLogIn" href="<?php echo $root?>server/pages/deconnection.php" class="nav-item nav-link">Se déconnecter</a>
                              </div>
 

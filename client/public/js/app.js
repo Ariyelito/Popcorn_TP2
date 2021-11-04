@@ -14,6 +14,7 @@ $('#btnReg').click(()=>{
     $("#contLogIn").hide();
     $("#contCards").hide();
     $("#contRegister").show();
+   
 });
 
 $('#btnAdmin').click(()=>{

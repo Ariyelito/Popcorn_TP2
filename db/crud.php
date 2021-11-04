@@ -69,9 +69,6 @@ class crud
         }
     }
     public function addCategoriesPourFilm($idFilm, $categories){
-      
-
-
         try {
             
             $sql = "INSERT INTO `filmcategorie` (`idFilm`, `idCategorie`) VALUES ";
@@ -167,9 +164,7 @@ class crud
          }
      }
 
-     public function filmExisteDansPanier($idPanier,$idFilm){
-        
-     }
+    
      public function getPanierParIdMembre($idMembre){
         try {
             $sql = "SELECT * FROM `paniers` where idMembre=$idMembre";
@@ -216,6 +211,16 @@ class crud
     //     return false;
     // }
   }
+  public function filmExisteDansPanier($idPanier,$idFilm){
+        
+    }
+    public function getNombreFilmsDansPanier($idPanier){
+
+    }
+
+    public function louerFilms($idPanier){
+
+    }
     private function getPrix($nbJour){
         try {
             $sql = "SELECT * FROM `prix` where nbJour=$nbJour";
@@ -236,7 +241,7 @@ class crud
             return false;
         }
     }
-    private function calculerMontant($idPanier,$prix){
+    public function calculerMontant($idPanier,$prix){
     
         $objects = $this->getIdFilmsDansPanier($idPanier);
         
