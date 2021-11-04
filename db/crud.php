@@ -211,14 +211,34 @@ class crud
     //     return false;
     // }
   }
-  public function filmExisteDansPanier($idPanier,$idFilm){
-        
+    public function filmExisteDansPanier($idPanier,$idFilm){
+        try {
+            $sql = "SELECT * FROM `paniersfilms` where idFilm=$idFilm";
+            $result = $this->db->query($sql);
+            if($result->fetch())
+            return true;
+            else 
+            return false;
+            
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
     public function getNombreFilmsDansPanier($idPanier){
-
+        try {
+            $sql = "SELECT count(*) FROM `paniersfilms` where idPanier=$idPanier";
+            $result = $this->db->query($sql);
+            $count = $result->fetchColumn();
+            return $count;
+            
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
 
-    public function louerFilms($idPanier){
+    public function louerFilms($idMembre,$idFilm,$nbJour){
 
     }
     private function getPrix($nbJour){
