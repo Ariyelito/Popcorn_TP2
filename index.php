@@ -2,7 +2,7 @@
 $title = "Accueil";
 $root = "";
 $panier = false;
-include 'includes/header01.php';
+include 'includes/header.php';
 require_once 'db/connexion.inc.php';
 
 
