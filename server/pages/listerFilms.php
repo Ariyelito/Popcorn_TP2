@@ -8,11 +8,11 @@ $result = $crud->getMovies();
 //$result = $result->fetchAll();
 ?>
 
-
-<h1 class="h1 text-center mt-5">Liste des membres</h2>
-<div id="contListMembre" class="container mt-3">
+<div id="contListMembre" class="container mt-5">
+    <h1 class="h1 text-center">Liste des membres</h2>
+    <a id="btnAjouterFilm" class="btn btn-outline-success bg-gradient">Ajouter un film</a>
     <table class="table table-striped table-hover table-borderless">
-        <thead class="table-danger">
+        <thead class="table-success">
             <th scope="col">ID</th> 
             <th scope="col">titre</th> 
             <th scope="col">duree</th>
@@ -21,8 +21,6 @@ $result = $crud->getMovies();
             <th scope="col">montant</th>
             <th scope="col">photo</th>
             <th scope="col">Actions
-            <a class="btn bg-gradient btn-primary">Add</a>
-
 
             </th>
         </thead>
@@ -53,6 +51,89 @@ $result = $crud->getMovies();
         <a id="btnRetour" class="btn btn-success bg-gradient" href="../../admin.php">Retour</a>
     </div>
 </div>
+
+
+<!-- Form ajouter un film-->
+<div id="contAddFilm" class="container mt-5">
+    <h1 class="h1 text-center">Ajouter un film</h1>
+    <form id="formRegister" class="row" action="ajouterFilm.php" method="POST"
+        onSubmit="return validerFilm()">
+
+        <div class="col-md-6 mt-3">
+            <div class="form-group">
+                <label for="inputTitre" class="form-label">Titre :</label>
+                <input type="text" class="form-control" id="inputTitre" name="inputTitre" value="">
+            </div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <div class="form-group">
+                <label for="inputReal" class="form-label">Réalisateur :</label>
+                <input type="text" class="form-control" id="inputReal" name="inputReal" value="">
+            </div>
+        </div>
+
+        <div class="col-6 mt-3">
+            <div class="form-group">
+                <label for="inputDate">Date de sortie :</label>
+                <input type="text" class="form-control" id="inputDate" name="inputDate">
+            </div>
+        </div>
+
+        <div class="col-6 mt-3">
+            <div class="form-group">
+                <label for="InputLangue">Langue :</label>
+                <select class="form-control" id="InputLangue" name="langue">
+                    <option value="1">Français</option>
+                    <option value="2">Anglais</option>
+                    <option value="3">Espagnol</option>
+                    <?php //while($r = $results->fetch(PDO::FETCH_ASSOC)) {?>
+                    <!-- <option value="<?php //echo $r['langue_id'] ?>"><?php //echo $r['name']; ?></option> -->
+                    <?php //}?>
+
+                </select>
+            </div>
+        </div>
+
+        <div class="col-6 col-sm-4 mt-3">
+            <div class="form-group">
+                <label for="inputCout">Coût :</label>
+                <input type="text" class="form-control" id="inputCout" name="inputCout">
+            </div>
+        </div>
+
+        <div class="col-6 col-sm-4 mt-3">
+            <div class="form-group">
+                <label for="inputDure">Durée :</label>
+                <input type="text" class="form-control" id="inputDure" name="inputDure">
+            </div>
+        </div>
+        
+        <div class="col-sm-4 mt-3">
+            <div class="form-group">
+                <label for="inputCat">Catégorie :</label>
+                <select class="form-control" id="inputCat" name="inputCat">
+                    <option value="1">Comédie</option>
+                    <option value="2">Action</option>
+                    <option value="3">Romance</option>
+                    <option value="4">Drame</option>
+                    <option value="5">Science-fiction</option>
+                    <option value="6">Horreur</option>
+                    <?php //while($r = $results->fetch(PDO::FETCH_ASSOC)) {?>
+                    <!-- <option value="<?php //echo $r['horreur_id'] ?>"><?php //echo $r['nom']; ?></option> -->
+                    <?php //}?>
+
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="col-12 mt-3">
+            <button id="btnAddFilm" type="submit" class="btn btn-success bg-gradient">Ajouter</button>
+
+        </div>
+    </form>
+    <button id="btnAnnulerAddFilm" class="btn btn-danger bg-gradient mt-2">Annuler</button>
+</div>
+
 <?php
 function getStatut($statut)
 {

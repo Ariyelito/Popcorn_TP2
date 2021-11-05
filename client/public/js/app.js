@@ -1,47 +1,12 @@
-/*
-$('#btnHome').click(()=>{
-    $("#contLogIn").hide();
-    $("#contCards").show();
-    $("#contRegister").hide();
-});
-
-$('#btnLogIn').click(()=>{
-    $("#contLogIn").show();
-    $("#contCards").hide();
-    $("#contRegister").hide();
-});
-
-$('#btnReg').click(()=>{
-    
-    $("#contLogIn").hide();
-    $("#contCards").hide();
-    $("#contRegister").show();
-   
-});
-$("#inputNbJour").change(function (e) { 
-   
-    alert("oui");
-});
-
-
-$('#btnAdmin').click(()=>{
-    $("#contAddFilm").hide();
-   // window.location.href = "index.php";
-});
-
-$('#btnAjouter').click(()=>{
+$('#btnAjouterFilm').click(()=>{
     $("#contAddFilm").show();
-    $("#contCards").hide();
+    $("#contListMembre").hide();
 });
 
-$('#btnLister').click(()=>{
-    //alert("click");
- 
-     $('#formLister').submit();
- });
-
- 
-*/
+$('#btnAnnulerAddFilm').click(()=>{
+    $("#contAddFilm").hide();
+    $("#contListMembre").show();
+});
 
 let valider = () => {
     let etat = true;
@@ -101,3 +66,43 @@ let initialiser = (id,msg) =>{
         toastList[0].show();
     }
 }
+
+/*
+$('#btnHome').click(()=>{
+    $("#contLogIn").hide();
+    $("#contCards").show();
+    $("#contRegister").hide();
+});
+
+$('#btnLogIn').click(()=>{
+    $("#contLogIn").show();
+    $("#contCards").hide();
+    $("#contRegister").hide();
+});
+
+$('#btnReg').click(()=>{
+    
+    $("#contLogIn").hide();
+    $("#contCards").hide();
+    $("#contRegister").show();
+   
+});
+$("#inputNbJour").change(function (e) { 
+   
+    alert("oui");
+});
+
+
+$('#btnAdmin').click(()=>{
+    $("#contAddFilm").hide();
+   // window.location.href = "index.php";
+});
+
+$('#btnLister').click(()=>{
+    //alert("click");
+ 
+     $('#formLister').submit();
+ });
+
+ 
+*/

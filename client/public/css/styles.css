@@ -14,7 +14,7 @@
 }
 
 #contListMembre {
-  max-width: 800px;
+  max-width: 1000px;
 }
 
 /* .description {
@@ -67,10 +67,18 @@ p.card-text {
   width: 100%;
 }
 
+#btnAjouterFilm {
+  width: 100%;
+  border-bottom-left-radius: 0%;
+  border-bottom-right-radius: 0%;
+}
 #btnAddFilm {
   width: 100%;
 }
 
+#btnAnnulerAddFilm{
+  width: 100%;
+}
 #btnRetour{
   float: 50%;
 }
