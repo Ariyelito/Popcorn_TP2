@@ -17,6 +17,11 @@
   max-width: 800px;
 }
 
+/* .description {
+   overflow: hidden;
+  height: 200px; 
+} */
+
 .card:hover {
   border-color: red;
   /* height: 600px; */
