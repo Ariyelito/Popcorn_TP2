@@ -32,7 +32,7 @@
                 <?php }?>
             </div>
             <div class="navbar-nav navItemRight">
-                <a href="server/pages/deconnection.php" class="btn btn-outline-light btnConnection nav-item nav-link">Se déconnecter</a>
+                <a href="<?php echo $root ?>deconnection.php" class="btn btn-outline-light btnConnection nav-item nav-link">Se déconnecter</a>
             </div>
         </div>
     </nav>
