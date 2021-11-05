@@ -27,27 +27,22 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <div class="navbar-nav">
-                     
-                    
+                    <a id="btnHome" href="<?php echo $root?>membrePage.php" class="nav-item nav-link">Accueil</a>
                     <!-- Regarde si memebre deja connecter-->
                     <?php 
                       session_start();
                       if (isset($_SESSION['idMembre'])) { 
-                          ?>
-                        
-                        <a id="btnHome" href="<?php echo $root?>membrePage.php" class="nav-item nav-link">Accueil</a>
+                    ?>
                         <a href="<?php echo $root?>server/pages/listerPanier.php" class="nav-item nav-link ">Panier <span class="badge bg-secondary">4</span></a>
                         </div> 
                         <div class="navbar-nav navItemRight" >
-                             <a id="btnLogIn" href="<?php echo $root?>server/pages/deconnection.php" class="nav-item nav-link">Se déconnecter</a>
-                             </div>
-
-                          <?php }else{ ?>
-                            <a id="btnHome" href="<?php echo $root?>index.php" class="nav-item nav-link">Accueil</a>
+                          <a id="btnLogIn" href="<?php echo $root?>server/pages/deconnection.php" class="btn btn-outline-light btnConnection nav-item nav-link">Se déconnecter</a>
+                        </div>
+                        <?php }else{ ?>
                        <a id="btnReg" href="#" class="nav-item nav-link">Devenir membre</a>
                        </div>
                          <div class="navbar-nav navItemRight" >
-                        <a id="btnLogIn" href="#" class="nav-item nav-link ms-auto">Se connecter</a>
+                        <a id="btnLogIn" href="#" class="btn btn-outline-light btnConnection nav-item nav-link ms-auto">Se connecter</a>
                     </div>
                       
                       <?php } ?>

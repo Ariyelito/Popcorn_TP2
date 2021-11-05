@@ -43,7 +43,7 @@
                 <?php }?>
             </div>
             <div class="navbar-nav navItemRight">
-                <a id="btnLogIn" href="<?php echo $root ?>index.php" class="nav-item nav-link float-end">Se déconnecter</a>
+                <a href="<?php echo $root ?>index.php" class="btn btn-outline-light btnConnection nav-item nav-link float-end">Se déconnecter</a>
             </div>
         </div>
     </nav>

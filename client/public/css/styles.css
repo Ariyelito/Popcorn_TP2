@@ -56,7 +56,7 @@ p.card-text {
 
 .navItemRight {
   margin-left: auto;
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
 #btnConnecter {
@@ -73,6 +73,18 @@ p.card-text {
 
 #btnRetour{
   float: 50%;
+}
+
+#btnRetour2{
+  width: 30%;
+}
+
+.btnConnection {
+  line-height: 0.8;
+}
+
+.btnConnection:hover {
+  color: black!important;
 }
 
 .btnCard {

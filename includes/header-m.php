@@ -27,10 +27,12 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav">
                 <a href="../../membrePage.php" class="nav-item nav-link">Accueil</a>
-                <a href="server/pages/listerPanier.php" class="nav-item nav-link ">Panier <span class="badge bg-secondary">4</span></a>
+                <?php if(!$panier){?>
+                    <a href="server/pages/listerPanier.php" class="nav-item nav-link ">Panier <span class="badge bg-secondary">4</span></a>
+                <?php }?>
             </div>
             <div class="navbar-nav navItemRight">
-                <a id="btnLogIn" href="server/pages/deconnection.php" class="nav-item nav-link">Se déconnecter</a>
+                <a href="<?php echo $root ?>deconnection.php" class="btn btn-outline-light btnConnection nav-item nav-link">Se déconnecter</a>
             </div>
         </div>
     </nav>

@@ -1,6 +1,7 @@
 <?php
 $title = "Membre";
 $root = "../../";
+$panier = false;
 include '../../includes/header-m.php';
 
 ?>
@@ -20,9 +21,13 @@ include '../../includes/header-m.php';
     require_once '../../db/connexion.inc.php';
 
     $result = $crudMembre->getMembreByEmail($emailEntree);
-    if(!$result)
-    echo "Not found";
-    else {
+    if(!$result) {?>
+    <div class="container text-center">
+        <h5 class="h5 text-danger mt-5">ID de connection non valide. Utilisé un autre email.</h1>
+        <a id="btnRetour2" class="btn btn-danger bg-gradient" href="../../index.php">Retour</a>
+    </div>
+    <?php
+    } else {
         if($passwordEntree == $result['password']){
             $idMembre = $result['idMembre'];
         echo "<h3>Vous êtes connecté ($emailEntree)</h3>";

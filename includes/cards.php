@@ -1,7 +1,7 @@
 <!-- Container cards -->
 
 <div id="contCards" class="container">
-    <h3 class="h3 mb-3 mt-5">Films sur demande</h3>
+    <h3 class="h2 mt-5 text-center">Films sur demande</h3>
     <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
 
         <?php
