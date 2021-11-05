@@ -3,7 +3,7 @@
     $title = "Bienvenue, $prenom!";
     //$pageEnregistrer
     
-    include '../../includes/header-new.php';
+    include '../../includes/header.php';
  
 ?>
 

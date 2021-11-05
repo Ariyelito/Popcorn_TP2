@@ -1,9 +1,0 @@
-anas;anas;anas@gmail.com;Homme;2000-01-01
-admin;admin;admin@gmail.com;Homme;2000-01-01
-orlando;v;o@gmail;Homme;2000-01-01
-caca;caca;caca@caca;Homme;2000-01-01
-caca;caca;caca@caca;Homme;2000-01-01
-caca;caca;caca@caca;Homme;2000-01-01
-orlando;vilz;orl@gmail.com;Homme;1997-05-31
-orl;vils;orlando@gmail.com;Homme;2000-01-11
-orl;vils;orlando@gmail.com;Homme;2000-01-11

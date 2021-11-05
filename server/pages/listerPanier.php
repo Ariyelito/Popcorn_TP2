@@ -4,7 +4,7 @@
 $title = "Votre panier";
 $root = "../../";
 $panier = true;
-require_once '../../includes/header01.php';
+require_once '../../includes/header.php';
 require_once '../../db/connexion.inc.php';
 
 

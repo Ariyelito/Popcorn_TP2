@@ -2,7 +2,7 @@
 $title = "Liste des membres";
 $root = "../../";
 $lister = true;
-include '../../includes/header-a.php';
+include '../../includes/header.php';
 require_once '../../db/connexion.inc.php';
 $result = $crudMembre->getAllMembres();
 //$result = $result->fetchAll();

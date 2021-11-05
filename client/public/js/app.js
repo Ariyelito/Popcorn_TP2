@@ -17,7 +17,7 @@ $('#btnReg').click(()=>{
     $("#contCards").hide();
     $("#contRegister").show();
    
-});*/
+});
 $("#inputNbJour").change(function (e) { 
    
     alert("oui");
@@ -41,7 +41,7 @@ $('#btnLister').click(()=>{
  });
 
  
-
+*/
 
 let valider = () => {
     let etat = true;

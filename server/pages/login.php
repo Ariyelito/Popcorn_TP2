@@ -2,7 +2,7 @@
 $title = "Membre";
 $root = "../../";
 $panier = false;
-include '../../includes/header-m.php';
+include '../../includes/header.php';
 
 ?>
 
