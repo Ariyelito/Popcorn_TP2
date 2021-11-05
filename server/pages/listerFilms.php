@@ -9,7 +9,7 @@ $result = $crud->getMovies();
 ?>
 
 <div id="contListMembre" class="container mt-5">
-    <h1 class="h1 text-center">Liste des membres</h2>
+    <h1 class="h1 text-center">Liste des films</h2>
     <a id="btnAjouterFilm" class="btn btn-outline-success bg-gradient">Ajouter un film</a>
     <table class="table table-striped table-hover table-borderless">
         <thead class="table-success">
