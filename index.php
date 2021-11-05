@@ -1,6 +1,7 @@
 <?php
 $title = "Accueil";
 $root = "";
+$panier = false;
 include 'includes/header01.php';
 require_once 'db/connexion.inc.php';
 
@@ -20,12 +21,12 @@ $contenu =$_GET["idContenu"];
 
 <!-- Form connexion utilisateur -->
 
-<?php 
-if($contenu == 2){
+<?php // what is this bro
+//if($contenu == 2){
 ?>
 
 
-<div id="contLogIn1" class="container mt-5">
+<div id="contLogIn" class="container mt-5">
     <h1 class="h1">Se connecter</h1>
 
     <form id="myForm" class="row mt-1" action="server/pages/login.php" method="POST" onSubmit="return valider()">
@@ -57,16 +58,16 @@ if($contenu == 2){
 </div>
 
 
-<?php } ?>
+<?php //} ?>
 <!-- Fin Form connection -->
 <!-- Form devenir membre -->
 
-<?php 
-if($contenu == 1){
+<?php // what is this bro
+//if($contenu == 1){
     
 ?>
 
-<div id="contRegister1" class="container mt-5">
+<div id="contRegister" class="container mt-5">
     <h1 class="h1">Devenir membre</h1>
     <form id="formRegister" class="row mt-1" action="server/pages/enregistrer.php" method="POST"
         onSubmit="return validerMembre()">
@@ -126,7 +127,7 @@ if($contenu == 1){
 
 
 <?php 
-}
+//}
 ?>
 <!-- Fin Form enregister -->
 
@@ -135,12 +136,12 @@ if($contenu == 1){
 
 
 <?php
-if($contenu == 0){
+//if($contenu == 0){
 //$isMembre = false;
 $result = $crud->getMovies();
 $member = false;
 include 'includes/cards.php'; 
-}
+//}
 ?>
 
 <?php 

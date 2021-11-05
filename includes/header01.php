@@ -16,8 +16,6 @@
 
 <body id="body" class=" bg-light bg-gradient">
 
-    
-
 <!-- Menu de navigation Membre-->
 <nav id="myNav" class="topnav navbar fixed-top navbar-expand-sm navbar-dark bg-danger bg-gradient">
             
@@ -35,23 +33,25 @@
         if (isset($_SESSION['idMembre'])) { 
       ?>                        
       <a id="btnHome" href="<?php echo $root?>membrePage.php" class="nav-item nav-link">Accueil</a>
-      <a href="<?php echo $root?>server/pages/listerPanier.php" class="nav-item nav-link ">Panier <span class="badge bg-secondary">4</span></a>
+      <?php if(!$panier){?>
+        <a href="server/pages/listerPanier.php" class="nav-item nav-link ">Panier <span class="badge bg-secondary">4</span></a>
+       <?php }?>
     </div> 
                             
     <div class="navbar-nav navItemRight" >
-      <a id="btnLogIn" href="<?php echo $root?>server/pages/deconnection.php" class="nav-item nav-link">Se déconnecter</a>
+      <a id="btnLogIn" href="<?php echo $root?>server/pages/deconnection.php" class="btn btn-outline-light btnConnection nav-item nav-link">Se déconnecter</a>
     </div>
 
 <!-- nav si membre nonconnecter-->
       <?php }else{ ?>
 
     <a id="btnHome" href="<?php echo $root?>index.php" class="nav-item nav-link">Accueil</a>
-    <a id="btnReg" href="<?php echo $root?>index.php?idContenu=1" class="nav-item nav-link">Devenir membre</a>
+    <a id="btnReg" href="#" class="nav-item nav-link">Devenir membre</a>
                        
     </div>  
 
     <div class="navbar-nav navItemRight" >                          
-    <a id="btnLogIn" href="<?php echo $root?>index.php?idContenu=2" class="nav-item nav-link ms-auto">Se connecter</a>                         
+    <a id="btnLogIn" href="#" class="btn btn-outline-light btnConnection nav-item nav-link ms-auto">Se connecter</a>                         
     </div>
                       
                       
@@ -84,7 +84,7 @@
         
     </div>    
     <div class="navbar-nav navItemRight">
-         <a id="btnLogIn" href="<?php echo $root?>index.php" class="nav-item nav-link float-end">Se déconnecter</a>
+         <a id="btnLogIn" href="<?php echo $root?>index.php" class="btn btn-outline-light btnConnection nav-item nav-link float-end">Se déconnecter</a>
      </div>
  </div>
 </nav>

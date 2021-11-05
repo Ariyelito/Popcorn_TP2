@@ -1,4 +1,4 @@
-/*
+
 $('#btnHome').click(()=>{
     $("#contLogIn").hide();
     $("#contCards").show();
@@ -17,12 +17,12 @@ $('#btnReg').click(()=>{
     $("#contCards").hide();
     $("#contRegister").show();
    
-});*/
+});
+
 $("#inputNbJour").change(function (e) { 
    
     alert("oui");
 });
-
 
 $('#btnAdmin').click(()=>{
     $("#contAddFilm").hide();
