@@ -33,21 +33,20 @@ include '../../includes/header-m.php';
         echo "<h3>Vous êtes connecté ($emailEntree)</h3>";
         
         // session pour save idMembre
-       
         session_start();
+        $_SESSION['idMembre'] =  $idMembre;
+
          if($result['role']=='M')
          {
-         $_SESSION['idMembre'] =  $idMembre;
+          
          header('Location: ../../membrePage.php');
          }
         else if($result['role'] =='A')
         {
-            $_SESSION['idAdmin'] =  $idMembre;
             header('Location: ../../admin.php');
         }
     
         }else{
-            // a rediriger
             echo "password n'est pas bon";
         }
     }

@@ -18,85 +18,42 @@
 
     
 
-<!-- Menu de navigation Membre-->
-<nav id="myNav" class="topnav navbar fixed-top navbar-expand-sm navbar-dark bg-danger bg-gradient">
+        <!-- Menu de navigation -->
+        <nav id="myNav" class="topnav navbar fixed-top navbar-expand-sm navbar-dark bg-danger bg-gradient">
             
-  <a class="topnav logo navbar-brand" href="index.php">Popcorn TV 01</a>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-  </button>
-  
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <div class="navbar-nav"> 
-
-<!-- nav si membre connecter-->
-      <?php 
-        session_start();
-        if (isset($_SESSION['idMembre'])) { 
-      ?>                        
-      <a id="btnHome" href="<?php echo $root?>membrePage.php" class="nav-item nav-link">Accueil</a>
-      <a href="<?php echo $root?>server/pages/listerPanier.php" class="nav-item nav-link ">Panier <span class="badge bg-secondary">4</span></a>
-    </div> 
-                            
-    <div class="navbar-nav navItemRight" >
-      <a id="btnLogIn" href="<?php echo $root?>server/pages/deconnection.php" class="nav-item nav-link">Se déconnecter</a>
-    </div>
-
-<!-- nav si membre nonconnecter-->
-      <?php }else{ ?>
-
-    <a id="btnHome" href="<?php echo $root?>index.php" class="nav-item nav-link">Accueil</a>
-    <a id="btnReg" href="<?php echo $root?>index.php?idContenu=1" class="nav-item nav-link">Devenir membre</a>
-                       
-    </div>  
-
-    <div class="navbar-nav navItemRight" >                          
-    <a id="btnLogIn" href="<?php echo $root?>index.php?idContenu=2" class="nav-item nav-link ms-auto">Se connecter</a>                         
-    </div>
+                <a class="topnav logo navbar-brand" href="index.php">Popcorn TV 01</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav">
+                    <a id="btnHome" href="<?php echo $root?>membrePage.php" class="nav-item nav-link">Accueil</a>
+                    <!-- Regarde si memebre deja connecter-->
+                    <?php 
+                      session_start();
+                      if (isset($_SESSION['idMembre'])) { 
+                    ?>
+                        <a href="<?php echo $root?>server/pages/listerPanier.php" class="nav-item nav-link ">Panier <span class="badge bg-secondary">4</span></a>
+                        </div> 
+                        <div class="navbar-nav navItemRight" >
+                          <a id="btnLogIn" href="<?php echo $root?>server/pages/deconnection.php" class="btn btn-outline-light btnConnection nav-item nav-link">Se déconnecter</a>
+                        </div>
+                        <?php }else{ ?>
+                       <a id="btnReg" href="#" class="nav-item nav-link">Devenir membre</a>
+                       </div>
+                         <div class="navbar-nav navItemRight" >
+                        <a id="btnLogIn" href="#" class="btn btn-outline-light btnConnection nav-item nav-link ms-auto">Se connecter</a>
+                    </div>
                       
+                      <?php } ?>
+                    
                       
-    <?php } ?>
-              
-  </div>
-
-</nav>
-<!-- Menu de navigation Membre -->
+                   
+                </div>
 
 
-<?php 
-  if (isset($_SESSION['idAdmin'])) { 
-?>  
-      
-      
-<nav id="myNav" class="topnav navbar fixed-top navbar-expand-sm navbar-dark bg-danger bg-gradient">
-
-   <a id="btnPopCorn" class="topnav logo navbar-brand" href="<?php echo $root ?>admin.php">Popcorn TV</a>
-   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
-   </button>
- <div class="collapse navbar-collapse" id="navbarNav">
-    <div class="navbar-nav">
-         <a id="btnAdmin" href="<?php echo $root ?>admin.php" class="nav-item nav-link">Accueil</a>
-       
-         <a id="btnAjouter" href="<?php echo $root?>server/pages/listerFilms.php" class="nav-item nav-link">Films</a>
-         <a id="btnLister" href="#" class="nav-item nav-link">Membres</a>
-        
-    </div>    
-    <div class="navbar-nav navItemRight">
-         <a id="btnLogIn" href="<?php echo $root?>index.php" class="nav-item nav-link float-end">Se déconnecter</a>
-     </div>
- </div>
-</nav>
-
-
-
-
-
-
-<?php } ?>
-
-<div id="container" class="container mt-4">
+        </nav>
+        <div id="container" class="container mt-4">
 
 
 

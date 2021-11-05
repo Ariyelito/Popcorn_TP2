@@ -2,7 +2,7 @@
 $title = "Admin";
 $root = "";
 $lister = false;
-include 'includes/header01.php';
+include 'includes/header-a.php';
 require_once 'db/connexion.inc.php';
 $result = $crud->getMovies();
 // methode a faire 
