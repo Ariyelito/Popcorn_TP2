@@ -80,7 +80,7 @@
          <a id="btnAdmin" href="<?php echo $root ?>admin.php" class="nav-item nav-link">Accueil</a>
        
          <a id="btnAjouter" href="<?php echo $root?>server/pages/listerFilms.php" class="nav-item nav-link">Films</a>
-         <a id="btnLister" href="#" class="nav-item nav-link">Membres</a>
+         <a id="btnLister" href="<?php echo $root?>server/pages/lister.php" class="nav-item nav-link">Membres</a>
         
     </div>    
     <div class="navbar-nav navItemRight">
