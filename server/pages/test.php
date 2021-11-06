@@ -1,7 +1,7 @@
 <?php
 require_once '../../db/connexion.inc.php';
 
-$nombre = $crud->getNombreFilmsDansPanier(24);
+$nombre = $crud->getPrixPourUnFilm(3);
 
 echo $nombre;
 ?>

@@ -377,12 +377,13 @@ class crud
         $objects = $this->getIdFilmsDansPanier($idPanier);
         
          $montant = 0 ; 
-
+   
         foreach($objects as $films){
             foreach($films as $idFilm){
                 $film = $this->getFilmById($idFilm)->fetch();
-                $prix = $this->getPrixPourUnFilm($carts[$film['idFilm']])->fetch()['montant'];
-                $montant += $film['montant'] * $prix;
+                $nbJour = $carts[$film['idFilm']];
+                $prix = $this->getPrixPourUnFilm($nbJour);
+                $montant += $film['montant']  * $prix;
             }
            
         }
