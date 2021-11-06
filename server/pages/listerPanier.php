@@ -91,7 +91,7 @@ require_once '../../db/connexion.inc.php';
 
 <!-- option de jour-->
 <?php 
-function optionDejour($idFilmP,$prix){  
+function optionDejour($idFilmP,$prixFilm){  
     global $crud;
  
     
@@ -129,13 +129,12 @@ function optionDejour($idFilmP,$prix){
         $rep .= "<td>";
         
         
-        // $result = $crud->getPrixPourUnFilm($journee);
-        // $r = $result->fetch(PDO::FETCH_ASSOC);
-        // $prix=  $r["montant"] * $prix;
-        // $rep .= $prix;
-        // $_SESSION["total"] += $prix;
+        $prixJour = $crud->getPrixPourUnFilm($journee);
+      
+        $prix=  $prixJour*$prixFilm;
+        $rep .= $prix;
+        $_SESSION["total"] += $prix;
         $rep .= "</td>"; 
-
     
 return $rep;
 }
