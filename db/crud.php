@@ -358,8 +358,8 @@ class crud
     public function payer($idMembre ,$idPanier, $carts){
 
         try {
-            $prix = $this->getPrix($nbJour)->fetch()['montant'];
-            $montant = $this->calculerMontant($idPanier,$prix);
+          
+            $montant = $this->calculerMontant($idPanier,$carts);
                   
             $sql =  "INSERT INTO paiments (montant, date,idMembre) VALUES($montant, NOW(),$idMembre)";
             $this->db->query($sql);
@@ -369,7 +369,7 @@ class crud
             return false;
         }
     }
-    public function calculerMontant($idPanier,$prix){
+    public function calculerMontant($idPanier,$carts){
     
         $objects = $this->getIdFilmsDansPanier($idPanier);
         
@@ -378,7 +378,7 @@ class crud
         foreach($objects as $films){
             foreach($films as $idFilm){
                 $film = $this->getFilmById($idFilm)->fetch();
-           
+                $prix = $this->getPrixPourUnFilm($carts[$film['idFilm']])->fetch()['montant'];
                 $montant += $film['montant'] * $prix;
             }
            
@@ -386,16 +386,7 @@ class crud
 
      return $montant;
     }
-    private function getPrix($nbJour){
-        try {
-            $sql = "SELECT * FROM `prix` where nbJour=$nbJour";
-            $result = $this->db->query($sql);
-            return $result;
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-            return false;
-        }
-    }
+
   private function ajouterFilmsPayments($idPaiment,$idPanier){
     // try {
          
@@ -482,9 +473,9 @@ class crud
     public function getPrixPourUnFilm($nbJour){
       
         try {
-            $sql = "SELECT montant FROM prix WHERE nbJour=$nbJour";
-            $result = $this->db->query($sql);
-            return $result;
+            $sql = "SELECT * FROM prix WHERE nbJour=$nbJour";
+            $result = $this->db->query($sql)->fetch();
+            return $result['montant'];
         } catch (PDOException $e) {
             echo $e->getMessage();
             return false;

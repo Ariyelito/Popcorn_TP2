@@ -37,6 +37,7 @@ require_once '../../db/connexion.inc.php';
 <?php
     
 
+
     $idMembre = $_SESSION['idMembre'];
     $panier  = $crud->getPanierParIdMembre($idMembre)->fetch();
     $idPanier= $panier['idPanier'];
@@ -92,8 +93,8 @@ require_once '../../db/connexion.inc.php';
 <?php 
 function optionDejour($idFilmP,$prix){  
     global $crud;
-
-   
+ 
+    
     if(!isset($_SESSION["Cart"][$idFilmP])  ){
         $_SESSION["Cart"][$idFilmP] = 1;
      
@@ -135,7 +136,7 @@ function optionDejour($idFilmP,$prix){
         $_SESSION["total"] += $prix;
         $rep .= "</td>"; 
 
-   
+    
 return $rep;
 }
 ?>
