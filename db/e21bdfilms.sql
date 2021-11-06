@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2021 at 10:47 PM
+-- Generation Time: Nov 06, 2021 at 11:25 PM
 -- Server version: 5.7.17
 -- PHP Version: 5.6.30
 
@@ -23,6 +23,18 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `e21bdfilms` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 USE `e21bdfilms`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `actors`
+--
+
+DROP TABLE IF EXISTS `actors`;
+CREATE TABLE `actors` (
+  `idActor` int(11) NOT NULL,
+  `nom` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -104,6 +116,18 @@ INSERT INTO `films` (`idFilm`, `titre`, `duree`, `langue`, `date`, `montant`, `p
 (6, 'Game of Thrones (2011)', 57, 'Anglais', '2011-07-24', '48.00', 'client/public/images/got.jpg', ''),
 (7, 'Fury (2014)', 135, 'Anglais', '2014-10-17', '27.00', 'client/public/images/fury.jpg', ''),
 (8, 'Jolt (2021)', 91, 'Anglais', '2021-07-15', '33.00', 'client/public/images/jolt.jpg', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `filmsactors`
+--
+
+DROP TABLE IF EXISTS `filmsactors`;
+CREATE TABLE `filmsactors` (
+  `idFilm` int(11) NOT NULL,
+  `idActor` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -277,6 +301,12 @@ INSERT INTO `realisateurs` (`idRealisateur`, `nom`) VALUES
 --
 
 --
+-- Indexes for table `actors`
+--
+ALTER TABLE `actors`
+  ADD PRIMARY KEY (`idActor`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -300,6 +330,13 @@ ALTER TABLE `filmcategorie`
 --
 ALTER TABLE `films`
   ADD PRIMARY KEY (`idFilm`);
+
+--
+-- Indexes for table `filmsactors`
+--
+ALTER TABLE `filmsactors`
+  ADD KEY `idActor` (`idActor`),
+  ADD KEY `idFilm` (`idFilm`);
 
 --
 -- Indexes for table `filmsrealisateurs`
@@ -367,6 +404,11 @@ ALTER TABLE `realisateurs`
 --
 
 --
+-- AUTO_INCREMENT for table `actors`
+--
+ALTER TABLE `actors`
+  MODIFY `idActor` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
@@ -422,6 +464,13 @@ ALTER TABLE `connexion`
 ALTER TABLE `filmcategorie`
   ADD CONSTRAINT `filmcategorie_ibfk_1` FOREIGN KEY (`idCategorie`) REFERENCES `categories` (`idCategorie`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `filmcategorie_ibfk_2` FOREIGN KEY (`idFilm`) REFERENCES `films` (`idFilm`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `filmsactors`
+--
+ALTER TABLE `filmsactors`
+  ADD CONSTRAINT `filmsactors_ibfk_1` FOREIGN KEY (`idActor`) REFERENCES `actors` (`idActor`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `filmsactors_ibfk_2` FOREIGN KEY (`idFilm`) REFERENCES `films` (`idFilm`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `filmsrealisateurs`

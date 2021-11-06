@@ -69,6 +69,69 @@ class crud
             return false;
         }
     }
+
+    public function addActor($nom){
+        try{
+         
+            $sql = " INSERT INTO `actors` (`nom`) VALUES (\"$nom\")";
+            $this->db->query($sql);
+            return true;
+        } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+    }
+    }
+    public function actorExiste($nom){
+        try{
+            $sql = "SELECT * FROM actors WHERE nom=\"$nom\"";
+            $result = $this->db->query($sql);
+            $nb=  $result->rowCount();
+      
+            if($nb==0){
+                return false;
+            }else 
+            {   
+               return true;}
+        }
+            
+        catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+
+    }
+    }
+
+    public function getActorId($nom){
+        try {
+            $sql = "SELECT * FROM `actors` where nom=\"$nom\"";
+            $result = $this->db->query($sql)->fetch();
+            return $result['idActor'];
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+    public function addActorsPourFilm($idFilm,$actors){
+        
+        try {
+            
+            $sql = "INSERT INTO `filmsactors` (`idFilm`, `idActor`) VALUES ";
+           
+           foreach($actors as $id){
+            $sql.="($idFilm,$id),";
+           }
+           $sql = substr($sql, 0, -1);
+
+            $stmt = $this->db->prepare($sql);
+            // execute statement
+            $stmt->execute();
+          
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
     public function addRealisateur($nom){
         try{
          

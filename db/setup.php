@@ -25,18 +25,24 @@ function chargerJSONFilm(){
     foreach($films as $value){
      $idCategories = array();
      $idRealisateurs =array();
-    // $idactors;
-    //  foreach($value['actors'] as $actor){
-
-    // }
-
+     $idactors = array();
+   
+    $actors = explode(",",$value['actors']);
+    foreach($actors as $a){
+        if(!$crud->actorExiste($a)){
+           $crud->addActor($a);
+            }
+        $idactors[]=$crud->getActorId($a);
+        
+      
+    }
      $realisateurs = explode(",",$value['director']);
      foreach($realisateurs as $r){
          if(!$crud->realisateurExiste($r)){
             $crud->addRealisateur($r);
              }
          $idRealisateurs[]=$crud->getRealisateurId($r);
-         echo $crud->getRealisateurId($r).";".$r. "<br/> <br/>";
+        
        
      }
      foreach($value['genres'] as $categorie){
@@ -52,7 +58,7 @@ function chargerJSONFilm(){
      $film->idFilm = $pdo->lastInsertId();
      $crud->addCategoriesPourFilm($film->idFilm,$idCategories);
      $crud->addRealisateursPourFilm($film->idFilm,$idRealisateurs);
-
+     $crud->addActorsPourFilm($film->idFilm,$idactors);
  }
  
  }
