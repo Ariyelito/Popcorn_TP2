@@ -10,54 +10,52 @@ $result = $crud->getMovies();
 
 <div id="contListMembre" class="container mt-5">
     <h1 class="h1 text-center">Liste des films</h2>
-    <a id="btnAjouterFilm" class="btn btn-outline-success bg-gradient">Ajouter un film</a>
-    <table class="table table-striped table-hover table-borderless">
-        <thead class="table-success">
-            <th scope="col">ID</th> 
-            <th scope="col">titre</th> 
-            <th scope="col">duree</th>
-            <th scope="col">langue</th>
-            <th scope="col">date</th>
-            <th scope="col">montant</th>
-            <th scope="col">photo</th>
-            <th scope="col">Actions
+        <a id="btnAjouterFilm" class="btn btn-outline-success bg-gradient">Ajouter un film</a>
+        <table class="table table-striped table-hover table-borderless">
+            <thead class="table-success">
+                <th scope="col">ID</th>
+                <th scope="col">titre</th>
+                <th scope="col">duree</th>
+                <th scope="col">langue</th>
+                <th scope="col">date</th>
+                <th scope="col">montant</th>
+                <th scope="col">photo</th>
+                <th scope="col">Actions
 
-            </th>
-        </thead>
-        <tbody>
-        <?php 
+                </th>
+            </thead>
+            <tbody>
+                <?php 
         while($r = $result->fetch(PDO::FETCH_ASSOC)) { 
            ?>
-            <tr>
-                <td><?php echo $r['idFilm']?></td>
-                <td><?php echo $r['titre']?></td>
-                <td><?php echo $r['duree']?></td>
-                <td><?php echo $r['langue']?></td>
-                <td><?php echo $r['date']?></td>
-                <td><?php echo $r['montant']?></td>
-                <td><?php echo $r['photo']?></td>
-                <td>
-                    <div class="btn-group">
-                        <a class="btn bg-gradient btn-outline-warning">Update</a>
-                        <a  class="btn bg-gradient btn-outline-danger">Delete
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <?php } ?>
-        </tbody>
-    </table>
-    <div class="container">
-        <a id="btnRetour" class="btn btn-success bg-gradient" href="../../admin.php">Retour</a>
-    </div>
+                <tr>
+                    <td><?php echo $r['idFilm']?></td>
+                    <td><?php echo $r['titre']?></td>
+                    <td><?php echo $r['duree']?></td>
+                    <td><?php echo $r['langue']?></td>
+                    <td><?php echo $r['date']?></td>
+                    <td><?php echo $r['montant']?></td>
+                    <td><?php echo $r['photo']?></td>
+                    <td>
+                        <div class="btn-group">
+                            <a class="btn bg-gradient btn-outline-warning">Update</a>
+                            <a class="btn bg-gradient btn-outline-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+        <div class="container">
+            <a id="btnRetour" class="btn btn-success bg-gradient" href="../../admin.php">Retour</a>
+        </div>
 </div>
 
 
 <!-- Form ajouter un film-->
 <div id="contAddFilm" class="container mt-5">
     <h1 class="h1 text-center">Ajouter un film</h1>
-    <form id="formRegister" class="row" action="ajouterFilm.php" method="POST"
-        onSubmit="return validerFilm()">
+    <form id="formRegister" class="row" action="ajouterFilm.php" method="POST" onSubmit="return validerFilm()">
 
         <div class="col-md-6 mt-3">
             <div class="form-group">
@@ -107,7 +105,7 @@ $result = $crud->getMovies();
                 <input type="text" class="form-control" id="inputDure" name="inputDure">
             </div>
         </div>
-        
+
         <div class="col-sm-4 mt-3">
             <div class="form-group">
                 <label for="inputCat">Catégorie :</label>
@@ -121,9 +119,12 @@ $result = $crud->getMovies();
                     <?php //while($r = $results->fetch(PDO::FETCH_ASSOC)) {?>
                     <!-- <option value="<?php //echo $r['horreur_id'] ?>"><?php //echo $r['nom']; ?></option> -->
                     <?php //}?>
-
                 </select>
             </div>
+        </div>
+        <div class="col-12 mt-3">
+            <label for="formFile" class="form-label">Poster pour le film (image)</label>
+            <input class="form-control" type="file" id="formFile">
         </div>
         <br>
         <div class="col-12 mt-3">
