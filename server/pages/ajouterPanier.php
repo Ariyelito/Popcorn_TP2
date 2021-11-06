@@ -33,14 +33,23 @@ require_once '../../db/connexion.inc.php';
    
     $panier  = $crud->getPanierParIdMembre($idMembre)->fetch();
     if($panier){      
-        $crud->addFilmDansLePanier($panier['idPanier'],$idFilm);
+       $done =  $crud->addFilmDansLePanier($panier['idPanier'],$idFilm);
+       if(!$done){
+         echo "movie existe deja dans panier";
+         exit;
+       }
     }
    else {  
     $panier = new Panier(0,$idMembre,$idFilm); 
     $crud->addPanier($panier);
     $panier = $crud->getPanierParIdMembre($idMembre)->fetch();
    
-    $crud->addFilmDansLePanier($panier['idPanier'],$idFilm);
+    
+   $done =  $crud->addFilmDansLePanier($panier['idPanier'],$idFilm);
+   if(!$done){
+    echo "movie existe deja dans panier";
+    exit;
+   }
    }
 
    $msgFilmAdd = "Film ajouter au panier";

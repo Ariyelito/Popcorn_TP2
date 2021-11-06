@@ -309,15 +309,18 @@ class crud
 
     public function addFilmDansLePanier($idPanier, $idFilm ){
  
+      if(!$this->filmExisteDansPanier($idPanier, $idFilm)){
         try {
             
-             $sql =  "INSERT INTO paniersfilms (idPanier,idFilm) VALUES($idPanier, $idFilm)";
-             $this->db->query($sql);
-             return true;
-         } catch (PDOException $e) {
-             echo $e->getMessage();
-             return false;
-         }
+            $sql =  "INSERT INTO paniersfilms (idPanier,idFilm) VALUES($idPanier, $idFilm)";
+            $this->db->query($sql);
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+      }
+       else return false;
      }
 
      public function retirerUnfilmDuPanier($idMembre,$idFilm){
@@ -400,7 +403,7 @@ class crud
   }
     public function filmExisteDansPanier($idPanier,$idFilm){
         try {
-            $sql = "SELECT * FROM `paniersfilms` where idFilm=$idFilm";
+            $sql = "SELECT * FROM `paniersfilms` where idFilm=$idFilm and idPanier=$idPanier ";
             $result = $this->db->query($sql);
             if($result->fetch())
             return true;
