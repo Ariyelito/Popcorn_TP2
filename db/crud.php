@@ -374,16 +374,18 @@ class crud
     }
     public function calculerMontant($idPanier,$carts){
     
-        $objects = $this->getIdFilmsDansPanier($idPanier);
+        $objects = $this->getIdFilmsDansPanier($idPanier); //idFilms
         
          $montant = 0 ; 
    
         foreach($objects as $films){
             foreach($films as $idFilm){
-                $film = $this->getFilmById($idFilm)->fetch();
-                $nbJour = $carts[$film['idFilm']];
-                $prix = $this->getPrixPourUnFilm($nbJour);
-                $montant += $film['montant']  * $prix;
+                
+                 $film = $this->getFilmById($idFilm)->fetch();
+                 $nbJour = $carts[$film['idFilm']];
+
+                 $prix = $this->getPrixPourUnFilm($nbJour);
+                 $montant += $film['montant']  * $prix;
             }
            
         }
