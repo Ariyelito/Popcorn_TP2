@@ -35,7 +35,7 @@ class crud
             $stmt->bindparam(':date', $film->date);
             $stmt->bindparam(':montant', $film->montant);
             $stmt->bindparam(':photo', $film->photo);
-            $stmt->bindparam(':photo', $film->description);
+            $stmt->bindparam(':description', $film->description);
 
             // execute statement
             $stmt->execute();
@@ -64,6 +64,46 @@ class crud
             $stmt->execute();
           
             return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+    public function addRealisateur($nom){
+        try{
+         
+            $sql = " INSERT INTO `realisateurs` (`nom`) VALUES (\"$nom\")";
+            $this->db->query($sql);
+            return true;
+        } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+    }
+    }
+    public function realisateurExiste($nom){
+        try{
+            $sql = "SELECT * FROM realisateurs WHERE nom='$nom'";
+            $result = $this->db->query($sql);
+            $nb=  $result->rowCount();
+      
+            if($nb==0){
+                return false;
+            }else 
+            {   
+               return true;}
+        }
+            
+        catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+
+    }
+    }
+    public function getRealisateurId($nom){
+        try {
+            $sql = "SELECT * FROM `realisateurs` where nom=\"$nom\"";
+            $result = $this->db->query($sql)->fetch();
+            return $result['idRealisateur'];
         } catch (PDOException $e) {
             echo $e->getMessage();
             return false;
@@ -98,7 +138,47 @@ class crud
             return false;
         }
     }
+    public function addCategorie($nom){
+        try{
+         
+            $sql = " INSERT INTO `categories` (`nomCategorie`) VALUES (\"$nom\")";
+            $this->db->query($sql);
+            return true;
+        } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+    }
 
+    }
+    public function getIdCategorie($nom){
+        try {
+            $sql = "SELECT * FROM `categories` where nomCategorie=\"$nom\"";
+            $result = $this->db->query($sql)->fetch();
+            return $result['idCategorie'];
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+    public function categorieExiste($nom){
+        try{
+            $sql = "SELECT * FROM categories WHERE nomCategorie='$nom'";
+            $result = $this->db->query($sql);
+            $nb=  $result->rowCount();
+      
+            if($nb==0){
+                return false;
+            }else 
+            {   
+               return true;}
+        }
+            
+        catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+
+    }
+    }
     public function getFilmById($id){
         try {
             $sql = "SELECT * FROM `films` where idFilm=$id";

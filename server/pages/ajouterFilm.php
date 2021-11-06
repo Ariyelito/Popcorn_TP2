@@ -16,9 +16,9 @@ $duree = $_POST['inputDure'];
 $photo = "";
 $idCategories = array(1,2);
 $idRealisateurs = array(1,2);
+$description = "";
 
-
-$film = new Film(0,$titre,$duree,$langue,$date,$montant,$photo,$idCategories,$idRealisateurs);
+$film = new Film(0,$titre,$duree,$langue,$date,$montant,$photo,$idCategories,$idRealisateurs,$description);
 
 $crud->addFilm($film);
 $film->idFilm = $pdo->lastInsertId();

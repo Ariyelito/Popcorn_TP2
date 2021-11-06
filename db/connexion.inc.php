@@ -6,6 +6,7 @@
 
     $host = 'localhost';
     $db = 'e21bdfilms';
+   //$db = 'try2';
     $user = 'root';
     $pass = '';
     $chartset = 'utf8mb4';

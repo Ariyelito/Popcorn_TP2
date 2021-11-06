@@ -1,18 +1,14 @@
 <?php
 require_once '../../db/connexion.inc.php';
 
-  
-   
+ 
     $idFilm = $_GET['idFilm'];
     
    /*$str=  $_SERVER['QUERY_STRING'];
-
   parse_str($str, $output);
   echo $output['idFilm'];
   echo $output['idMembre'];
   "; */
-
-
 
     $result = $crud->getFilmById($idFilm);
     $r = $result->fetch();
@@ -27,7 +23,7 @@ require_once '../../db/connexion.inc.php';
 ?>
 
 
-<div class="col mt-3">
+    <div class="col mt-3">
             <div class="card">
                 <img src="<?php echo $img ?>" class="card-img-top" alt="image du film ne peut etre afficher" >
                 <div class="card-body description">
@@ -46,15 +42,6 @@ require_once '../../db/connexion.inc.php';
             </div>
 
         </div>
-
-
-
-
-
-
-
-
-
 
 <?php 
 

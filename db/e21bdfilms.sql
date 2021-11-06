@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2021 at 03:36 AM
+-- Generation Time: Nov 06, 2021 at 10:47 PM
 -- Server version: 5.7.17
 -- PHP Version: 5.6.30
 
@@ -35,14 +35,6 @@ CREATE TABLE `categories` (
   `idCategorie` int(11) NOT NULL,
   `nomCategorie` varchar(45) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `categories`
---
-
-INSERT INTO `categories` (`idCategorie`, `nomCategorie`) VALUES
-(1, 'Action'),
-(2, 'Drame');
 
 -- --------------------------------------------------------
 
@@ -90,27 +82,28 @@ CREATE TABLE `filmcategorie` (
 DROP TABLE IF EXISTS `films`;
 CREATE TABLE `films` (
   `idFilm` int(11) NOT NULL,
-  `titre` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `titre` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `duree` int(11) NOT NULL,
   `langue` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `date` date NOT NULL,
   `montant` decimal(10,2) NOT NULL,
-  `photo` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `photo` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `description` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `films`
 --
 
-INSERT INTO `films` (`idFilm`, `titre`, `duree`, `langue`, `date`, `montant`, `photo`) VALUES
-(1, 'The Avengers (2012)', 143, 'Anglais', '2012-04-05', '30.00', 'client/public/images/theavengers_lob_crd_03_0.jpg'),
-(2, 'Grand Isle (2019)', 97, 'Anglais', '2019-06-12', '27.00', 'client/public/images/grandile.jpg'),
-(3, 'The Good Doctor (2017)', 104, 'Anglais', '2017-07-04', '42.00', 'client/public/images/goodDoctor.jpg'),
-(4, 'Cruella (2021)', 134, 'Anglais', '2019-05-28', '23.00', 'client/public/images/cruella.jpg'),
-(5, 'Wrath of Man (2021)', 119, 'Anglais', '2021-05-07', '41.00', 'client/public/images/wrathofman.jpg'),
-(6, 'Game of Thrones (2011)', 57, 'Anglais', '2011-07-24', '48.00', 'client/public/images/got.jpg'),
-(7, 'Fury (2014)', 135, 'Anglais', '2014-10-17', '27.00', 'client/public/images/fury.jpg'),
-(8, 'Jolt (2021)', 91, 'Anglais', '2021-07-15', '33.00', 'client/public/images/jolt.jpg');
+INSERT INTO `films` (`idFilm`, `titre`, `duree`, `langue`, `date`, `montant`, `photo`, `description`) VALUES
+(1, 'The Avengers (2012)', 143, 'Anglais', '2012-04-05', '30.00', 'client/public/images/theavengers_lob_crd_03_0.jpg', ''),
+(2, 'Grand Isle (2019)', 97, 'Anglais', '2019-06-12', '27.00', 'client/public/images/grandile.jpg', ''),
+(3, 'The Good Doctor (2017)', 104, 'Anglais', '2017-07-04', '42.00', 'client/public/images/goodDoctor.jpg', ''),
+(4, 'Cruella (2021)', 134, 'Anglais', '2019-05-28', '23.00', 'client/public/images/cruella.jpg', ''),
+(5, 'Wrath of Man (2021)', 119, 'Anglais', '2021-05-07', '41.00', 'client/public/images/wrathofman.jpg', ''),
+(6, 'Game of Thrones (2011)', 57, 'Anglais', '2011-07-24', '48.00', 'client/public/images/got.jpg', ''),
+(7, 'Fury (2014)', 135, 'Anglais', '2014-10-17', '27.00', 'client/public/images/fury.jpg', ''),
+(8, 'Jolt (2021)', 91, 'Anglais', '2021-07-15', '33.00', 'client/public/images/jolt.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -224,7 +217,7 @@ CREATE TABLE `paniers` (
 --
 
 INSERT INTO `paniers` (`idPanier`, `idMembre`) VALUES
-(19, 4);
+(24, 8);
 
 -- --------------------------------------------------------
 
@@ -237,14 +230,6 @@ CREATE TABLE `paniersfilms` (
   `idPanier` int(11) NOT NULL,
   `idFilm` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `paniersfilms`
---
-
-INSERT INTO `paniersfilms` (`idPanier`, `idFilm`) VALUES
-(19, 1),
-(19, 1);
 
 -- --------------------------------------------------------
 
@@ -410,7 +395,7 @@ ALTER TABLE `paiments`
 -- AUTO_INCREMENT for table `paniers`
 --
 ALTER TABLE `paniers`
-  MODIFY `idPanier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `idPanier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `prix`
 --
