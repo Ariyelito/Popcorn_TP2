@@ -110,3 +110,7 @@ p.card-text {
   color: rgb(201, 3, 3);
   text-align: right;
 }
+
+#logInText {
+  color:white;
+}

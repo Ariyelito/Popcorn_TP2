@@ -22,16 +22,16 @@ $contenu =$_GET["idContenu"];
 <div class="modal" id="LogInModal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Se connecter</h5>
+      <div class="modal-header bg-danger bg-gradient">
+        <h5 id="logInText" class="modal-title ">Se connecter</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <p>Connectez vous pour ajouter un film à votre panier!</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-        <a type="button" class="btn btn-primary" href="index.php?idContenu=2">Se connecter</a>
+        <button type="button" class="btn btn-secondary bg-gradient" data-bs-dismiss="modal">Annuler</button>
+        <a type="button" class="btn btn-danger bg-gradient" href="index.php?idContenu=2">Se connecter</a>
       </div>
     </div>
   </div>
