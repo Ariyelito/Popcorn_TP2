@@ -99,6 +99,7 @@ class crud
         }
     }
   
+    
 
     public function addPanier(panier $panier ){
          

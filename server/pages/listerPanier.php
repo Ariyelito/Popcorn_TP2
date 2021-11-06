@@ -64,7 +64,7 @@ require_once '../../db/connexion.inc.php';
     </td>   
                
                  <td> <a onclick="return confirm('Are you sure want to delete this record?')" 
-                            href="retirerUnfilmDuPanier.php?idFilm=<?php// echo $r['idFilm']?>" class="btn bg-gradient btn-outline-danger">Delete
+                            href="retirerUnfilmDuPanier.php?idFilm=<?php echo $r['idFilm']?>" class="btn bg-gradient btn-outline-danger">Delete
                         </a></td>
                
                
@@ -87,9 +87,8 @@ require_once '../../db/connexion.inc.php';
 
 
 
-
 <!-- option de jour-->
-<?php
+<?php 
 function optionDejour($idFilmP,$prix){  
     global $crud;
 
