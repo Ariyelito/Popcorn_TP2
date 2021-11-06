@@ -7,6 +7,7 @@ require_once '../../db/connexion.inc.php';
 
 
 
+
     if (!isset($_SESSION['idMembre'])) { 
      echo "Erreur, Vous devez vous connecter ou crée un Compte avant d'ajouter un film à votre panier.";  
    
@@ -134,7 +135,7 @@ function optionDejour($idFilmP,$prix){
         $_SESSION["total"] += $prix;
         $rep .= "</td>"; 
 
-    
+   
 return $rep;
 }
 ?>

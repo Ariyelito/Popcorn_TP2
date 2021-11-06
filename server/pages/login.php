@@ -53,40 +53,7 @@ include '../../includes/header.php';
             echo "password n'est pas bon";
         }
     }
-     // $r = $result->fetch(PDO::FETCH_ASSOC);
-    // echo $r['prenom'];
-    // while (!feof($connectionFile) && !$found) {
-    //     $ligne = fgets($connectionFile) . "<br />";
-    //   //  $tabLigne = explode(";", "$ligne;");
-    //   list($mailDB, $hash,$isActive,$isMembre) = explode(";", "$ligne");
-
-    //     if ($emailEntree == $mailDB) {
-    //         if (password_verify($passwordEntree, $hash)) {
-
-    //             $found = true;
-    //         }
-    //     }
-    // }
-
-
-    // if (!$found) {
-    //     echo "Verifier le mot de passe ou l'email";
-    //     echo "<br /><a href=\"../../index.php\">Accueil</a>";
-
-    // } else {        
-    //     echo "<h3>Vous êtes connecté ($emailEntree)</h3>";
-      
-    //      if($isMembre =='M')
-    //      {
-    //      header('Location: ../../membrePage.php');
-    //      }
-    //     else if($isMembre =='A')
-    //     {
-    //         header('Location: ../../admin.php');
-    //     }
     
-    // } 
-    // fclose($connectionFile);
     ?>
 </div>
 <?php 

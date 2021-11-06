@@ -253,6 +253,7 @@ class crud
         }
     }
   
+   
     
 
     public function addPanier(panier $panier ){
@@ -354,7 +355,7 @@ class crud
         }
     }
 
-    public function payer($idMembre ,$idPanier, $nbJour){
+    public function payer($idMembre ,$idPanier, $carts){
 
         try {
             $prix = $this->getPrix($nbJour)->fetch()['montant'];
@@ -363,6 +364,33 @@ class crud
             $sql =  "INSERT INTO paiments (montant, date,idMembre) VALUES($montant, NOW(),$idMembre)";
             $this->db->query($sql);
             return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+    public function calculerMontant($idPanier,$prix){
+    
+        $objects = $this->getIdFilmsDansPanier($idPanier);
+        
+         $montant = 0 ; 
+
+        foreach($objects as $films){
+            foreach($films as $idFilm){
+                $film = $this->getFilmById($idFilm)->fetch();
+           
+                $montant += $film['montant'] * $prix;
+            }
+           
+        }
+
+     return $montant;
+    }
+    private function getPrix($nbJour){
+        try {
+            $sql = "SELECT * FROM `prix` where nbJour=$nbJour";
+            $result = $this->db->query($sql);
+            return $result;
         } catch (PDOException $e) {
             echo $e->getMessage();
             return false;
@@ -405,21 +433,8 @@ class crud
             return false;
         }
     }
-
-    public function louerFilms($idMembre,$idFilm,$nbJour){
-
-    }
-    private function getPrix($nbJour){
-        try {
-            $sql = "SELECT * FROM `prix` where nbJour=$nbJour";
-            $result = $this->db->query($sql);
-            return $result;
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-            return false;
-        }
-    }
-    private function getIdFilmsDansPanier($idPanier){
+    
+    public function getIdFilmsDansPanier($idPanier){
         try {
             $stmt = $this->db->prepare("SELECT idFilm FROM `paniersfilms` where idPanier=$idPanier");
             $stmt->execute();
@@ -429,23 +444,12 @@ class crud
             return false;
         }
     }
-    public function calculerMontant($idPanier,$prix){
-    
-        $objects = $this->getIdFilmsDansPanier($idPanier);
-        
-         $montant = 0 ; 
+    public function louerFilms($idMembre,$idFilm,$nbJour){
 
-        foreach($objects as $films){
-            foreach($films as $idFilm){
-                $film = $this->getFilmById($idFilm)->fetch();
-           
-                $montant += $film['montant'] * $prix;
-            }
-           
-        }
-
-     return $montant;
     }
+  
+  
+  
 
     public function viderPanier($idPanier){
         try {
