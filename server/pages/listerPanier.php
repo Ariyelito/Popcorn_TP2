@@ -12,6 +12,12 @@ require_once '../../db/connexion.inc.php';
    
      exit;
  }
+ 
+    
+ unset( $_SESSION["total"]);
+
+
+ $_SESSION["total"]=0;
 ?>
    
 <h1 class="h1 text-center mt-5">Votre panier</h2>
@@ -70,11 +76,11 @@ require_once '../../db/connexion.inc.php';
             ?>
 
             <tr><td>Total:</td>
-            <td>Le total Est</td>
+            <td>Le total Est <?php echo $_SESSION["total"] ?></td>
         </tr> 
         </tbody>
     </table>
-    <a id="btnUpdate" class="btn btn-outline-success bg-gradient" href=<?phplocatiom.href?> >update</a>
+    <a id="btnUpdate" class="btn btn-outline-success bg-gradient" href='payer.php'> >Payer</a>
    
 </div>
 
@@ -86,7 +92,7 @@ require_once '../../db/connexion.inc.php';
 <?php
 function optionDejour($idFilmP,$prix){  
     global $crud;
-   
+
    
     if(!isset($_SESSION["Cart"][$idFilmP])  ){
         $_SESSION["Cart"][$idFilmP] = 1;
@@ -99,10 +105,9 @@ function optionDejour($idFilmP,$prix){
       
          }
 
-$journee = $_SESSION["Cart"][$idFilmP];
-       
+    $journee = $_SESSION["Cart"][$idFilmP];
 
- $result = $crud->getLesNbDeJourDeLocation();  
+     $result = $crud->getLesNbDeJourDeLocation();  
 
     
     $rep = "<select class='form-select' name='nbJourSelect".$idFilmP."' onchange='this.form.submit()'>";
@@ -125,14 +130,16 @@ $journee = $_SESSION["Cart"][$idFilmP];
         
         $result = $crud->getPrixPourUnFilm($journee);
         $r = $result->fetch(PDO::FETCH_ASSOC);
-
-        $rep .= $r["montant"]*$prix;
+        $prix=  $r["montant"]*$prix;
+        $rep .= $prix;
+        $_SESSION["total"] += $prix;
         $rep .= "</td>"; 
 
     
 return $rep;
 }
 ?>
+
 
 
 
