@@ -9,8 +9,9 @@
         public $photo;
         public  $idCategories;
         public $idRealisateurs;
+        public $description;
 
-public function __construct($idFilm, $titre , $duree, $langue,$date,$montant,$photo,$idCategories,$idrealisateurs)
+public function __construct($idFilm, $titre , $duree, $langue,$date,$montant,$photo,$idCategories,$idrealisateurs,$description)
   {
     $this->idFilm = $idFilm;
     $this->titre = $titre;
@@ -21,6 +22,7 @@ public function __construct($idFilm, $titre , $duree, $langue,$date,$montant,$ph
     $this->photo = $photo;
     $this->idCategories = $idCategories;
     $this->idrealisateurs = $idrealisateurs;
+    $this->description = $description;
   }
 
 
