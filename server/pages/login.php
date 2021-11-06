@@ -38,6 +38,7 @@ include '../../includes/header.php';
          if($result['role']=='M')
          {
          $_SESSION['idMembre'] =  $idMembre;
+         $_SESSION["Cart"]= Array();
          header('Location: ../../membrePage.php');
          }
         else if($result['role'] =='A')

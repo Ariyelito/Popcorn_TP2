@@ -276,8 +276,6 @@ class crud
            
         }
 
-       
-        
      return $montant;
     }
 
@@ -294,5 +292,34 @@ class crud
                 return false;
             }
     }
+
+
+    //pleur pas hakam j'ajoute qlq chose<
+
+    public function getLesNbDeJourDeLocation(){
+      
+        try {
+            $sql = "SELECT nbJour, montant FROM prix";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+    public function getPrixPourUnFilm($nbJour){
+      
+        try {
+            $sql = "SELECT montant FROM prix WHERE nbJour=$nbJour";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+    
+    
+
 
 }

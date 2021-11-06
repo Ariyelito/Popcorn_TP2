@@ -1,5 +1,3 @@
-
-
 <?php
 $title = "Votre panier";
 $root = "../../";
@@ -15,7 +13,7 @@ require_once '../../db/connexion.inc.php';
      exit;
  }
 ?>
-
+   
 <h1 class="h1 text-center mt-5">Votre panier</h2>
 <div id="contListMembre" class="container mt-3">
     <table class="table table-striped table-hover table-borderless">
@@ -24,7 +22,7 @@ require_once '../../db/connexion.inc.php';
             <th scope="col">Titre</th>  
             <th scope="col">langue</th>
             <th scope="col">Nombre de jour pour la location</th>
-            <th scope="col">Montant a changer</th>
+            <th scope="col">Montant</th>
             <th scope="col">Retirer</th>
            
         </thead>
@@ -36,8 +34,9 @@ require_once '../../db/connexion.inc.php';
     $panier  = $crud->getPanierParIdMembre($idMembre)->fetch();
     $idPanier= $panier['idPanier'];
 
-    $result = $crud->getPanier( $idPanier);
-       // donne l'id des film
+    $result = $crud->getPanier($idPanier);
+
+   
     while($r = $result->fetch(PDO::FETCH_ASSOC)) { 
         
         $unFilm= $crud->getFilmById($r['idFilm'])->fetch();
@@ -50,11 +49,17 @@ require_once '../../db/connexion.inc.php';
                 <td><?php echo $r['idFilm']?></td>              
                 <td><?php echo $unFilm['titre']?></td> 
                 <td><?php echo $unFilm['langue']?></td>    
-                <td><input  type="number"  placeholder="entrer la duree de location(jours)"></td>    
-                <td><?php echo $unFilm['montant']?></td> 
-                <td><a onclick="return confirm('Are you sure want to delete this record?')" 
-                            href="retirerUnfilmDuPanier.php?idFilm=<?php echo $r['idFilm']?> " class="btn bg-gradient btn-outline-danger">Delete
-                        </a></td> 
+                <td> 
+<!-- listerPanier.php?journee=7 -->
+                <form  action='' id='formPanier<?php echo $r['idFilm']?>' method="POST">
+                 <?php echo optionDejour($r['idFilm'],$unFilm['montant'])?>             
+               
+                </form>
+    </td>   
+               
+                 <td> <a onclick="return confirm('Are you sure want to delete this record?')" 
+                            href="retirerUnfilmDuPanier.php?idFilm=<?php// echo $r['idFilm']?>" class="btn bg-gradient btn-outline-danger">Delete
+                        </a></td>
                
                
             </tr>
@@ -69,6 +74,7 @@ require_once '../../db/connexion.inc.php';
         </tr> 
         </tbody>
     </table>
+    <a id="btnUpdate" class="btn btn-outline-success bg-gradient" href=<?phplocatiom.href?> >update</a>
    
 </div>
 
@@ -76,13 +82,61 @@ require_once '../../db/connexion.inc.php';
 
 
 
+<!-- option de jour-->
+<?php
+function optionDejour($idFilmP,$prix){  
+    global $crud;
+   
+   
+    if(!isset($_SESSION["Cart"][$idFilmP])  ){
+        $_SESSION["Cart"][$idFilmP] = 1;
+     
+    }
+
+
+        if(isset($_POST['nbJourSelect'.$idFilmP])) {
+        $_SESSION["Cart"][$idFilmP]= $_POST['nbJourSelect'.$idFilmP]; 
+      
+         }
+
+$journee = $_SESSION["Cart"][$idFilmP];
+       
+
+ $result = $crud->getLesNbDeJourDeLocation();  
+
+    
+    $rep = "<select class='form-select' name='nbJourSelect".$idFilmP."' onchange='this.form.submit()'>";
+  //$rep .= '<input type="hidden" id="nbJourHidden" name="nbJourHidden'.$idFilmP.'" value="'. $option.'">';
+    while($r = $result->fetch(PDO::FETCH_ASSOC)) {       
+       $jour= $r["nbJour"];  
+      
+     
+       if($jour == $journee) {           
+            $rep.= "<option value='".$jour."' selected>".$jour."</option>";
+        }else {
+            $rep.= "<option value='".$jour."'>".$jour."</option>";
+
+        }
+   }       
+        $rep .= "</select> "; 
+
+        $rep .= "<td>";
+        
+        
+        $result = $crud->getPrixPourUnFilm($journee);
+        $r = $result->fetch(PDO::FETCH_ASSOC);
+
+        $rep .= $r["montant"]*$prix;
+        $rep .= "</td>"; 
+
+    
+return $rep;
+}
+?>
+
+
+
 
 <?php
-function calculerMontant($idFilm,$nbjour){
-    
-
-
-
-}
 include '../../includes/footer.php';
 ?>

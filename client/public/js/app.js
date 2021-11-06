@@ -1,4 +1,5 @@
 $('#btnAjouterFilm').click(()=>{
+   
     $("#contAddFilm").show();
     $("#contListMembre").hide();
 });
