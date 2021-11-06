@@ -24,8 +24,8 @@ class crud
     public function addFilm(Film $film ){
         try {
             // define sql statement to be executed
-            $sql = "INSERT INTO films (titre,duree,langue,date,montant,photo)
-                    VALUES(:titre,:duree,:langue,:date,:montant,:photo)";
+            $sql = "INSERT INTO films (titre,duree,langue,date,montant,photo,description)
+                    VALUES(:titre,:duree,:langue,:date,:montant,:photo,:description)";
             // prepare the sql statement for execution
             $stmt = $this->db->prepare($sql);
             // bind all placeholders to the actual values
@@ -35,6 +35,7 @@ class crud
             $stmt->bindparam(':date', $film->date);
             $stmt->bindparam(':montant', $film->montant);
             $stmt->bindparam(':photo', $film->photo);
+            $stmt->bindparam(':photo', $film->description);
 
             // execute statement
             $stmt->execute();
@@ -82,6 +83,16 @@ class crud
             $stmt->execute();
           
             return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+    public function getAllCategories(){
+        try {
+            $sql = "SELECT * FROM `categories`";
+            $result = $this->db->query($sql);
+            return $result;
         } catch (PDOException $e) {
             echo $e->getMessage();
             return false;
@@ -165,7 +176,20 @@ class crud
          }
      }
 
-    
+     public function retirerUnfilmDuPanier($idMembre,$idFilm){
+        $idPanier = $this->getPanierParIdMembre($idMembre)->fetch()['idPanier'];
+
+        try {
+            $stmt = $this->db->prepare("DELETE FROM paniersfilms WHERE idPanier = $idPanier AND idFilm = $idFilm ");
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+
+
+     }
      public function getPanierParIdMembre($idMembre){
         try {
             $sql = "SELECT * FROM `paniers` where idMembre=$idMembre";
