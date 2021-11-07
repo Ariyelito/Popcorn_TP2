@@ -129,7 +129,7 @@ class crudMembre
     {
         try {
       
-            $sql = "UPDATE `membres` SET `nom` ='$membre->lastName', `prenom` = '$membre->firstName', `email` = '$membre->email',
+            $sql = "UPDATE `membres` SET `nom` ='$membre->lastName', `prenom` = '$membre->firstName',
              `date` = '$membre->date' WHERE  `idMembre` = '$membre->idMembre'";
 
             $stmt = $this->db->prepare($sql);

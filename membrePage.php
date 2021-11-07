@@ -43,8 +43,8 @@ $photo =$result['photo'];
         </div>
         <div class="col-12">
             <label for="inputEmail" class="form-label">Courriel</label>
-            <input type="email" class="form-control" id="inputEmail" name="inputEmail"value="<?php echo $email ?>"
-                placeholder="This will be your username ID">
+            <br>
+            <label class="form-label"  > "<?php echo $email ?></label>
         </div>
         <div class="col-6 mt-3">
             <div class="form-check form-check-inline">

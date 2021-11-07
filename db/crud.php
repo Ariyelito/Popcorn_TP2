@@ -414,7 +414,10 @@ class crud
     public function getNombreFilmsDansPanier($idMembre){
         try {
             $panier = $this->getPanierParIdMembre($idMembre)->fetch();
-            $idPanier = $panier['idPanier'];
+            if(!$panier){
+                   return;
+            }
+                $idPanier = $panier['idPanier'];
 
             $sql = "SELECT count(*) FROM `paniersfilms` where idPanier=$idPanier";
             $result = $this->db->query($sql);
@@ -483,7 +486,8 @@ class crud
     public function ajouterFilmsPaiments($idMembre){
         try {
             $idPaiment =  $this->getIdPaimentAvecIdMembre($idMembre);
-            $films =  $this->getPanier(21);
+            $idPanier = $this->getPanierParIdMembre($idMembre)->fetch()["idPanier"];
+            $films =  $this->getPanier($idPanier);
             
             while($r = $films->fetch(PDO::FETCH_ASSOC)) {               
                $idFilm= $r["idFilm"];
