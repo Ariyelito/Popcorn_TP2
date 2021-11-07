@@ -128,9 +128,9 @@ class crudMembre
     public function UpdateMembre(Membre $membre)
     {
         try {
-            // define sql statement to be executed add photo
-            
-            $sql = "UPDATE `membres` SET `nom` = $membre->lastName, `prenom` = $membre->firstName, `email` = $membre->email, `date` $membre->date WHERE `membres`.`idMembre` = $membre->idMembre ";
+      
+            $sql = "UPDATE `membres` SET `nom` ='$membre->lastName', `prenom` = '$membre->firstName', `email` = '$membre->email',
+             `date` = '$membre->date' WHERE  `idMembre` = '$membre->idMembre'";
 
             $stmt = $this->db->prepare($sql);
             $stmt->execute();
