@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2021 at 11:25 PM
+-- Generation Time: Nov 07, 2021 at 07:24 PM
 -- Server version: 5.7.17
 -- PHP Version: 5.6.30
 
@@ -200,7 +200,7 @@ INSERT INTO `membres` (`idMembre`, `nom`, `prenom`, `email`, `sexe`, `date`, `ph
 DROP TABLE IF EXISTS `paiments`;
 CREATE TABLE `paiments` (
   `idPaiment` int(11) NOT NULL,
-  `montant` decimal(5,2) NOT NULL,
+  `montant` decimal(10,2) NOT NULL,
   `date` date NOT NULL,
   `idMembre` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -210,7 +210,7 @@ CREATE TABLE `paiments` (
 --
 
 INSERT INTO `paiments` (`idPaiment`, `montant`, `date`, `idMembre`) VALUES
-(20, '717.40', '2021-11-02', 4);
+(34, '60.00', '2021-11-06', 8);
 
 -- --------------------------------------------------------
 
@@ -273,8 +273,10 @@ CREATE TABLE `prix` (
 --
 
 INSERT INTO `prix` (`idPrix`, `nbJour`, `montant`) VALUES
-(1, 3, '1.70'),
-(2, 7, '1.40');
+(1, 3, '1.35'),
+(2, 7, '1.40'),
+(3, 1, '1.00'),
+(4, 2, '1.20');
 
 -- --------------------------------------------------------
 
@@ -412,7 +414,7 @@ ALTER TABLE `actors`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `idCategorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idCategorie` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `films`
 --
@@ -432,7 +434,7 @@ ALTER TABLE `membres`
 -- AUTO_INCREMENT for table `paiments`
 --
 ALTER TABLE `paiments`
-  MODIFY `idPaiment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `idPaiment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `paniers`
 --
@@ -442,7 +444,7 @@ ALTER TABLE `paniers`
 -- AUTO_INCREMENT for table `prix`
 --
 ALTER TABLE `prix`
-  MODIFY `idPrix` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idPrix` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `realisateurs`
 --
