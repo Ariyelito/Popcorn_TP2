@@ -9,7 +9,6 @@ require_once '../../db/connexion.inc.php';
 <div class="container mt-5">
 <?php
 
-
 echo ("Le film da");
 ?>
 </div>

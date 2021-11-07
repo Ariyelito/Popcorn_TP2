@@ -49,7 +49,8 @@ class crud
     public function addRealisateursPourFilm($idFilm, $realisateurs){
       
 
-
+        if(empty($realisateurs))
+        exit;
         try {
             
             $sql = "INSERT INTO `filmsrealisateurs` (`idFilm`, `idRealisateur`) VALUES ";
@@ -112,7 +113,8 @@ class crud
         }
     }
     public function addActorsPourFilm($idFilm,$actors){
-        
+        if(empty($actors))
+        exit;
         try {
             
             $sql = "INSERT INTO `filmsactors` (`idFilm`, `idActor`) VALUES ";
@@ -173,6 +175,8 @@ class crud
         }
     }
     public function addCategoriesPourFilm($idFilm, $categories){
+        if(empty($categories))
+        exit;
         try {
             
             $sql = "INSERT INTO `filmcategorie` (`idFilm`, `idCategorie`) VALUES ";
@@ -407,8 +411,11 @@ class crud
             return false;
         }
     }
-    public function getNombreFilmsDansPanier($idPanier){
+    public function getNombreFilmsDansPanier($idMembre){
         try {
+            $panier = $this->getPanierParIdMembre($idMembre)->fetch();
+            $idPanier = $panier['idPanier'];
+
             $sql = "SELECT count(*) FROM `paniersfilms` where idPanier=$idPanier";
             $result = $this->db->query($sql);
             $count = $result->fetchColumn();

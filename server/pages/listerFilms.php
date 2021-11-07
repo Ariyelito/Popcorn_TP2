@@ -110,15 +110,16 @@ $result = $crud->getMovies();
             <div class="form-group">
                 <label for="inputCat">Catégorie :</label>
                 <select class="form-control" id="inputCat" name="inputCat">
-                    <option value="1">Comédie</option>
-                    <option value="2">Action</option>
-                    <option value="3">Romance</option>
-                    <option value="4">Drame</option>
-                    <option value="5">Science-fiction</option>
-                    <option value="6">Horreur</option>
-                    <?php //while($r = $results->fetch(PDO::FETCH_ASSOC)) {?>
-                    <!-- <option value="<?php //echo $r['horreur_id'] ?>"><?php //echo $r['nom']; ?></option> -->
-                    <?php //}?>
+                   <?php
+
+                    $cat = $crud->getAllCategories();
+
+                     while($c = $cat->fetch(PDO::FETCH_ASSOC)){ ?>
+
+                        <option value="<?php echo $c['idCategorie'] ?>"><?php echo $c['nomCategorie']  ?></option>
+
+                        <?php } ?>
+                        
                 </select>
             </div>
         </div>
