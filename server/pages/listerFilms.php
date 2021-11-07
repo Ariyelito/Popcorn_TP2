@@ -111,10 +111,15 @@ $result = $crud->getMovies();
                 <label for="inputCat">Catégorie :</label>
                 <select class="form-control" id="inputCat" name="inputCat">
                    <?php
+
                     $cat = $crud->getAllCategories();
-                     while($c = $cat->fetch(PDO::FETCH_ASSOC)){  ?>
-                        <option value=<?php $c['idCategorie'] ?>><?php $c['nomCategorie']  ?></option>
+
+                     while($c = $cat->fetch(PDO::FETCH_ASSOC)){ ?>
+
+                        <option value="<?php echo $c['idCategorie'] ?>"><?php echo $c['nomCategorie']  ?></option>
+
                         <?php } ?>
+                        
                 </select>
             </div>
         </div>
