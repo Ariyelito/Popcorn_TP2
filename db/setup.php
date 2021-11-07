@@ -49,8 +49,26 @@ function chargerJSONFilm(){
         $idCategories[] = $crud->getIdCategorie($categorie);
 
     }
+
+$image;
+ $url = $value['posterUrl'];
+  
+// Getting page header data
+ $array = @get_headers($url);
+  
+// Storing value at 1st position because
+// that is only what we need to check
+ $string = $array[0];
+  
+// 404 for error, 200 for no error
+if(strpos($string, "200")) {
+   $image = $value['posterUrl'];
+} 
+else {
+   $image = 'client/public/images/default.jpg';
+}
     
-     $film = new Film(0,$value['title'],$value['runtime'],"Anglais",$value['year']."-01-01",rand(10,50),$value['posterUrl'],$idCategories,$idRealisateurs,$value['plot']);
+     $film = new Film(0,$value['title'],$value['runtime'],"Anglais",$value['year']."-01-01",rand(10,50),$image,$idCategories,$idRealisateurs,$value['plot']);
 
   
 
