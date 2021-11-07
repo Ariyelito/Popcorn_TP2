@@ -35,7 +35,7 @@
         if (isset($_SESSION['idMembre'])) { 
       ?>                        
       <a id="btnHome" href="<?php echo $root?>membrePage.php" class="nav-item nav-link">Accueil</a>
-      <a href="<?php echo $root?>server/pages/listerPanier.php" class="nav-item nav-link ">Panier <span class="badge bg-secondary">4</span></a>
+      <a href="<?php echo $root?>server/pages/listerPanier.php" class="nav-item nav-link ">Panier <span class="badge bg-secondary"><?php /*require_once "db/connexion.inc.php"; $crud->getNombreFilmsDansPanier($_SESSION['idMembre']); */?> 5 </span></a>
     </div> 
                             
     <div class="navbar-nav navItemRight" >
