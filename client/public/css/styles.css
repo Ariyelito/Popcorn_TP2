@@ -17,6 +17,10 @@
   max-width: 1000px;
 }
 
+#contListPanier {
+  max-width: 800px;
+}
+
 /* .description {
    overflow: hidden;
   height: 200px; 
@@ -79,12 +83,26 @@ p.card-text {
 #btnAnnulerAddFilm{
   width: 100%;
 }
+
 #btnRetour{
   float: 50%;
 }
 
+#btnRetourPanier {
+  width: 18%;
+
+}
+
+#btnPayPanier{
+  width: 18%;
+  float: right;
+}
+
 #btnRetour2{
   width: 30%;
+  margin-right: auto;
+
+  
 }
 
 .btnConnection {
