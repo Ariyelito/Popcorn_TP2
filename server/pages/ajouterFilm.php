@@ -16,7 +16,7 @@ $duree = $_POST['inputDure'];
 $photo = "";
 $idCategories = array(1,2);
 $idRealisateurs = array(1,2);
-$description = "";
+$description = $_POST['descriptionText'];
 
 $film = new Film(0,$titre,$duree,$langue,$date,$montant,$photo,$idCategories,$idRealisateurs,$description);
 
