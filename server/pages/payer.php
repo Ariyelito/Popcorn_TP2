@@ -8,7 +8,8 @@ require_once '../../db/connexion.inc.php';
   $panier = $crud->getPanierParIdMembre($idMembre)->fetch();
 
   $crud->payer($idMembre ,$panier['idPanier'], $carts);
-  $crud->viderPanier($panier['idPanier']);
+  $crud->ajouterFilmsPaiments($idMembre);
+  //$crud->viderPanier($panier['idPanier']);
 
   
 

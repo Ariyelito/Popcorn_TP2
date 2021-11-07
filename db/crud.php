@@ -256,8 +256,7 @@ class crud
    
     
 
-    public function addPanier(panier $panier ){
-         
+    public function addPanier(panier $panier ){        
         try{
          
                 $sql = " INSERT INTO `paniers` (`idMembre`) VALUES ($panier->idMembre)";
@@ -362,8 +361,8 @@ class crud
 
         try {
           
-            $montant = $this->calculerMontant($idPanier,$carts);
-                  
+            $montant = $this->calculerMontant($idPanier,$carts);        
+                    
             $sql =  "INSERT INTO paiments (montant, date,idMembre) VALUES($montant, NOW(),$idMembre)";
             $this->db->query($sql);
             return true;
@@ -377,7 +376,7 @@ class crud
         $objects = $this->getIdFilmsDansPanier($idPanier); //idFilms
         
          $montant = 0 ; 
-   
+     
         foreach($objects as $films){
             foreach($films as $idFilm){
                 
@@ -385,25 +384,15 @@ class crud
                  $nbJour = $carts[$film['idFilm']];
 
                  $prix = $this->getPrixPourUnFilm($nbJour);
+                 
                  $montant += $film['montant']  * $prix;
+              
             }
            
         }
 
      return $montant;
-    }
-
-  private function ajouterFilmsPayments($idPaiment,$idPanier){
-    // try {
-         
-    //     $sql =  "INSERT INTO paimentsFilms (idPaiment,idFilm) VALUES($idPaiment, $idFilm)";
-    //     $this->db->query($sql);
-    //     return true;
-    // } catch (PDOException $e) {
-    //     echo $e->getMessage();
-    //     return false;
-    // }
-  }
+    } 
     public function filmExisteDansPanier($idPanier,$idFilm){
         try {
             $sql = "SELECT * FROM `paniersfilms` where idFilm=$idFilm and idPanier=$idPanier ";
@@ -445,9 +434,6 @@ class crud
 
     }
   
-  
-  
-
     public function viderPanier($idPanier){
         try {
 
@@ -462,8 +448,7 @@ class crud
             }
     }
 
-
-    //pleur pas hakam j'ajoute qlq chose<
+    //--------------------------
 
     public function getLesNbDeJourDeLocation(){
       
@@ -488,7 +473,45 @@ class crud
         }
     }
     
-    
+    public function ajouterFilmsPaiments($idMembre){
+        try {
+            $idPaiment =  $this->getIdPaimentAvecIdMembre($idMembre);
+            $films =  $this->getPanier(21);
+            
+            while($r = $films->fetch(PDO::FETCH_ASSOC)) {               
+               $idFilm= $r["idFilm"];
+               $sql =  "INSERT INTO paimentsFilms (idPaiment,idFilm) VALUES($idPaiment, $idFilm)";
+               $this->db->query($sql);
+            }
+
+           // $sql =  "INSERT INTO paimentsFilms (idPaiment,idFilm) VALUES($idPaiment, $idFilm)";
+            
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+        }
+
+
+   
+        public function getIdPaimentAvecIdMembre($idMembre){
+        try {
+             
+            $sql =  "SELECT idPaiment FROM paiments WHERE idMembre = $idMembre ORDER BY idPaiment DESC LIMIT 1";
+            $result = $this->db->query($sql)->fetch();
+            return $result['idPaiment'];
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+        
+
+
+
+
+    }
+
 
 
 }
