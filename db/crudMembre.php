@@ -80,6 +80,19 @@ class crudMembre
             return false;
         }
     }
+
+    public function getMembreByIdM($id){
+        try {
+            $sql = "SELECT * FROM `membres` WHERE idMembre = '$id'";
+            $result = $this->db->query($sql)->fetch();
+           
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
     public function getMembreConnexion($email) {
         try {
             $sql = "SELECT * FROM `connexion` WHERE email = '$email'";
@@ -110,4 +123,32 @@ class crudMembre
                 return false;
             }
     }
+    //Update Membre
+
+    public function UpdateMembre(Membre $membre)
+    {
+        try {
+            // define sql statement to be executed add photo
+            
+            $sql = "UPDATE `membres` SET `nom` = $membre->lastName, `prenom` = $membre->firstName, `email` = $membre->email, `date` $membre->date WHERE `membres`.`idMembre` = $membre->idMembre ";
+
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
 }

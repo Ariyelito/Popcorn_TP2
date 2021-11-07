@@ -38,6 +38,7 @@ include '../../includes/header.php';
          if($result['role']=='M')
          {
          $_SESSION['idMembre'] =  $idMembre;
+         $_SESSION['emailMembre'] =  $emailEntree;
          $_SESSION["Cart"]= array();
          
          header('Location: ../../membrePage.php');
