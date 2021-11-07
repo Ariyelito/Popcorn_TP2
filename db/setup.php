@@ -68,7 +68,7 @@ else {
    $image = 'client/public/images/default.jpg';
 }
     
-     $film = new Film(0,$value['title'],$value['runtime'],"Anglais",$value['year']."-01-01",rand(10,50),$image,$idCategories,$idRealisateurs,$value['plot']);
+     $film = new Film(0,$value['title'],$value['runtime'],"Anglais",$value['year']."-01-01",rand(1,3),$image,$idCategories,$idRealisateurs,$value['plot']);
 
   
 
