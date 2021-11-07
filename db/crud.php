@@ -407,8 +407,11 @@ class crud
             return false;
         }
     }
-    public function getNombreFilmsDansPanier($idPanier){
+    public function getNombreFilmsDansPanier($idMembre){
         try {
+            $panier = $this->getPanierParIdMembre($idMembre)->fetch();
+            $idPanier = $panier['idPanier'];
+
             $sql = "SELECT count(*) FROM `paniersfilms` where idPanier=$idPanier";
             $result = $this->db->query($sql);
             $count = $result->fetchColumn();
