@@ -28,6 +28,8 @@ $crudMembre->ajouterMembre($membre);
 $membre->idMembre = $pdo->lastInsertId();
 $crudMembre->ajouterConnexion($membre);
 
+session_start();
+$_SESSION['idMembre'] = $membre->idMembre;
 header('Location: ../../membrePage.php');
            
 ?>
