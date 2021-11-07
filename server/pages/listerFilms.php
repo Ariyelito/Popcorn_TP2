@@ -39,7 +39,7 @@ $result = $crud->getMovies();
                     <td>
                         <div class="btn-group">
                             <a class="btn bg-gradient btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updateFilmModal">Update</a>
-                            <a class="btn bg-gradient btn-outline-danger">Delete</a>
+                            <a href='deleteFilm.php?idFilm=<?php echo $r['idFilm']?>' class="btn bg-gradient btn-outline-danger">Delete</a>
                         </div>
                     </td>
                 </tr>

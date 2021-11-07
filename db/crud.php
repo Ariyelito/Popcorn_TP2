@@ -46,6 +46,19 @@ class crud
             return false;
         }
     }
+    public function deleteFilm($idFilm){
+        try {
+
+            $stmt = $this->db->prepare( "DELETE FROM films WHERE idFilm =$idFilm" );
+            $stmt->execute();
+
+            return true;
+            
+            } catch (PDOException $e) {
+                echo $e->getMessage();
+                return false;
+            }
+    }
     public function addRealisateursPourFilm($idFilm, $realisateurs){
       
 
