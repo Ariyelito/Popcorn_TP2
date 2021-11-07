@@ -9,7 +9,7 @@ require_once '../../db/connexion.inc.php';
 
   $crud->payer($idMembre ,$panier['idPanier'], $carts);
   $crud->ajouterFilmsPaiments($idMembre);
-  //$crud->viderPanier($panier['idPanier']);
+  $crud->viderPanier($panier['idPanier']);
 
   
 
