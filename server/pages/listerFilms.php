@@ -123,10 +123,14 @@ $result = $crud->getMovies();
             </div>
         </div>
         <div class="col-12 mt-3">
-            <label for="formFile" class="form-label">Poster pour le film (image)</label>
+            <label for="formFile" class="form-label">Poster pour le film (image) :</label>
             <input class="form-control" type="file" id="formFile">
         </div>
         <br>
+        <div class="col-12 mt-3">
+            <label for="descriptionText" class="form-label">Description du film :</label>
+            <textarea id="descriptionText" name="descriptionText" class="form-control" rows="3"></textarea>
+        </div>
         <div class="col-12 mt-3">
             <button id="btnAddFilm" type="submit" class="btn btn-success bg-gradient">Ajouter</button>
 
