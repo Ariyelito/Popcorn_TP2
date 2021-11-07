@@ -54,6 +54,10 @@ require_once '../../db/connexion.inc.php';
 
    $msgFilmAdd = "Film ajouter au panier";
    afficherMessage($msgFilmAdd);
+
+   header('Location: ../../membrePage.php');
+
+
    ?>
 
    <?php function afficherMessage($msg) { ?>

@@ -21,7 +21,7 @@ require_once '../../db/connexion.inc.php';
  $_SESSION["total"]=0;
 ?>
 
-<h1 class="h1 text-center mt-5">Votre panier</h2>
+<h1 class="h1 text-center mt-5">Votre panier</h1>
 <div id="contListPanier" class="container mt-3">
     <table class="table table-striped table-hover table-borderless">
         <thead class="table-danger">
@@ -36,7 +36,12 @@ require_once '../../db/connexion.inc.php';
             <?php
             $idMembre = $_SESSION['idMembre'];
             $panier  = $crud->getPanierParIdMembre($idMembre)->fetch();
+           if(!$panier){
+                echo "<h2>Panier vide</h2>";
+                exit;
+           } else{          
             $idPanier= $panier['idPanier'];
+        }
 
             $result = $crud->getPanier($idPanier);
 

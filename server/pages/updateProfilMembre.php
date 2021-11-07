@@ -8,6 +8,8 @@ echo $result['sexe'];
 echo $result['date'];
 echo $result['photo'];*/
 
+require_once '../../db/connexion.inc.php';
+session_start();
 $idMembre = $_SESSION["idMembre"];
 $nom = $_POST['inputNom'];
 $prenom = $_POST['inputPrenom'];
@@ -20,7 +22,7 @@ $motDePasse = $_POST['inputPassword'];
 
 $membre  = new Membre($idMembre,$nom,$prenom,$email,$sexe,$date,$photo,$motDePasse,1,"M");
 
-$crudMembre->UpdateMembre();
+$crudMembre->UpdateMembre($membre);
 ?>
 
 
@@ -28,5 +30,5 @@ $crudMembre->UpdateMembre();
 
 <?php 
 
-include  $root.'includes/footer.php';
+include  '../../includes/footer.php';
 ?>
