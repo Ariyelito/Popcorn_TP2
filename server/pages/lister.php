@@ -39,7 +39,7 @@ $result = $crudMembre->getAllMembres();
                             <input class="btn bg-gradient btn-outline-warning"  type="submit"value="Update Statue"><br><br>                          
                             </form>
                      
-                        <a onclick="return confirm('Are you sure want to delete this record?')" 
+                        <a id="btnDeleteM" onclick="return confirm('Are you sure want to delete this record?')" 
                             href="deleteMembre.php?idMembre=<?php echo $r['idMembre']?> " class="btn bg-gradient btn-outline-danger">Delete
                         </a>
                     </div>
