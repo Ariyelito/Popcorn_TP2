@@ -30,10 +30,20 @@ include '../../includes/header.php';
     } else {
         if($passwordEntree == $result['password']){
             $idMembre = $result['idMembre'];
-        echo "<h3>Vous êtes connecté ($emailEntree)</h3>";
+  //      echo "<h3>Vous êtes connecté ($emailEntree)</h3>";
         
         // session pour save idMembre
        
+           $r =$crudMembre->getMembreStatue($idMembre);
+
+            if($r == 0){
+                
+                echo "<br><br>Votre Compte à été désactiver";
+                exit;
+            }
+
+
+
         session_start();
          if($result['role']=='M')
          {
