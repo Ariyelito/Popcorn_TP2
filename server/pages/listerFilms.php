@@ -171,26 +171,7 @@ $result = $crud->getMovies();
 </div>
 
 
-<!-- MODAL -->
-<div class="modal" id="updateFilmModalasda" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header bg-danger bg-gradient">
-        <h5 id="logInText" class="modal-title ">Se connecter <?php echo $_SESSION["filmUpdateId"]?></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-     
-      <div class="modal-body">
-     
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary bg-gradient" data-bs-dismiss="modal">Annuler</button>
-        <a type="button" class="btn btn-danger bg-gradient" href="index.php?idContenu=2">Se connecter</a>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!--FIn MODAL -->
 
 
 
