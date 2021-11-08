@@ -34,7 +34,11 @@ $result = $crudMembre->getAllMembres();
                 <td><?php echo getRole($connexion['role'])?></td>
                 <td>
                     <div class="btn-group">
-                        <a  data-bs-toggle="modal" data-bs-target="#updateMembreModal"class="btn bg-gradient btn-outline-warning">Update</a>
+                    <form  action="./updateMembreStatue.php" method="GET">
+                            <input type="hidden" name="idMembre" value="<?php echo $r['idMembre']?>">                
+                            <input class="btn bg-gradient btn-outline-warning"  type="submit"value="Update Statue"><br><br>                          
+                            </form>
+                     
                         <a onclick="return confirm('Are you sure want to delete this record?')" 
                             href="deleteMembre.php?idMembre=<?php echo $r['idMembre']?> " class="btn bg-gradient btn-outline-danger">Delete
                         </a>

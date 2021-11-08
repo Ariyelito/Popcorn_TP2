@@ -140,11 +140,43 @@ class crudMembre
             return false;
         }
     }
+    
+
+    public function UpdateMembreStatue($idMembre)
+    {
+        // 1 actif 0 inactid
+        try {
+            $r = $this->getMembreStatue($idMembre);
+            if($r == 1){
+                $statue =  0;
+            }else if($r == 0){
+                $statue = 1;
+            }
 
 
+            $sql = "UPDATE `connexion` SET `statue` = '$statue'  WHERE 'idMembre' = '$idMembre'";
 
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+    private function getMembreStatue($idMembre)
+    {
+        try {
+            $sql = "SELECT * FROM `connexion` WHERE 'idMembre' = '$idMembre'";
+            $result = $this->db->query($sql)->fetch()["statue"];
+           
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
 
-
+    }
 
 
 
