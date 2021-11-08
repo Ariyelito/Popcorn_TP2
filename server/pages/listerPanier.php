@@ -79,7 +79,7 @@ require_once '../../db/connexion.inc.php';
         </tbody>
     </table>
     <a id="btnRetourPanier" class="btn btn-danger bg-gradient" href="../../membrePage.php">Retour</a>
-     <a id="btnPayPanier" class="btn btn-success bg-gradient" href='payer.php'>Payer</a>
+     <a id="btnPayPanier" class="btn btn-success bg-gradient" data-bs-toggle="modal" data-bs-target="#payerModal" >Payer</a>
             
     
 
@@ -139,6 +139,46 @@ function optionDejour($idFilmP,$prixFilm){
 return $rep;
 }
 ?>
+
+
+<div class="modal" id="payerModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-danger bg-gradient">
+        <h5 id="logInText" class="modal-title ">Se connecter</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form id="myForm" class="row mt-1" action="/payer.php" >
+
+<div class="form-group col-12">
+
+    <label for="email" class="form-label">Carte de credit</label>
+    <input type="text" class="form-control" id="email" name="email" placeholder="">
+    <div class="valid-feedback">
+      
+    </div>
+</div>
+
+<div class="form-group col-12">
+    <label for="mdp" class="form-label">CVC</label>
+    <input type="password" class="form-control" id="mdp" name="mdp" placeholder="">
+    <div class="valid-feedback">
+        Looks good!
+    </div>
+</div>
+
+
+
+</form>
+      </div>
+      <div class="modal-footer">
+      
+        <a type="button" class="btn btn-danger bg-gradient" href="payer.php">Payer</a>
+      </div>
+    </div>
+  </div>
+</div>
 <?php
 include '../../includes/footer.php';
 ?>
