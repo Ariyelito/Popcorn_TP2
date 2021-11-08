@@ -23,6 +23,7 @@ $motDePasse = $_POST['inputPassword'];
 $membre  = new Membre($idMembre,$nom,$prenom,null,$sexe,$date,$photo,$motDePasse,1,"M");
 
 $crudMembre->UpdateMembre($membre);
+header('Location: ../../membrePage.php');
 ?>
 
 
