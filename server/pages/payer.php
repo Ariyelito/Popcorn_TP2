@@ -11,7 +11,7 @@ require_once '../../db/connexion.inc.php';
   $crud->ajouterFilmsPaiments($idMembre);
   $crud->viderPanier($panier['idPanier']);
 
-  header('Location: ../../membrePage.php');
+  header('Location: ../../membrePage.php?msg=Votre+paiment+a+été+effectuer');
   
 
 
