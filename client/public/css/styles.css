@@ -41,6 +41,10 @@ p.card-text {
   text-align: center;
 }
 
+.card {
+  height: 572px;
+}
+
 .topnav a:hover {
   /* background-color:rgb(153, 0, 0); */
   color: white;
