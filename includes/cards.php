@@ -14,8 +14,8 @@
         while($r = $result->fetch(PDO::FETCH_ASSOC)) { ?>
 
         <div class="col mt-3">
-            <div id="cardFilm" class="card" onclick="location.href='./server/pages/filmDetails.php?idFilm=<?php echo $r['idFilm']?>'" >
-                <img src="<?php echo $r['photo'] ?>" class="card-img-top" alt="poster officiel du film">
+            <div id="cardFilm" class="card" >
+                <img src="<?php echo $r['photo'] ?>" class="card-img-top" alt="poster officiel du film" onclick="location.href='./server/pages/filmDetails.php?idFilm=<?php echo $r['idFilm']?>'">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $r['titre'] ?></h5>
                     <p class="card-text">Prix(1 jour):
