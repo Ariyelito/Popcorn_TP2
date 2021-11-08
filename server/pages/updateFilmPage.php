@@ -103,7 +103,7 @@ $description = $r["description"];
 </div>
 <div class="col-12 mt-3">
     <button id="btnAddFilm" type="submit" class="btn btn-success bg-gradient">Modifier</button>
-
+    <a href='deleteFilm.php?idFilm=<?php echo $r['idFilm']?>' class="btn bg-gradient btn-danger">Delete</a>           
 </div>
 </form>
 
