@@ -63,11 +63,10 @@ if($contenu == 2){
         </div>
 
         <div class="form-group col-12 mt-3">
-
-            <button id="btnConnecter" type="submit" class="btn btn-danger bg-gradient mb-3">Se connecter</button>
-<!--             
-            <a id="btnConnecter" href="<?php echo $root?>index.php?idContenu=1"  class="btn btn-danger btn-lg">Devenir membre</a> -->
-
+            <button id="btnConnecter" type="submit" class="btn btn-danger bg-gradient">Se connecter</button>
+        </div>
+        <div class="col mt-1">
+        <a href="<?php echo $root?>index.php?idContenu=1" style="color:red"  class="mt-1">Pas de compte? Enregistrez-vous</a>
         </div>
 
     </form>
@@ -138,8 +137,8 @@ if($contenu == 1){
         <div class="col-12 mt-3">
             <button id="btnEnregistrer" type="submit" class="btn btn-danger bg-gradient">Sign in</button>
         </div>
-        <div class="col">
-        <a href="<?php echo $root?>index.php?idContenu=2" style="color:red"  class="mt-1">Déja un membre? Se connecter</a>
+        <div class="col mt-2">
+        <a href="<?php echo $root?>index.php?idContenu=2" style="color:red"  class="mt-1">Déja un membre? Connectez-vous</a>
         </div>
     </form>
 </div>
