@@ -13,14 +13,14 @@ session_start();
 $idMembre = $_SESSION["idMembre"];
 $nom = $_POST['inputNom'];
 $prenom = $_POST['inputPrenom'];
-$email = $_POST['inputEmail'];
+
 $sexe = $_POST['inputSexe'];
 $date = $_POST['inputBd'];
 $photo = "";
 $motDePasse = $_POST['inputPassword'];
 
 
-$membre  = new Membre($idMembre,$nom,$prenom,$email,$sexe,$date,$photo,$motDePasse,1,"M");
+$membre  = new Membre($idMembre,$nom,$prenom,null,$sexe,$date,$photo,$motDePasse,1,"M");
 
 $crudMembre->UpdateMembre($membre);
 ?>
