@@ -14,7 +14,7 @@
         while($r = $result->fetch(PDO::FETCH_ASSOC)) { ?>
 
         <div class="col mt-3">
-            <div id="cardFilm" class="card">
+            <div id="cardFilm" class="card" onclick="location.href='./server/pages/filmDetails.php?idFilm=<?php echo $r['idFilm']?>'" >
                 <img src="<?php echo $r['photo'] ?>" class="card-img-top" alt="poster officiel du film">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $r['titre'] ?></h5>
@@ -28,9 +28,7 @@
                     </p>
                 </div>
                 <?php //if($member){ }?>
-                
-                <a class="btn bg-gradient btn-danger btnCard mb-1" href="./server/pages/filmDetails.php?idFilm=<?php echo $r['idFilm']?>" >Details</a>
-                    <div class="btn-group">
+                <div class="btn-group">
                         <a class="btn bg-gradient btn-danger btnCard" 
                         <?php if($member){ ?> href="./server/pages/ajouterPanier.php?idFilm=<?php echo $r['idFilm']?>"
                         <?php } else { ?> href="#" data-bs-toggle="modal" data-bs-target="#LogInModal" <?php } ?> >Ajouter au panier</a>

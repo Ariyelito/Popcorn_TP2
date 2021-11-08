@@ -14,9 +14,6 @@ $contenu =$_GET["idContenu"];
 
 
 ?>
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#LogInModal">
-  Launch demo modal
 </button> -->
 <!-- modal pour se connecter -->
 <div class="modal" id="LogInModal" tabindex="-1">
