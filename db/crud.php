@@ -209,6 +209,17 @@ public function updateFilm(Film $film ){
         return false;
     }
     }
+    public function getAllRealisateurs(){
+        try {
+            $sql = "SELECT * FROM `realisateurs`";
+            $result = $this->db->query($sql);          
+
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
     public function realisateurExiste($nom){
         try{
             $sql = "SELECT * FROM realisateurs WHERE nom='$nom'";

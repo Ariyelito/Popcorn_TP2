@@ -96,7 +96,21 @@ $result = $crud->getMovies();
         <div class="col-md-6 mt-3">
             <div class="form-group">
                 <label for="inputReal" class="form-label">Réalisateur :</label>
-                <input type="text" class="form-control" id="inputReal" name="inputReal" value="">
+             
+               
+                <input list="brow">
+                <datalist id="brow">
+                <?php
+                    $cat = $crud->getAllRealisateurs();                    
+                    while($c = $cat->fetch(PDO::FETCH_ASSOC)){                        
+                        $rep.="<option value='".$c["idRealisateur"]."'>".$c["nom"]."</option>";                         
+                        
+                    }?>   
+                    <?php echo $rep?>
+                </datalist>  
+               
+
+
             </div>
         </div>
 
@@ -171,7 +185,9 @@ $result = $crud->getMovies();
 </div>
 
 
+<!-- MODAL -->
 
+<!--FIn MODAL -->
 
 
 
