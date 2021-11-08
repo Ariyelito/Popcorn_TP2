@@ -4,19 +4,17 @@ $root="";
 include 'includes/header.php';
 require_once 'db/connexion.inc.php';
 ?>
-
-<input list="brow">
-<datalist id="brow">
-  <option value="Internet Explorer">
-  <option value="Firefox">
-  <option value="Chrome">
-  <option value="Opera">
-  <option value="Safari">
-</datalist>  
+<br><br>
 
 
 
 
+<form action="server/pages/test.php"  method="POST">
+
+<label for="formFile" class="form-label">Poster pour le film (image) :</label>
+    <input class="form-control" type="file" id="photo" name="photo">
+<button type="sumbit">dasd</button>
+</form>
 
 
 
