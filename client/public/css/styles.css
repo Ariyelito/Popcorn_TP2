@@ -42,7 +42,7 @@ p.card-text {
 }
 
 .card {
-  height: 572px;
+  min-height: 572px;
 }
 
 .topnav a:hover {
