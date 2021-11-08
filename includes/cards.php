@@ -18,9 +18,11 @@
                 <img src="<?php echo $r['photo'] ?>" class="card-img-top" alt="poster officiel du film">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $r['titre'] ?></h5>
-                    <p class="card-text">
+                    <p class="card-text">Prix(1 jour):
                     <?php echo $r['montant'] ?> </br>
+                    Date de sorti:
                     <?php echo $r['date'] ?> </br>
+                    Langue:
                     <?php echo $r['langue'] ?>
                     <!-- add realisateur bd connection (use .card-subtitle) -->
                     </p>

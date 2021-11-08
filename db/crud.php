@@ -31,7 +31,16 @@ class crud
             return false;
         }
     }
-
+    public function getMoviesTitre( $titre) {
+        try {
+            $sql = "SELECT * FROM `films` WHERE 'titre' LIKE '%$titre%' ";
+            $result = $this->db->query($sql);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
 
 
     public function addFilm(Film $film ){

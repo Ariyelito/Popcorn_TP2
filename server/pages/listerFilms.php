@@ -4,15 +4,45 @@ $root = "../../";
 //$lister = true;
 include '../../includes/header.php';
 require_once '../../db/connexion.inc.php';
+
+
+if(isset($_GET["titre"])){
+    echo"<br><br>";
+    echo $_GET["titre"];
+    $result= $crud->getMoviesTitre($_GET["titre"]);
+    echo"<br><br>";
+    var_dump($result);
+    while($r = $result->fetch(PDO::FETCH_ASSOC)) { 
+        echo  $r["titre"];
+        echo "sad";
+    }
+exit;
+
+}else{
 $result = $crud->getMovies();
+}
 //$result = $result->fetchAll();
 ?>
 
 <div id="contListMembre" class="container mt-5">
     <h1 class="h1 text-center">Liste des films</h2>
-        <a id="btnAjouterFilm" class="btn btn-outline-success bg-gradient">Ajouter un film</a>
+        <a id="btnAjouterFilm" class="btn btn-outline-success bg-gradient">Ajouter un film</a>        
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Titre</span>
+            </div>   
+
+            <form  action="./listerFilms.php" method="GET">
+            <input type="sumbit" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="titre" value="">
+          
+            </form>
+        
+
+    </div>
+
         <table class="table table-striped table-hover table-borderless">
-            <thead class="table-success">
+            <thead class="table-success">             
                 <th scope="col">ID</th>
                 <th scope="col">titre</th>
                 <th scope="col">duree</th>
