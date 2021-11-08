@@ -22,10 +22,10 @@ include '../../includes/header.php';
 
     $result = $crudMembre->getMembreByEmail($emailEntree);
     if(!$result) {?>
-    <div class="container text-center">
+    <div class="container text-center mt-5">
         <h5 class="h5 text-danger mt-5">ID de connection non valide. Utilisé un autre email.</h1>
         <a id="btnRetour2" class="btn btn-danger bg-gradient" href="../../index.php">Retour</a>
-    </div>
+    
     <?php
     } else {
         if($passwordEntree == $result['password']){
@@ -65,7 +65,9 @@ include '../../includes/header.php';
         }
     }
     
+    
     ?>
+    </div>
 </div>
 <?php 
 $root = "../../";
