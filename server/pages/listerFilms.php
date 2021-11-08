@@ -7,16 +7,10 @@ require_once '../../db/connexion.inc.php';
 
 
 if(isset($_GET["titre"])){
-    echo"<br><br>";
-    echo $_GET["titre"];
+ 
+   
     $result= $crud->getMoviesTitre($_GET["titre"]);
-    echo"<br><br>";
-    var_dump($result);
-    while($r = $result->fetch(PDO::FETCH_ASSOC)) { 
-        echo  $r["titre"];
-        echo "sad";
-    }
-exit;
+    
 
 }else{
 $result = $crud->getMovies();

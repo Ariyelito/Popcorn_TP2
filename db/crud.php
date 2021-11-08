@@ -33,7 +33,8 @@ class crud
     }
     public function getMoviesTitre( $titre) {
         try {
-            $sql = "SELECT * FROM `films` WHERE 'titre' LIKE '%$titre%' ";
+            $sql = "SELECT * FROM films WHERE titre LIKE '%$titre%';
+            ";
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $e) {
