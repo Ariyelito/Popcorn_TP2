@@ -26,6 +26,8 @@
                     </p>
                 </div>
                 <?php //if($member){ }?>
+                
+                <a class="btn bg-gradient btn-danger btnCard mb-1" href="./server/pages/filmDetails.php?idFilm=<?php echo $r['idFilm']?>" >Details</a>
                     <div class="btn-group">
                         <a class="btn bg-gradient btn-danger btnCard" 
                         <?php if($member){ ?> href="./server/pages/ajouterPanier.php?idFilm=<?php echo $r['idFilm']?>"
