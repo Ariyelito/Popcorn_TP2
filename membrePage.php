@@ -5,6 +5,11 @@ include 'includes/header.php';
 require_once 'db/connexion.inc.php';
 $result = $crud->getMovies();
 
+if(isset($_GET["msg"])){
+    echo"<br><br>".($_GET["msg"]);
+    
+}
+
 ?>
 
 <?php
@@ -21,7 +26,23 @@ $sexe= $result['sexe'];
 $date =$result['date'];
 $photo =$result['photo'];
 ?>
-
+<div class="modal" id="msModalg" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-danger bg-gradient">
+        <h5 id="logInText" class="modal-title ">Se connecter</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><?phpif(isset($_GET["msg"])){echo $_GET["msg"]}  ?></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary bg-gradient" data-bs-dismiss="modal">Annuler</button>
+        <a type="button" class="btn btn-danger bg-gradient" href="index.php?idContenu=2">Se connecter</a>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="modal" id="UpdateProfilModal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">

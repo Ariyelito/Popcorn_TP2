@@ -65,6 +65,10 @@ p.card-text {
   margin-right: 15px;
 }
 
+#btnDeleteM{
+  height: 38px;
+}
+
 #btnConnecter {
   width: 100%;
 }
@@ -74,9 +78,9 @@ p.card-text {
 }
 
 #btnAjouterFilm {
-  width: 100%;
   border-bottom-left-radius: 0%;
   border-bottom-right-radius: 0%;
+  width: 60%;
 }
 #btnAddFilm {
   width: 100%;

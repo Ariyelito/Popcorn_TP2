@@ -20,9 +20,10 @@ $result = $crud->getMovies();
 
 <div id="contListMembre" class="container mt-5">
     <h1 class="h1 text-center">Liste des films</h2>
+    <div class="input-group mb-3">
         <a id="btnAjouterFilm" class="btn btn-outline-success bg-gradient">Ajouter un film</a>        
 
-    <div class="input-group mb-3">
+    
         <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-default">Titre</span>
             </div>   
