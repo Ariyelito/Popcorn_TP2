@@ -34,7 +34,9 @@ $photo =$result['photo'];
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p><?phpif(isset($_GET["msg"])){echo $_GET["msg"]}  ?></p>
+        <p><?php if(isset($_GET["msg"])){
+            echo $_GET["msg"];
+            }  ?></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary bg-gradient" data-bs-dismiss="modal">Annuler</button>
