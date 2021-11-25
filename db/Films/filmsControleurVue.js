@@ -1,6 +1,6 @@
 
 function listerF(listFilms){
-    document.getElementById("text").innerHTML = "hello";
+    $('#text').html( "hello");
 }
 
 var filmsVue=function(reponse){
