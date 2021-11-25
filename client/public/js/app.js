@@ -107,7 +107,9 @@
 
  
 // */
-$('#text').html( "hello2");
-$('#btnB').click(()=>{
-    $('#text').html( "hello2");
+
+$(document).ready(function () {
+    $('#btnB').click(()=>{
+        $('#energForm').toggle();
+    });
 });
