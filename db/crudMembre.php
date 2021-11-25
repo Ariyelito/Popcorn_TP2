@@ -80,19 +80,6 @@ class crudMembre
             return false;
         }
     }
-
-    public function getMembreByIdM($id){
-        try {
-            $sql = "SELECT * FROM `membres` WHERE idMembre = '$id'";
-            $result = $this->db->query($sql)->fetch();
-           
-            return $result;
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-            return false;
-        }
-    }
-
     public function getMembreConnexion($email) {
         try {
             $sql = "SELECT * FROM `connexion` WHERE email = '$email'";
@@ -123,66 +110,4 @@ class crudMembre
                 return false;
             }
     }
-    //Update Membre
-
-    public function UpdateMembre(Membre $membre)
-    {
-        try {
-      
-            $sql = "UPDATE `membres` SET `nom` ='$membre->lastName', `prenom` = '$membre->firstName',
-             `date` = '$membre->date' WHERE  `idMembre` = '$membre->idMembre'";
-
-            $stmt = $this->db->prepare($sql);
-            $stmt->execute();
-            return true;
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-            return false;
-        }
-    }
-    
-
-    public function UpdateMembreStatue($idMembre)
-    {
-        // 1 actif 0 inactid
-        try {
-            $r = $this->getMembreStatue($idMembre);
-          
-            if($r == 1){
-                $statue =  0;
-               
-            }else if($r == 0){
-                $statue = 1;
-               
-            }         
-           
-            $sql = "UPDATE `connexion` SET `statue` = $statue WHERE idMembre = $idMembre";
-                       
-            $stmt = $this->db->prepare($sql);
-            $stmt->execute();
-            return true;
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-            return false;
-        }
-    }
-    public function getMembreStatue($idMembre)
-    {
-        try {
-            $sql = "SELECT * FROM `connexion` WHERE idMembre = $idMembre ";
-            $result = $this->db->query($sql)->fetch();
-           
-            return $result["statue"];
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-            return false;
-        }
-
-    }
-
-
-
-
-
-
 }

@@ -1,8 +1,10 @@
-#contLogIn1 {
+#contLogIn {
+  display: none;
   max-width: 400px;
 }
 
-#contRegister1 {
+#contRegister {
+  display: none;
   max-width: 700px;
 }
 
@@ -39,10 +41,6 @@ p.card-text {
   text-align: center;
 }
 
-.card {
-  min-height: 600px;
-}
-
 .topnav a:hover {
   /* background-color:rgb(153, 0, 0); */
   color: white;
@@ -65,10 +63,6 @@ p.card-text {
   margin-right: 15px;
 }
 
-#btnDeleteM{
-  height: 38px;
-}
-
 #btnConnecter {
   width: 100%;
 }
@@ -78,9 +72,9 @@ p.card-text {
 }
 
 #btnAjouterFilm {
+  width: 100%;
   border-bottom-left-radius: 0%;
   border-bottom-right-radius: 0%;
-  width: 60%;
 }
 #btnAddFilm {
   width: 100%;

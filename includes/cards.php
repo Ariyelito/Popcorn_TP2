@@ -14,21 +14,19 @@
         while($r = $result->fetch(PDO::FETCH_ASSOC)) { ?>
 
         <div class="col mt-3">
-            <div id="cardFilm" class="card" >
-                <img src="<?php echo $r['photo'] ?>" class="card-img-top" alt="poster officiel du film" onclick="location.href='./server/pages/filmDetails.php?idFilm=<?php echo $r['idFilm']?>'">
+            <div id="cardFilm" class="card"  >
+                <img src="<?php echo $r['photo'] ?>" class="card-img-top" alt="poster officiel du film">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $r['titre'] ?></h5>
-                    <p class="card-text">Prix(1 jour):
+                    <p class="card-text">
                     <?php echo $r['montant'] ?> </br>
-                    Date de sorti:
                     <?php echo $r['date'] ?> </br>
-                    Langue:
                     <?php echo $r['langue'] ?>
                     <!-- add realisateur bd connection (use .card-subtitle) -->
                     </p>
                 </div>
                 <?php //if($member){ }?>
-                <div class="btn-group">
+                    <div class="btn-group">
                         <a class="btn bg-gradient btn-danger btnCard" 
                         <?php if($member){ ?> href="./server/pages/ajouterPanier.php?idFilm=<?php echo $r['idFilm']?>"
                         <?php } else { ?> href="#" data-bs-toggle="modal" data-bs-target="#LogInModal" <?php } ?> >Ajouter au panier</a>

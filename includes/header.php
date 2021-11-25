@@ -35,15 +35,10 @@
         if (isset($_SESSION['idMembre'])) { 
       ?>                        
       <a id="btnHome" href="<?php echo $root?>membrePage.php" class="nav-item nav-link">Accueil</a>
-      <a href="<?php echo $root?>server/pages/listerPanier.php" class="nav-item nav-link ">Panier <span class="badge bg-secondary"><?php require_once $root."db/connexion.inc.php"; echo $crud->getNombreFilmsDansPanier($_SESSION['idMembre']);?></span></a>
+      <a href="<?php echo $root?>server/pages/listerPanier.php" class="nav-item nav-link ">Panier <span class="badge bg-secondary">4</span></a>
     </div> 
-                    
-    
-
-
-
+                            
     <div class="navbar-nav navItemRight" >
-    <a class="btn bg-gradient btn-danger btnCard" data-bs-toggle="modal" data-bs-target="#UpdateProfilModal" >Profil</a>
       <a href="<?php echo $root?>server/pages/deconnection.php" class="nav-item nav-link">Se déconnecter</a>
     </div>
 
@@ -101,7 +96,7 @@
 
 <?php } ?>
 
-<div id="container" class="container">
+<div id="container" class="container mt-4">
 
 
 
