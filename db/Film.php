@@ -24,9 +24,5 @@ public function __construct($idFilm, $titre , $duree, $langue,$date,$montant,$ph
     $this->idrealisateurs = $idrealisateurs;
     $this->description = $description;
   }
-
-
-
-
 }
 ?>

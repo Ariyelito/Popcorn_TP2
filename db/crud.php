@@ -13,7 +13,7 @@ class crud
     // function to insert a new record into the attendee database
     public function getMovies() {
         try {
-            $sql = "SELECT * FROM `films` f ORDER BY `date` DESC";
+            $sql = "SELECT * FROM `films` f ";
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $e) {
@@ -21,29 +21,6 @@ class crud
             return false;
         }
     }
-    public function getMoviesById( $idFilm) {
-        try {
-            $sql = "SELECT * FROM `films` f WHERE idFilm = $idFilm";
-            $result = $this->db->query($sql)->fetch();
-            return $result;
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-            return false;
-        }
-    }
-    public function getMoviesTitre( $titre) {
-        try {
-            $sql = "SELECT * FROM films WHERE titre LIKE '%$titre%';
-            ";
-            $result = $this->db->query($sql);
-            return $result;
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-            return false;
-        }
-    }
-
-
     public function addFilm(Film $film ){
         try {
             // define sql statement to be executed
@@ -69,52 +46,10 @@ class crud
             return false;
         }
     }
-
-
-
-
-/*
-$this->photo = $photo;
-$this->idCategories = $idCategories;
-$this->idrealisateurs = $idrealisateurs;*/
-
-public function updateFilm(Film $film ){
-    try {
-      
-        $sql = "UPDATE `films` SET `titre` = '$film->titre', `duree` = '$film->duree', `langue` = '$film->langue', `date` = '$film->date', `montant` = '$film->montant',
-         `description` = '$film->description' WHERE `films`.`idFilm` = '$film->idFilm'";
-      
-        $stmt = $this->db->prepare($sql);
-       
-        $stmt->execute();
-      
-        return true;
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-        return false;
-    }
-}
-
-
-
-    public function deleteFilm($idFilm){
-        try {
-
-            $stmt = $this->db->prepare( "DELETE FROM films WHERE idFilm =$idFilm" );
-            $stmt->execute();
-
-            return true;
-            
-            } catch (PDOException $e) {
-                echo $e->getMessage();
-                return false;
-            }
-    }
     public function addRealisateursPourFilm($idFilm, $realisateurs){
       
 
-        if(empty($realisateurs))
-        exit;
+
         try {
             
             $sql = "INSERT INTO `filmsrealisateurs` (`idFilm`, `idRealisateur`) VALUES ";
@@ -177,8 +112,7 @@ public function updateFilm(Film $film ){
         }
     }
     public function addActorsPourFilm($idFilm,$actors){
-        if(empty($actors))
-        exit;
+        
         try {
             
             $sql = "INSERT INTO `filmsactors` (`idFilm`, `idActor`) VALUES ";
@@ -208,17 +142,6 @@ public function updateFilm(Film $film ){
         echo $e->getMessage();
         return false;
     }
-    }
-    public function getAllRealisateurs(){
-        try {
-            $sql = "SELECT * FROM `realisateurs`";
-            $result = $this->db->query($sql);          
-
-            return $result;
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-            return false;
-        }
     }
     public function realisateurExiste($nom){
         try{
@@ -250,8 +173,6 @@ public function updateFilm(Film $film ){
         }
     }
     public function addCategoriesPourFilm($idFilm, $categories){
-        if(empty($categories))
-        exit;
         try {
             
             $sql = "INSERT INTO `filmcategorie` (`idFilm`, `idCategorie`) VALUES ";
@@ -486,14 +407,8 @@ public function updateFilm(Film $film ){
             return false;
         }
     }
-    public function getNombreFilmsDansPanier($idMembre){
+    public function getNombreFilmsDansPanier($idPanier){
         try {
-            $panier = $this->getPanierParIdMembre($idMembre)->fetch();
-            if(!$panier){
-                   return;
-            }
-                $idPanier = $panier['idPanier'];
-
             $sql = "SELECT count(*) FROM `paniersfilms` where idPanier=$idPanier";
             $result = $this->db->query($sql);
             $count = $result->fetchColumn();
@@ -561,8 +476,7 @@ public function updateFilm(Film $film ){
     public function ajouterFilmsPaiments($idMembre){
         try {
             $idPaiment =  $this->getIdPaimentAvecIdMembre($idMembre);
-            $idPanier = $this->getPanierParIdMembre($idMembre)->fetch()["idPanier"];
-            $films =  $this->getPanier($idPanier);
+            $films =  $this->getPanier(21);
             
             while($r = $films->fetch(PDO::FETCH_ASSOC)) {               
                $idFilm= $r["idFilm"];
