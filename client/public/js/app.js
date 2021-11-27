@@ -111,5 +111,6 @@
 $(document).ready(function () {
     $('#btnB').click(()=>{
         $('#energForm').toggle();
+        /// ok
     });
 });
