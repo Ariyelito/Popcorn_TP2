@@ -1,5 +1,6 @@
 
 function listerF(listFilms){
+	alert('02');
 	var taille;
 	var rep="";
 	taille=listFilms.length;
