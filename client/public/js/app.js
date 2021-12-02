@@ -113,4 +113,8 @@ $(document).ready(function () {
         $('#energForm').toggle();
         /// ok
     });
+    $('#btnModifierFilm').click(()=>{
+        alert("fgsf");
+        $(this).toggle();
+    });
 });
