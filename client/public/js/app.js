@@ -109,12 +109,16 @@
 // */
 
 $(document).ready(function () {
+// tous le code jquery() dans cette instruction sinon ca va pas marcher
     $('#btnB').click(()=>{
         $('#energForm').toggle();
+     
         /// ok
     });
     $('#btnModifierFilm').click(()=>{
         alert("fgsf");
         $(this).toggle();
     });
+
 });
+
