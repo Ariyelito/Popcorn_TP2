@@ -59,13 +59,11 @@ function listerF(listFilms){
 		</td>
 	</tr>`;		 
 	}
-	rep+=`    <div class="container">
-	<a id="btnRetour" class="btn btn-success bg-gradient" href="../../admin.php">Retour</a>
-</div>
+	rep+=`    
 </div>
 `;
 
-    $('#text').html(rep);
+    $('#container').html(rep);
 }
 function getStatut(statut)
 {

@@ -116,7 +116,7 @@ $(document).ready(function () {
         /// ok
     });
     $('#btnModifierFilm').click(()=>{
-        alert("fgsf");
+    
         $(this).toggle();
     });
 

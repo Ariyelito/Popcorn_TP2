@@ -9,8 +9,7 @@ function lister(){
 		contentType : false,
 		processData : false,
 		dataType : 'json', //text pour le voir en format de string
-		success : function (reponse){alert(reponse);
-		
+		success : function (reponse){
             filmsVue(reponse);
 		},
 		fail : function (err){
