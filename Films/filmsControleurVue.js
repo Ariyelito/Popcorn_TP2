@@ -2,10 +2,11 @@
 function listerF(listFilms){
 
 	var taille;
+
 	var rep=`<div id="contListMembre" class="container mt-5">
     <h1 class="h1 text-center">Liste des films</h2>
     <div class="input-group mb-3">
-        <a id="btnAjouterFilm" class="btn btn-outline-success bg-gradient">Ajouter un film</a>        
+        <a id="btnAjouterFilm" class="btn btn-outline-success bg-gradient" onclick="ajouterForm();" >Ajouter un film</a>        
 
     
         <div class="input-group-prepend">
@@ -69,7 +70,10 @@ function listerF(listFilms){
 function deleteF(msg){
  alert(msg);
 }
-
+function ajouterF(msg){
+	alert(msg);
+   }
+   
 
 function getStatut(statut)
 {
@@ -90,7 +94,9 @@ var filmsVue=function(reponse){
 
 	var action=reponse.action; 
 	switch(action){
-		case "enregistrer" :
+		case "ajouter" :
+			ajouterF(reponse.msg);
+			break;
 		case "delete" :		
 					deleteF(reponse.msg);
 			break;

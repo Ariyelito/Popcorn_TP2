@@ -4,7 +4,7 @@ require_once("../db/connexion.inc.php");
 require_once("../db/modeles.inc.php");
 $resJSON = array();
 
-function enregistrer(){
+function ajouter(){
    global $resJSON;
    $titre = $_POST['inputTitre'];
    $date = $_POST['inputDate'];
@@ -20,7 +20,7 @@ function enregistrer(){
     $requete="INSERT INTO films VALUES(0,?,?,?,?)";		
     $filmModel = new filmsModele($requete,array($titre , $duree, $langue,$date,$montant,$photo,$description));
     $stmt=$filmModel->executer();
-    $resJSON['action']="enregistrer";
+    $resJSON['action']="ajouter";
     $resJSON['msg'] = "Film bien eregistré";
    }
     catch(Exception $e){
@@ -74,8 +74,8 @@ function delete(){
 $action = $_POST['action'];
 
 	switch($action){
-		case "enregistrer" :
-			enregistrer();
+		case "ajouter" :
+			ajouter();
 		break;
 		case "lister" :
 			listerFilms();

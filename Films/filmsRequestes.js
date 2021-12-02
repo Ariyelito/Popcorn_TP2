@@ -40,3 +40,8 @@ function deleteR(idFilm){
     });   
  
 }
+
+
+function ajouter(){
+	
+}
