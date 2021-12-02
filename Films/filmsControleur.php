@@ -17,21 +17,21 @@ function ajouter(){
    $description = $_POST['descriptionText'];
 
    try{
-    $requete="INSERT INTO films VALUES(0,?,?,?,?)";		
-    $filmModel = new filmsModele($requete,array($titre , $duree, $langue,$date,$montant,$photo,$description));
+    $requete="INSERT INTO films VALUES(0,?,?,?,?,?,?,?)";	    
+    $filmModel = new filmsModele($requete,array($titre , $duree, $langue,$date,$montant,$photo,$description));  
+    
     $stmt=$filmModel->executer();
     $resJSON['action']="ajouter";
     $resJSON['msg'] = "Film bien eregistré";
    }
     catch(Exception $e){
-
+        $resJSON['msg'] = $e;
     }
   
 }
 
 
 function listerFilms(){
- 
     global $resJSON;
 
     $resJSON['action']="lister";
@@ -55,9 +55,9 @@ function delete(){
    
     global $resJSON;
     $resJSON['action']="delete";
-    $requete= "DELETE FROM films WHERE idFilm =?";
+    $requete= "DELETE FROM films WHERE idFilm = $idFilm";
     try {
-        $filmModel = new filmsModele($requete,array($idFilm));
+        $filmModel = new filmsModele($requete,array());
         $stmt=$filmModel->executer();      
         $resJSON['msg'] = "Film a ete delete";
 
@@ -75,9 +75,11 @@ $action = $_POST['action'];
 
 	switch($action){
 		case "ajouter" :
+           
 			ajouter();
 		break;
 		case "lister" :
+          
 			listerFilms();
 		break;
 		case "delete" :

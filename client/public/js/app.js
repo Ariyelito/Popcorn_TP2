@@ -126,7 +126,7 @@ function ajouterForm(){
     var rep = 
     `
     <h1 class="h1 text-center">Ajouter un film</h1>
-    <form id="formRegister" class="row" action="ajouterFilm.php" method="POST" onSubmit="return validerFilm()">
+    <form id="formRegister" class="row" onSubmit="return validerFilm()">
 
         <div class="col-md-6 mt-3">
             <div class="form-group">
@@ -140,7 +140,7 @@ function ajouterForm(){
                                     
                 <input list="brow">
                 <datalist id="brow">
-                   <option>A</option>
+                   <option value="1">A</option>
                    <option>b</option>
                 </datalist>  
                       
@@ -151,7 +151,7 @@ function ajouterForm(){
         <div class="col-6 mt-3">
             <div class="form-group">
                 <label for="inputDate">Date de sortie :</label>
-                <input type="text" class="form-control" id="inputDate" name="inputDate">
+                <input type="date" class="form-control" id="inputDate" name="inputDate">
             </div>
         </div>
 
@@ -184,7 +184,7 @@ function ajouterForm(){
             <div class="form-group">
                 <label for="inputCat">Catégorie :</label>
                 <select class="form-control" id="inputCat" name="inputCat">                         
-                        <option value="action"></option>
+                        <option value="1">action</option>
                 </select>
             </div>
         </div>
@@ -198,7 +198,7 @@ function ajouterForm(){
             <textarea id="descriptionText" name="descriptionText" class="form-control" rows="3"></textarea>
         </div>
         <div class="col-12 mt-3">
-            <button id="btnAddFilm" type="submit" class="btn btn-success bg-gradient">Ajouter</button>
+            <button id="btnAddFilm"class="btn btn-success bg-gradient" onclick="ajouterR()">Ajouter</button>
 
         </div>
     </form>
