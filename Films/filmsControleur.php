@@ -1,8 +1,7 @@
 <?php
-echo '<p>test</p>'
 
-require_once("../connexion.inc.php");
-require_once("../modeles.inc.php");
+require_once("../db/connexion.inc.php");
+require_once("../db/modeles.inc.php");
 $resJSON = array();
 
 function enregistrer(){
@@ -32,7 +31,7 @@ catch(Exception $e){
 
 
 function listerFilms(){
-  echo 'ada';
+ 
     global $resJSON;
     $resJSON['action']="lister";
     $requete="SELECT * FROM films";
@@ -47,8 +46,8 @@ function listerFilms(){
    
 }
 }
-
-$action=$_POST['action'];
+/*
+$action = $_POST['action'];
 	switch($action){
 		case "enregistrer" :
 			enregistrer();
@@ -66,10 +65,10 @@ $action=$_POST['action'];
 			modifier();
 		break;
 	}
+*/
 
-/*
 listerFilms();
 
-echo json_encode($resJSON);*/
+echo json_encode($resJSON);
 
 ?>
