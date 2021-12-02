@@ -209,11 +209,12 @@ $("#container").html(rep);
 }
 
 
-function update(){
+function update(idFilm){
+    // Il faut ajouter les information du film a modifier
     var rep = 
     `
-    <h1 class="h1 text-center">Ajouter un film</h1>
-    <form id="formRegister" class="row" action="ajouterFilm.php" method="POST" onSubmit="return validerFilm()">
+    <h1 class="h1 text-center">Modifier un film</h1>
+    <form id="formRegister" class="row" onSubmit="return validerFilm()">
 
         <div class="col-md-6 mt-3">
             <div class="form-group">
@@ -285,7 +286,7 @@ function update(){
             <textarea id="descriptionText" name="descriptionText" class="form-control" rows="3"></textarea>
         </div>
         <div class="col-12 mt-3">
-            <button id="btnAddFilm" type="submit" class="btn btn-success bg-gradient">Ajouter</button>
+            <button id="btnUpdateFilm" onclick='updateR(${idFilm})' class="btn btn-success bg-gradient">Modifier</button>
 
         </div>
     </form>

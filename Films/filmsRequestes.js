@@ -41,7 +41,6 @@ function deleteR(idFilm){
  
 }
 
-
 function ajouterR(){	
 	var formFilm = new FormData(document.getElementById('formRegister'));
 	formFilm.append('action','ajouter');
@@ -55,8 +54,30 @@ function ajouterR(){
 		cache : false,
 		contentType : false,
 		processData : false,	
-		dataType : 'json', //text pour le voir en format de string
-		success : function (reponse){	alert(reponse);		
+		dataType : 'json',
+		success : function (reponse){		
+            filmsVue(reponse);
+		},
+		fail : function (err){
+		
+		} 
+    });   
+}
+
+function updateR(idFilm){	
+	var formFilm = new FormData(document.getElementById('formRegister'));
+	formFilm.append('action','update');
+	formFilm.append('idFilm',idFilm);
+	$.ajax({
+        type : 'POST',
+		url : 'Films/filmsControleur.php',
+		data : formFilm,
+		async : false,
+		cache : false,
+		contentType : false,
+		processData : false,	
+		dataType : 'json',
+		success : function (reponse){	
             filmsVue(reponse);
 		},
 		fail : function (err){

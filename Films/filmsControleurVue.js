@@ -6,7 +6,7 @@ function listerF(listFilms){
 	var rep=`<div id="contListMembre" class="container mt-5">
     <h1 class="h1 text-center">Liste des films</h2>
     <div class="input-group mb-3">
-        <a id="btnAjouterFilm" class="btn btn-outline-success bg-gradient" onclick="ajouterForm();" >Ajouter un film</a>        
+        <a id="btnAjouterFilm" class="btn btn-outline-success bg-gradient" onclick="ajouterForm();">Ajouter un film</a>        
 
     
         <div class="input-group-prepend">
@@ -51,7 +51,7 @@ function listerF(listFilms){
 				
 				<form  action="" method="GET">
 				<input type="hidden" name="idFilm" value="${listFilms[i].idFilm}">                
-				<input id='btnModifierFilm' class="btn bg-gradient btn-outline-warning"  value="Update" '>
+				<input id='btnModifierFilm' class="btn bg-gradient btn-outline-warning"  value="Update" onclick='update(${listFilms[i].idFilm})'>
 				<input id='btnDeleteFilm' class="btn bg-gradient btn-outline-danger" onclick='deleteR(${listFilms[i].idFilm})' value="Delete">
 				</form>
 			  

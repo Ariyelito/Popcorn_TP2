@@ -88,8 +88,8 @@ $action = $_POST['action'];
 		case "fiche" :
 			fiche();
 		break;
-		case "modifier" :
-			modifier();
+		case "update" :
+			update();
 		break;
 	}
 
