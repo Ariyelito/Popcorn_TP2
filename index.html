@@ -25,17 +25,12 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav">
                     <a id="btnHome" href="index.html" class="nav-item nav-link">Accueil</a>
-                    <a id="btnFilms" href="#" class="nav-item nav-link">Films</a>
-                    <a id="btnMembres" href="#" class="nav-item nav-link">Membres</a>
+                    <a id="btnFilms" href="#" class="nav-item nav-link" onclick='lister()'>Films</a>       
                 </div>
-            </div>
-            <div class="navbar-nav navItemRight">
-                <!-- right items -->
-            </div>
+            </div>          
         </nav>
 
-        <div id="container" class="container mt-5">
-            <button onclick="lister()">a</button>
+        <div id="container" class="container mt-5">           
             <button id="btnB">b</button>
             <button>c</button>
             <p id="text">dsd</p>
@@ -44,18 +39,18 @@
                 <input type="text" name="titre" id="titre" value="">
                 <label for="duree">duree</label>
                 <input type="text" name="duree" id="duree" value="">
-                <button type="submit">submit</button>
-            </form>
-
-           
+                <button type="submit" >submit</button>
+            </form>           
         </div>
+
+
         <div id="footerText" class="container mt-5">
             <p>
                 <small>
                     Copyright &copy; 2021 -  PopcornTV.ca
                 </small>
             </p>
-    </div>
+        </div>
         <div class="toast-container posToast">
             <div id="toast" class="toast  align-items-center text-white bg-danger border-0" data-bs-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">

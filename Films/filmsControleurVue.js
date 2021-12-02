@@ -50,8 +50,8 @@ function listerF(listFilms){
 				
 				<form  action="" method="GET">
 				<input type="hidden" name="idFilm" value="${listFilms[i].idFilm}">                
-				<input id='btnModifierFilm' class="btn bg-gradient btn-outline-warning"  value="Update">
-				<input id='btnDeleteFilm' class="btn bg-gradient btn-outline-danger"  value="Delete">
+				<input id='btnModifierFilm' class="btn bg-gradient btn-outline-warning"  value="Update" '>
+				<input id='btnDeleteFilm' class="btn bg-gradient btn-outline-danger" onclick='deleteR(${listFilms[i].idFilm})' value="Delete">
 				</form>
 			  
 				
@@ -65,6 +65,12 @@ function listerF(listFilms){
 
     $('#container').html(rep);
 }
+
+function deleteF(msg){
+ alert(msg);
+}
+
+
 function getStatut(statut)
 {
 if (statut == 0) {
@@ -78,17 +84,22 @@ if (role == 'A')
     return "Admin";
 else if (role == 'M')  return "Membre";
 }
+
+
 var filmsVue=function(reponse){
 
 	var action=reponse.action; 
 	switch(action){
 		case "enregistrer" :
-		case "enlever" :
+		case "delete" :		
+					deleteF(reponse.msg);
+			break;
 		case "modifier" :
 			$('#messages').html(reponse.msg);
 			setTimeout(function(){ $('#messages').html(""); }, 5000);
 		break;
 		case "lister" :
+		
 			listerF(reponse.listeFilms);
 		break;
 		case "fiche" :

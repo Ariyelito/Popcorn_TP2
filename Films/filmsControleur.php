@@ -23,9 +23,9 @@ function enregistrer(){
     $resJSON['action']="enregistrer";
     $resJSON['msg'] = "Film bien eregistré";
    }
-catch(Exception $e){
+    catch(Exception $e){
 
-}
+    }
   
 }
 
@@ -33,6 +33,7 @@ catch(Exception $e){
 function listerFilms(){
  
     global $resJSON;
+
     $resJSON['action']="lister";
     $requete="SELECT * FROM films";
     try{
@@ -42,12 +43,36 @@ function listerFilms(){
          while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
             $resJSON['listeFilms'][]=$ligne;
         }
-    }catch(Exception $e){
+    }catch(Exception $e)
+    {
    
+    }
 }
+
+function delete(){
+
+    $idFilm =$_POST['idFilm'];
+   
+    global $resJSON;
+    $resJSON['action']="delete";
+    $requete= "DELETE FROM films WHERE idFilm =?";
+    try {
+        $filmModel = new filmsModele($requete,array($idFilm));
+        $stmt=$filmModel->executer();      
+        $resJSON['msg'] = "Film a ete delete";
+
+          
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            $resJSON['msg'] = " ertr Film a ete delete";
+        }
+
 }
-/*
+
+
+
 $action = $_POST['action'];
+
 	switch($action){
 		case "enregistrer" :
 			enregistrer();
@@ -55,8 +80,8 @@ $action = $_POST['action'];
 		case "lister" :
 			listerFilms();
 		break;
-		case "enlever" :
-			enlever();
+		case "delete" :
+			delete();
 		break;
 		case "fiche" :
 			fiche();
@@ -65,9 +90,9 @@ $action = $_POST['action'];
 			modifier();
 		break;
 	}
-*/
 
-listerFilms();
+
+//listerFilms();
 
 echo json_encode($resJSON);
 
