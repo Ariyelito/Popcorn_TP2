@@ -25,12 +25,12 @@
                     <!-- add realisateur bd connection (use .card-subtitle) -->
                     </p>
                 </div>
-                <?php //if($member){ }?>
+                <!-- <?php //if($member){ }?>
                     <div class="btn-group">
                         <a class="btn bg-gradient btn-danger btnCard" 
-                        <?php if($member){ ?> href="./server/pages/ajouterPanier.php?idFilm=<?php echo $r['idFilm']?>"
-                        <?php } else { ?> href="#" data-bs-toggle="modal" data-bs-target="#LogInModal" <?php } ?> >Ajouter au panier</a>
-                    </div>
+                        <?php //if($member){ ?> href="./server/pages/ajouterPanier.php?idFilm=<?php //echo $r['idFilm']?>"
+                        <?php //} else { ?> href="#" data-bs-toggle="modal" data-bs-target="#LogInModal" <?php //} ?> >Ajouter au panier</a>
+                    </div> -->
                 <input type="hidden" name="idFilm" value="<?php echo $r['idFilm']?>">                
                
             </div>

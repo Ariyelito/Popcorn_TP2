@@ -193,7 +193,27 @@ function ajouterForm(){
             <div class="form-group">
                 <label for="inputCat">Catégorie :</label>
                 <select class="form-control" id="inputCat" name="inputCat">                         
-                        <option value="1">action</option>
+                        <option value="1">Comedy</option>
+                        <option value="2">Fantasy</option>
+                        <option value="3">Crime</option>
+                        <option value="4">Drama</option>
+                        <option value="5">Music</option>
+                        <option value="6">Adventure</option>
+                        <option value="7">History</option>
+                        <option value="8">Thriller</option>
+                        <option value="9">Animation</option>
+                        <option value="10">Family</option>
+                        <option value="11">Mystery</option>
+                        <option value="12">Biography</option>
+                        <option value="13">Action</option>
+                        <option value="14">Film-Noir</option>
+                        <option value="15">Romance</option>
+                        <option value="16">Sci-Fi</option>
+                        <option value="17">War</option>
+                        <option value="18">Western</option>
+                        <option value="19">Horror</option>
+                        <option value="20">Musical</option>
+                        <option value="21">Sport</option>
                 </select>
             </div>
         </div>
