@@ -51,6 +51,7 @@ function listerFilms(){
 
     $resJSON['action']="lister";
     $requete="SELECT * FROM films";
+    //$requete="SELECT f.*, c.nomCategorie FROM films f join filmcategorie fc on f.idFilm = fc.idFilm join categories c on fc.idCategorie = c.idCategorie";
     try{
          $filmModel=new filmsModele($requete,array());
          $stmt=$filmModel->executer();
@@ -63,7 +64,21 @@ function listerFilms(){
    
     }
 }
+// function getFilmCategories($idFilm){
 
+//     $requete="SELECT c.nomCategorie FROM films f join filmcategorie fc on f.idFilm = fc.idFilm join categories c on fc.idCategorie = c.idCategorie where f.idFilm = ?";
+//     try{
+//         $filmModel=new filmsModele($requete,array($idFilm));
+//         $stmt=$filmModel->executer();
+//         $tab = array();
+//         while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+//             $tab[] = $ligne;
+//        }
+//    }catch(Exception $e)
+//    {
+  
+//    }
+// }
 function delete(){
 
     $idFilm =$_POST['idFilm'];
@@ -115,6 +130,24 @@ function update(){
          $resJSON['msg'] = $e. " erreur dans la modification";
      }
 }
+function chercherFilmsParCategorie(){
+    global $resJSON;
+
+    $resJSON['action']="chercherCat";
+    $requete="SELECT * FROM films f join filmcategorie fc on f.idFilm = fc.idFilm WHERE fc.idCategorie = ?";
+    $idCategorie = $_POST['idCategorie'];
+    try{
+         $filmModel=new filmsModele($requete,array($idCategorie));
+         $stmt=$filmModel->executer();
+         $resJSON['listeFilms']=array();
+         while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+            $resJSON['listeFilms'][]=$ligne;
+        }
+    }catch(Exception $e)
+    {
+   
+    }
+}
 
 $action = $_POST['action'];
 
@@ -135,6 +168,9 @@ $action = $_POST['action'];
 		case "update" :         
 			update();
 		break;
+        case "chercherCat" : 
+            chercherFilmsParCategorie();
+            break;
 	}
 
 

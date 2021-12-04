@@ -106,4 +106,24 @@ function updateR(idFilm){
 		} 
     });   
 }
+function chercherFilmsParCateg (idCategorie) {
+	var formFilm = new FormData();
+	formFilm.append('action','chercherCat');
+	formFilm.append('idCategorie',idCategorie);
+	$.ajax({
+        type : 'POST',
+		url : 'Films/filmsControleur.php',
+		data : formFilm,
+		contentType : false, 
+		processData : false,
+		dataType : 'json',
+		success : function (reponse){	
+            filmsVue(reponse);
+			
+		},
+		fail : function (err){
+			alert(reponse);
+		} 
+    });
+}
 
