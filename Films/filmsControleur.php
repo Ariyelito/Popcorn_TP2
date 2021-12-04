@@ -29,6 +29,22 @@ function ajouter(){
   
 }
 
+function updateFilmShow(){
+   
+    $idFilm = $_POST['idFilm'];
+    global $resJSON;
+
+    $resJSON['action']="updateFilmShow";
+    $requete="SELECT * FROM films WHERE idFilm=?";
+    try{
+         $filmModel=new filmsModele($requete,array($idFilm));
+         $stmt=$filmModel->executer();
+         $resJSON['film']= $stmt->fetch(PDO::FETCH_OBJ);        
+    }catch(Exception $e)
+    {
+   
+    }
+}
 
 function listerFilms(){
     global $resJSON;
@@ -51,12 +67,15 @@ function listerFilms(){
 function delete(){
 
     $idFilm =$_POST['idFilm'];
-   
+   if(!$idFilm){
+    $resJSON['msg'] = "erreur lors de la supression";
+    return;
+   }
     global $resJSON;
     $resJSON['action']="delete";
-    $requete= "DELETE FROM films WHERE idFilm $idFilm";
+    $requete= "DELETE FROM films WHERE idFilm=?";
     try {
-        $filmModel = new filmsModele($requete,array());
+        $filmModel = new filmsModele($requete,array($idFilm));
         $stmt=$filmModel->executer();      
         $resJSON['msg'] = "Film a ete delete";
 
@@ -110,8 +129,8 @@ $action = $_POST['action'];
 		case "delete" :         
 			delete();
 		break;
-		case "fiche" :
-			fiche();
+		case "updateFilmShow" :
+			updateFilmShow();
 		break;
 		case "update" :         
 			update();
@@ -119,7 +138,6 @@ $action = $_POST['action'];
 	}
 
 
-//listerFilms();
 
 echo json_encode($resJSON);
 

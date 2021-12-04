@@ -208,7 +208,7 @@ function ajouterForm(){
 $("#container").html(rep);
 }
 
-
+/*
 function update(idFilm){
  
     var rep = 
@@ -294,4 +294,4 @@ function update(idFilm){
 `
 
 $("#container").html(rep);
-}
+}*/

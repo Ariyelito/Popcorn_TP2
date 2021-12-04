@@ -1,3 +1,93 @@
+// manque photo categorie et realisateur
+function updateFilmShow(film){
+	var rep = 
+    `
+    <h1 class="h1 text-center">Modifier un film</h1>
+    <form id="formRegister" class="row" onSubmit="return validerFilm()">
+
+        <div class="col-md-6 mt-3">
+            <div class="form-group">
+                <label for="inputTitre" class="form-label">Titre :</label>
+                <input type="text" class="form-control" id="inputTitre" name="inputTitre" value="${film.titre}">
+            </div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <div class="form-group">
+                <label for="inputReal" class="form-label">Réalisateur :</label>
+                                    
+                <input list="brow">
+                <datalist id="brow">
+                   <option>A</option>
+                   <option>b</option>
+                </datalist>  
+                      
+
+            </div>
+        </div>
+
+        <div class="col-6 mt-3">
+            <div class="form-group">
+                <label for="inputDate">Date de sortie :</label>
+                <input type="date" class="form-control" id="inputDate" name="inputDate value="${film.date}">
+            </div>
+        </div>
+
+        <div class="col-6 mt-3">
+            <div class="form-group">
+                <label for="InputLangue">Langue :</label>
+                <select class="form-control" id="InputLangue" name="langue">
+                    <option value="1">Français</option>
+                    <option value="2">Anglais</option>
+                    <option value="3">Espagnol</option>                                 
+                </select>
+            </div>
+        </div>
+
+        <div class="col-6 col-sm-4 mt-3">
+            <div class="form-group">
+                <label for="inputCout">Coût :</label>
+                <input type="text" class="form-control" id="inputCout" name="inputCout" value="${film.montant}">
+            </div>
+        </div>
+
+        <div class="col-6 col-sm-4 mt-3">
+            <div class="form-group">
+                <label for="inputDure">Durée :</label>
+                <input type="text" class="form-control" id="inputDure" name="inputDure" value="${film.duree}">
+            </div>
+        </div>
+
+        <div class="col-sm-4 mt-3">
+            <div class="form-group">
+                <label for="inputCat">Catégorie :</label>
+                <select class="form-control" id="inputCat" name="inputCat">                         
+                        <option value="action"></option>
+                </select>
+            </div>
+        </div>
+        <div class="col-12 mt-3">
+            <label for="formFile" class="form-label">Poster pour le film (image) :</label>
+            <input class="form-control" type="file" id="formFile">
+        </div>
+        <br>
+        <div class="col-12 mt-3">
+            <label for="descriptionText" class="form-label">Description du film :</label>
+            <textarea id="descriptionText" name="descriptionText" class="form-control" rows="3">${film.description}</textarea>
+        </div>
+        <div class="col-12 mt-3">
+            <button id="btnUpdateFilm" onclick='updateR(${film.idFilm})' class="btn btn-success bg-gradient">Modifier</button>
+
+        </div>
+    </form>
+    <button id="btnAnnulerAddFilm" class="btn btn-danger bg-gradient mt-2">Annuler</button>
+`
+
+$("#container").html(rep);
+}
+
+
+
+
 
 function listerF(listFilms){
 
@@ -51,7 +141,7 @@ function listerF(listFilms){
 				
 				<form  action="" method="GET">
 				<input type="hidden" name="idFilm" value="${listFilms[i].idFilm}">                
-				<input id='btnModifierFilm' class="btn bg-gradient btn-outline-warning"  value="Update" onclick='update(${listFilms[i].idFilm})'>
+				<input id='btnModifierFilm' class="btn bg-gradient btn-outline-warning"  value="Update" onclick='showUpdate(${listFilms[i].idFilm})'>
 				<input id='btnDeleteFilm' class="btn bg-gradient btn-outline-danger" onclick='deleteR(${listFilms[i].idFilm})' value="Delete">
 				</form>
 			  
@@ -110,8 +200,8 @@ var filmsVue=function(reponse){
 		case "lister" :		
 			listerF(reponse.listeFilms);
 		break;
-		case "fiche" :
-			afficherFiche(reponse);
+		case "updateFilmShow" :
+			updateFilmShow(reponse.film);
 		break;
 		
 	}
