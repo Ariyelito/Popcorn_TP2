@@ -15,13 +15,12 @@ function ajouter(){
    $idCategories = array(1,2);
    $idRealisateurs = array(1,2);
    $description = $_POST['descriptionText'];
-
+   $resJSON['action']="ajouter";
    try{
     $requete="INSERT INTO films VALUES(0,?,?,?,?,?,?,?)";	    
     $filmModel = new filmsModele($requete,array($titre , $duree, $langue,$date,$montant,$photo,$description));  
     
-    $stmt=$filmModel->executer();
-    $resJSON['action']="ajouter";
+    $stmt=$filmModel->executer();  
     $resJSON['msg'] = "Film bien eregistré";
    }
     catch(Exception $e){
@@ -55,7 +54,7 @@ function delete(){
    
     global $resJSON;
     $resJSON['action']="delete";
-    $requete= "DELETE FROM films WHERE idFilm = $idFilm";
+    $requete= "DELETE FROM films WHERE idFilm $idFilm";
     try {
         $filmModel = new filmsModele($requete,array());
         $stmt=$filmModel->executer();      
@@ -69,7 +68,34 @@ function delete(){
 
 }
 
+function update(){
 
+    $idFilm =$_POST['idFilm'];
+
+    global $resJSON;
+    $titre = $_POST['inputTitre'];
+    $date = $_POST['inputDate'];
+    $langue = $_POST['langue'];
+    $montant = $_POST['inputCout'];
+    $duree = $_POST['inputDure'];
+    $photo = "";
+    $idCategories = array(1,2);
+    $idRealisateurs = array(1,2);
+    $description = $_POST['descriptionText'];
+    $resJSON['action']="update";
+    try{      
+
+     $requete="UPDATE  films SET titre = ?, duree = ?, langue = ?, date = ?, montant = ?, photo= ?, description=?  WHERE idFilm=?";
+     $filmModel = new filmsModele($requete,array($titre , $duree, $langue,$date,$montant,$photo,$description, $idFilm));       
+     $stmt=$filmModel->executer();
+ 
+     $resJSON['msg'] = "Film bien modifier";   
+     }
+     catch(Exception $e){      
+        echo $e->getMessage(); 
+         $resJSON['msg'] = $e. " erreur dans la modification";
+     }
+}
 
 $action = $_POST['action'];
 
@@ -78,17 +104,16 @@ $action = $_POST['action'];
            
 			ajouter();
 		break;
-		case "lister" :
-          
+		case "lister" :        
 			listerFilms();
 		break;
-		case "delete" :
+		case "delete" :         
 			delete();
 		break;
 		case "fiche" :
 			fiche();
 		break;
-		case "update" :
+		case "update" :         
 			update();
 		break;
 	}

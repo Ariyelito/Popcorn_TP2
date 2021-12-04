@@ -210,7 +210,7 @@ $("#container").html(rep);
 
 
 function update(idFilm){
-    // Il faut ajouter les information du film a modifier
+ 
     var rep = 
     `
     <h1 class="h1 text-center">Modifier un film</h1>
@@ -239,7 +239,7 @@ function update(idFilm){
         <div class="col-6 mt-3">
             <div class="form-group">
                 <label for="inputDate">Date de sortie :</label>
-                <input type="text" class="form-control" id="inputDate" name="inputDate">
+                <input type="date" class="form-control" id="inputDate" name="inputDate">
             </div>
         </div>
 

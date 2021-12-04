@@ -72,8 +72,11 @@ function deleteF(msg){
 }
 function ajouterF(msg){
 	alert(msg);
-   }
-   
+}
+
+function updateF(msg){
+	alert(msg);
+} 
 
 function getStatut(statut)
 {
@@ -100,12 +103,11 @@ var filmsVue=function(reponse){
 		case "delete" :		
 					deleteF(reponse.msg);
 			break;
-		case "modifier" :
-			$('#messages').html(reponse.msg);
-			setTimeout(function(){ $('#messages').html(""); }, 5000);
-		break;
-		case "lister" :
+		case "update" :			
+			updateF(reponse.msg);
 		
+		break;
+		case "lister" :		
 			listerF(reponse.listeFilms);
 		break;
 		case "fiche" :
@@ -114,3 +116,5 @@ var filmsVue=function(reponse){
 		
 	}
 }
+	/*$('#messages').html(reponse.msg);
+			setTimeout(function(){ $('#messages').html(""); }, 5000);*/

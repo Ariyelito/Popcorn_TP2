@@ -47,9 +47,7 @@ function ajouterR(){
 	$.ajax({
         type : 'POST',
 		url : 'Films/filmsControleur.php',
-
 		data : formFilm,
-
 		async : false,
 		cache : false,
 		contentType : false,
@@ -68,20 +66,20 @@ function updateR(idFilm){
 	var formFilm = new FormData(document.getElementById('formRegister'));
 	formFilm.append('action','update');
 	formFilm.append('idFilm',idFilm);
+	var x = formFilm.get("inputTitre");
 	$.ajax({
         type : 'POST',
 		url : 'Films/filmsControleur.php',
 		data : formFilm,
-		async : false,
-		cache : false,
-		contentType : false,
-		processData : false,	
+		contentType : false, 
+		processData : false,
 		dataType : 'json',
 		success : function (reponse){	
             filmsVue(reponse);
+			alert(reponse);
 		},
 		fail : function (err){
-		
+			alert(reponse);
 		} 
     });   
 }
