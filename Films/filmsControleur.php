@@ -148,6 +148,25 @@ function chercherFilmsParCategorie(){
    
     }
 }
+function  chercherFilmsParTitre(){
+    global $resJSON;
+
+    $resJSON['action']="chercherParTitre";
+    $titre = $_POST['titre'];
+    $requete="SELECT * FROM `films` where titre like '%$titre%'";
+   
+    try{
+         $filmModel=new filmsModele($requete,array());
+         $stmt=$filmModel->executer();
+         $resJSON['listeFilms']=array();
+         while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+            $resJSON['listeFilms'][]=$ligne;
+        }
+    }catch(Exception $e)
+    {
+   
+    }
+}
 
 $action = $_POST['action'];
 
@@ -171,6 +190,9 @@ $action = $_POST['action'];
         case "chercherCat" : 
             chercherFilmsParCategorie();
             break;
+            case "chercherParTitre" : 
+                chercherFilmsParTitre();
+                break;
 	}
 
 

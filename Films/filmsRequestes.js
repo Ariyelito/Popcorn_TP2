@@ -126,4 +126,24 @@ function chercherFilmsParCateg (idCategorie) {
 		} 
     });
 }
+function chercherFilmsParTitre (titre) {
+	var formFilm = new FormData();
+	formFilm.append('action','chercherParTitre');
+	formFilm.append('titre',titre);
+	$.ajax({
+        type : 'POST',
+		url : 'Films/filmsControleur.php',
+		data : formFilm,
+		contentType : false, 
+		processData : false,
+		dataType : 'json',
+		success : function (reponse){	
+            filmsVue(reponse);
+			
+		},
+		fail : function (err){
+			alert(reponse);
+		} 
+    });
+}
 

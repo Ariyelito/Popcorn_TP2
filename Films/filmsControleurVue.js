@@ -104,7 +104,7 @@ function listerF(listFilms){
             </div>   
 
             <form  action="./listerFilms.php" method="GET">
-            <input type="sumbit" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="titre" value="">
+            <input id="inputTitre" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="inputTitre" value="">
           
             </form>
         
@@ -157,7 +157,7 @@ function listerF(listFilms){
 	rep+=`    
 </div>
 `;
-
+   
     $('#container').html(rep);
 }
 // function listerFParCateg(listFilms){
@@ -270,8 +270,8 @@ var filmsVue=function(reponse){
 		
 		break;
 		case "lister" :		
-			
-            case "chercherCat" : 
+		case "chercherCat":
+        case "chercherParTitre" : 
             listerF(reponse.listeFilms);
             break;
 		
