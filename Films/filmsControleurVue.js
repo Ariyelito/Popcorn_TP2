@@ -90,17 +90,17 @@ $("#container").html(rep);
 
 
 function listerF(listFilms){
-
+   alert("sfg");
 	var taille;
 
 	var rep=`<div id="contListMembre" class="container mt-5">
-    <h1 class="h1 text-center">Liste des films</h2>
+    <h1  class="h1 text-center">Liste des films</h2>
     <div class="input-group mb-3">
         <a id="btnAjouterFilm" class="btn btn-outline-success bg-gradient" onclick="ajouterForm();">Ajouter un film</a>        
 
     
         <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">Titre</span>
+            <span class="input-group-text" id="inputGroup-sizing-default">Titre222</span>
             </div>   
 
             <form  action="./listerFilms.php" method="GET">
@@ -159,6 +159,12 @@ function listerF(listFilms){
 `;
    
     $('#container').html(rep);
+
+    $('#inputTitre').keydown(()=>{
+        // chercherFilmsParTitre($(this).attr('value'));
+         // alert($(this).attr('value'));
+          alert("fs");
+     });
 }
 // function listerFParCateg(listFilms){
 
