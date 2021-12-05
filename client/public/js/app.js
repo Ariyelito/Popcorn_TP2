@@ -109,6 +109,9 @@
 // */
 
 $(document).ready(function () {
+    // acueil est la liste des films
+    lister();
+    //$('#btnFilms').click();
   
 // tous le code jquery() dans cette instruction sinon ca va pas marcher
     $('#btnB').click(()=>{
