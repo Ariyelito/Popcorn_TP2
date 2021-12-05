@@ -72,9 +72,9 @@ p.card-text {
 }
 
 #btnAjouterFilm {
-  width: 100%;
-  border-bottom-left-radius: 0%;
-  border-bottom-right-radius: 0%;
+  width: 60%;
+  margin-right: 10px;
+  border-radius: 0.25rem;
 }
 #btnAddFilm {
   width: 100%;

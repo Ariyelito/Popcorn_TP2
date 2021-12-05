@@ -113,6 +113,9 @@ $(document).ready(function () {
     lister();
     //$('#btnFilms').click();
   
+    $('btnDeleteFilm').click(() => {
+        //confirm('Are you sure want to delete this record?')
+    })
 // tous le code jquery() dans cette instruction sinon ca va pas marcher
     $('#btnB').click(()=>{
         $('#energForm').toggle();
