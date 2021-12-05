@@ -14,7 +14,7 @@
 }
 
 #contListMembre {
-  max-width: 1000px;
+  max-width: 2000px;
 }
 
 #contListPanier {
@@ -63,6 +63,11 @@ p.card-text {
   margin-right: 15px;
 }
 
+#btnModifierFilm, #btnDeleteFilm, #btnDetailsFilm {
+  width: 60%;
+  margin-left: 20%;
+}
+
 #btnConnecter {
   width: 100%;
 }
@@ -72,7 +77,7 @@ p.card-text {
 }
 
 #btnAjouterFilm {
-  width: 60%;
+  width: 25%;
   margin-right: 10px;
   border-radius: 0.25rem;
 }
@@ -136,4 +141,8 @@ p.card-text {
 .imgFilm{
   width: 150px;
   height: 150px;
+}
+
+#searchBar{
+  margin-left: auto;
 }

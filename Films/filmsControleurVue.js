@@ -95,21 +95,18 @@ function listerF(listFilms){
 
 	var rep=`<div id="contListMembre" class="container mt-5">
     <h1  class="h1 text-center">Liste des films</h2>
-    <div class="input-group mb-3">
-        <a id="btnAjouterFilm" class="btn btn-success bg-gradient" onclick="ajouterForm();">Ajouter un film</a>        
+    <div class="input-group mb-3 ">
+        <a id="btnAjouterFilm" class="btn btn-success bg-gradient col-6 col-sm-4" onclick="ajouterForm();">Ajouter un film</a>        
 
     
-        <div class="input-group-prepend">
+        <div id="searchBar" class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-default">Titre222</span>
             </div>   
 
             <form  action="./listerFilms.php" method="GET">
             <input id="inputTitre" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="inputTitre" value="">
-          
             </form>
-        
-
-    </div>
+        </div>
 
         <table class="table table-striped table-hover table-borderless">
             <thead class="table-success"> 
@@ -144,9 +141,11 @@ function listerF(listFilms){
 			<div class="btn-group">
 				
 				<form  action="" method="GET">
-				<input type="hidden" name="idFilm" value="${listFilms[i].idFilm}">                
-				<input id='btnModifierFilm' class="btn bg-gradient btn-warning"  value="Update" onclick='showUpdate(${listFilms[i].idFilm})'>
-				<input id='btnDeleteFilm' class="btn bg-gradient btn-danger" onclick='deleteR(${listFilms[i].idFilm})' value="Delete">
+				<input type="hidden" name="idFilm" value="${listFilms[i].idFilm}">       
+                <input id='btnDetailsFilm' class="btn bg-gradient btn-primary mb-2" value="Details du film">         
+				<input id='btnModifierFilm' class="btn bg-gradient btn-warning mb-2"  value="Mettre à jour" onclick='showUpdate(${listFilms[i].idFilm})'>
+				<input id='btnDeleteFilm' class="btn bg-gradient btn-danger" onclick='deleteR(${listFilms[i].idFilm})' value="Supprimer le film">
+               
 				</form>
 			  
 				
