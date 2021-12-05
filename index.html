@@ -24,11 +24,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav">
-                    <!-- <a id="btnHome" href="index.html" class="nav-item nav-link">Accueil</a> -->
+                    <a id="btnHome" href="#" class="nav-item nav-link">Administrateur</a>
                     <!-- <a id="btnFilms" href="#" class="nav-item nav-link" onclick='lister()'>Films</a>        -->
                 </div>
             </div>          
         </nav>
+        
 
         <div id="container" class="container mt-5">           
             <!-- <button id="btnB">b</button>
@@ -42,6 +43,108 @@
                 <input type="text" name="duree" id="duree" value="">
                 <button type="submit" >submit</button>
             </form>            -->
+        </div>
+          
+
+        <div id="contAddFilm" class="container mt-5">
+            <h1 class="h1 text-center">Ajouter un film</h1>
+            <form id="formRegister" class="row" onSubmit="return validerFilm()">
+
+            <div class="col-md-6 mt-3">
+                <div class="form-group">
+                    <label for="inputTitre" class="form-label">Titre :</label>
+                    <input type="text" class="form-control" id="inputTitre" name="inputTitre" value="">
+                </div>
+            </div>
+            <div class="col-md-6 mt-3">
+                <div class="form-group">
+                    <label for="inputReal" class="form-label">Réalisateur :</label>
+                                        
+                    <input list="brow">
+                    <datalist id="brow">
+                    <option value="1">A</option>
+                    <option>b</option>
+                    </datalist>  
+                        
+
+                </div>
+            </div>
+
+            <div class="col-6 mt-3">
+                <div class="form-group">
+                    <label for="inputDate">Date de sortie :</label>
+                    <input type="date" class="form-control" id="inputDate" name="inputDate">
+                </div>
+            </div>
+
+            <div class="col-6 mt-3">
+                <div class="form-group">
+                    <label for="InputLangue">Langue :</label>
+                    <select class="form-control" id="InputLangue" name="langue">
+                        <option value="1">Français</option>
+                        <option value="2">Anglais</option>
+                        <option value="3">Espagnol</option>                                 
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 mt-3">
+                <div class="form-group">
+                    <label for="inputCout">Coût :</label>
+                    <input type="text" class="form-control" id="inputCout" name="inputCout">
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 mt-3">
+                <div class="form-group">
+                    <label for="inputDure">Durée :</label>
+                    <input type="text" class="form-control" id="inputDure" name="inputDure">
+                </div>
+            </div>
+
+            <div class="col-sm-4 mt-3">
+                <div class="form-group">
+                    <label for="inputCat">Catégorie :</label>
+                    <select class="form-control" id="inputCat" name="inputCat">                         
+                            <option value="1">Comedy</option>
+                            <option value="2">Fantasy</option>
+                            <option value="3">Crime</option>
+                            <option value="4">Drama</option>
+                            <option value="5">Music</option>
+                            <option value="6">Adventure</option>
+                            <option value="7">History</option>
+                            <option value="8">Thriller</option>
+                            <option value="9">Animation</option>
+                            <option value="10">Family</option>
+                            <option value="11">Mystery</option>
+                            <option value="12">Biography</option>
+                            <option value="13">Action</option>
+                            <option value="14">Film-Noir</option>
+                            <option value="15">Romance</option>
+                            <option value="16">Sci-Fi</option>
+                            <option value="17">War</option>
+                            <option value="18">Western</option>
+                            <option value="19">Horror</option>
+                            <option value="20">Musical</option>
+                            <option value="21">Sport</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <label for="formFile" class="form-label">Poster pour le film (image) :</label>
+                <input class="form-control" type="file" id="formFile">
+            </div>
+            <br>
+            <div class="col-12 mt-3">
+                <label for="descriptionText" class="form-label">Description du film :</label>
+                <textarea id="descriptionText" name="descriptionText" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="col-12 mt-3">
+                <button id="btnAddFilm"class="btn btn-success bg-gradient" onclick="ajouterR()">Ajouter</button>
+
+            </div>
+            </form>
+            <button id="btnAnnulerAddFilm" class="btn btn-danger bg-gradient mt-2">Annuler</button>
         </div>
         
 

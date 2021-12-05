@@ -1,9 +1,3 @@
-// $('#btnAjouterFilm').click(()=>{
-   
-//     $("#contAddFilm").show();
-//     $("#contListMembre").hide();
-// });
-
 // $('#btnAnnulerAddFilm').click(()=>{
 //     $("#contAddFilm").hide();
 //     $("#contListMembre").show();
@@ -109,9 +103,16 @@
 // */
 
 $(document).ready(function () {
+    $('#btnAjouterFilm').on("click", function() {
+        alert("ton bec");
+        //$("#contAddFilm").show();
+       // $("#container").hide();
+    });
     // acueil est la liste des films
     lister();
     //$('#btnFilms').click();
+   
+    
   
     $('btnDeleteFilm').click(() => {
         //confirm('Are you sure want to delete this record?')
@@ -136,7 +137,7 @@ $('#inputTitre').keydown(()=>{
     
 
 });
-
+// to delete
 function ajouterForm(){
     var rep = 
     `

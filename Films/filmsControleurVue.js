@@ -92,11 +92,12 @@ $("#container").html(rep);
 function listerF(listFilms){
    //alert("sfg");
 	var taille;
-
-	var rep=`<div id="contListMembre" class="container mt-5">
+// previous on click = ajouterForm()
+	var rep=`<div id="contListFilm" class="container mt-5">
     <h1  class="h1 text-center">Liste des films</h2>
     <div class="input-group mb-3 ">
-        <a id="btnAjouterFilm" class="btn btn-success bg-gradient col-6 col-sm-4" onclick="ajouterForm();">Ajouter un film</a>        
+        <a id="btnAjouterFilm" class="btn btn-success bg-gradient col-6 col-sm-4" >Ajouter un film</a>        
+        
 
     
         <div id="searchBar" class="input-group-prepend">
@@ -156,8 +157,19 @@ function listerF(listFilms){
 	rep+=`    
 </div>
 `;
-   
+    
     $('#container').html(rep);
+
+    $('#btnAjouterFilm').on("click", function() {
+        $("#contAddFilm").show();
+        $("#container").hide();
+    });
+
+    
+    $('#btnAnnulerAddFilm').on("click", function() {
+        $("#contAddFilm").hide();
+        $("#container").show();
+    });
 
     $('#inputTitre').keydown(()=>{
         // chercherFilmsParTitre($(this).attr('value'));
