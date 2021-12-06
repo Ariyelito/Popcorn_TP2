@@ -101,12 +101,10 @@ function listerF(listFilms){
 
     
         <div id="searchBar" class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">Titre222</span>
+            <span id="spanParTitre" class="input-group-text" id="inputGroup-sizing-default">Chercher par titre : </span>
             </div>   
-
-           
             <input id="inputTitre" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="inputTitre" value="">
-            <a id="btnSearchFilm" class="btn btn-success bg-gradient col-6 col-sm-4" >Rechercher</a>    
+            <a id="btnSearchFilm" class="btn btn-success bg-gradient col-6 col-sm-4" >Go</a>    
         </div>
 
         <table class="table table-striped table-hover table-borderless">
@@ -172,8 +170,8 @@ function listerF(listFilms){
     });
 
     $('#btnSearchFilm').click(()=>{
-        chercherFilmsParCateg(14);
-           // chercherFilmsParTitre($('#inputTitre').val());
+        //chercherFilmsParCateg(14);
+           chercherFilmsParTitre($('#inputTitre').val());
          // alert($(this).attr('value'));
           //alert($('#inputTitre').val());
      });

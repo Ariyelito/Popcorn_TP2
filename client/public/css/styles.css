@@ -89,6 +89,10 @@ p.card-text {
   width: 100%;
 }
 
+#btnSearchFilm{
+  width: 5%;
+}
+
 #btnRetour{
   float: 50%;
 }
@@ -144,5 +148,10 @@ p.card-text {
 }
 
 #searchBar{
-  margin-left: auto;
+  margin-left: 30%;
+}
+
+#spanParTitre{
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
 }
