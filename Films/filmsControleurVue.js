@@ -104,9 +104,9 @@ function listerF(listFilms){
             <span class="input-group-text" id="inputGroup-sizing-default">Titre222</span>
             </div>   
 
-            <form  action="./listerFilms.php" method="GET">
+           
             <input id="inputTitre" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="inputTitre" value="">
-            </form>
+            <a id="btnSearchFilm" class="btn btn-success bg-gradient col-6 col-sm-4" >Rechercher</a>    
         </div>
 
         <table class="table table-striped table-hover table-borderless">
@@ -143,9 +143,9 @@ function listerF(listFilms){
 				
 				<form  action="" method="GET">
 				<input type="hidden" name="idFilm" value="${listFilms[i].idFilm}">       
-                <input id='btnDetailsFilm' class="btn bg-gradient btn-primary mb-2" value="Details du film">         
+                <input id='btnDetailsFilm' class="btn bg-gradient btn-primary mb-2" value="Afficher les details">         
 				<input id='btnModifierFilm' class="btn bg-gradient btn-warning mb-2"  value="Mettre à jour" onclick='showUpdate(${listFilms[i].idFilm})'>
-				<input id='btnDeleteFilm' class="btn bg-gradient btn-danger" onclick='deleteR(${listFilms[i].idFilm})' value="Supprimer le film">
+				<input id='btnDeleteFilm' class="btn bg-gradient btn-danger" onclick='deleteR(${listFilms[i].idFilm})' value="Supprimer ce film">
                
 				</form>
 			  
@@ -171,10 +171,11 @@ function listerF(listFilms){
         $("#container").show();
     });
 
-    $('#inputTitre').keydown(()=>{
-        // chercherFilmsParTitre($(this).attr('value'));
+    $('#btnSearchFilm').click(()=>{
+        chercherFilmsParCateg(14);
+           // chercherFilmsParTitre($('#inputTitre').val());
          // alert($(this).attr('value'));
-          alert("fs");
+          //alert($('#inputTitre').val());
      });
 }
 // function listerFParCateg(listFilms){
