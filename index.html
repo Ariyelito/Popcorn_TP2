@@ -24,7 +24,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav">
-                    <a id="btnHome" href="#" class="btnHome nav-item nav-link">Administrateur (beta)</a>
+                    <a onclick="lister()" id="btnHome" href="#" class="btnHome nav-item nav-link">Administrateur (beta)</a>
                     <!-- <a id="btnFilms" href="#" class="nav-item nav-link" onclick='lister()'>Films</a>        -->
                 </div>
             </div>          
@@ -38,7 +38,7 @@
         <!-- container ajouter un film (cacher)-->
         <div id="contAddFilm" class="container mt-5">
             <h1 class="h1 text-center">Ajouter un film</h1>
-            <form id="formRegister" class="row" onSubmit="return validerFilm()">
+            <form id="formRegister" class="row" >
                 <div class="col-md-6 mt-3">
                     <div class="form-group">
                         <label for="inputTitle" class="form-label">Titre :</label>

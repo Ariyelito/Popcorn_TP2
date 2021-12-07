@@ -53,9 +53,9 @@ function listerF(listFilms){
 				
 				<form  action="" method="GET">
 				<input type="hidden" name="idFilm" value="${listFilms[i].idFilm}">       
-                <input id='btnDetailsFilm' class="btn bg-gradient btn-outline-primary mb-2 disabled" value="Afficher les details">         
-				<input id='btnModifierFilm' class="btn bg-gradient btn-outline-warning mb-2"  value="Mettre à jour" onclick='showUpdate(${listFilms[i].idFilm})'>
-				<input id='btnDeleteFilm' class="btn bg-gradient btn-outline-danger" onclick='deleteR(${listFilms[i].idFilm})' value="Supprimer ce film">
+                <input id='btnDetailsFilm' type="button" class="btn bg-gradient btn-outline-primary mb-2" value="Afficher les details">         
+				<input id='btnModifierFilm' type="button" class="btn bg-gradient btn-outline-warning mb-2"  value="Mettre à jour" onclick='showUpdate(${listFilms[i].idFilm})'>
+				<input id='btnDeleteFilm' type="button" class="btn bg-gradient btn-outline-danger" onclick='deleteR(${listFilms[i].idFilm})' value="Supprimer ce film">
                
 				</form>
 			  
@@ -106,7 +106,7 @@ function updateFilmShow(film){/*
 	var rep = 
     `
     <h1 class="h1 text-center">Modifier un film</h1>
-    <form id="formRegister" class="row" onSubmit="return validerFilm()">
+    <form id="formRegister" class="row">
 
         <div class="col-md-6 mt-3">
             <div class="form-group">
@@ -298,9 +298,11 @@ function updateFilmShow(film){/*
             <button id="btnUpdateFilm" onclick='updateR(${film.idFilm})' class="btn btn-success bg-gradient">Modifier</button>
 
         </div>
+       
     </form>
     <button id="btnAnnulerEditFilm" class="btn btn-danger bg-gradient mt-2">Annuler</button>
 `
+// <input type="hidden" id="idFilm" name="idFilm" value="${film.idFilm}"></input>
 
 // show update form
 $("#containerListe").hide();
@@ -410,7 +412,7 @@ else if (role == 'M')  return "Membre";
 
 var filmsVue=function(reponse){
 
-	var action=reponse.action; 
+	var action = reponse.action; 
 	switch(action){
 		case "ajouter" :
 			ajouterF(reponse.msg);

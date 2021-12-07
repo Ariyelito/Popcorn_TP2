@@ -108,7 +108,7 @@ function delete(){
 }
 
 function update(){
-
+   
     $idFilm =$_POST['idFilm'];
     global $resJSON;
     $titre = $_POST['inputTitle'];
@@ -132,9 +132,10 @@ function update(){
      $resJSON['msg'] = "Film bien modifier";   
      }
      catch(Exception $e){      
-        echo $e->getMessage(); 
+       // echo $e->getMessage(); 
          $resJSON['msg'] = $e. " erreur dans la modification";
      }
+  
 }
 function chercherFilmsParCategorie(){
     global $resJSON;
@@ -174,6 +175,27 @@ function  chercherFilmsParTitre(){
     }
 }
 
+// function getAllCategories(){
+//     global $resJSON;
+
+//     $resJSON['action']="getAllCategories";
+  
+//     $requete="SELECT c.nomCategorie FROM `categories`";
+   
+//     try{
+//          $filmModel=new filmsModele($requete,array());
+//          $stmt=$filmModel->executer();
+//          $resJSON['listeCategories']=array();
+//          while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+//             $resJSON['listeCategories'][]=$ligne;
+//         }
+//         echo json_encode($resJSON);
+//     }catch(Exception $e)
+//     {
+   
+//     }
+// }
+
 $action = $_POST['action'];
 
 	switch($action){
@@ -200,6 +222,7 @@ $action = $_POST['action'];
         break;
         case "getCategories":
             getCategories();
+            break;
 
 	}
 

@@ -117,25 +117,18 @@ $(document).ready(function () {
         //confirm('Are you sure want to delete this record?')
     })
 // tous le code jquery() dans cette instruction sinon ca va pas marcher
-    $('#btnB').click(()=>{
-        $('#energForm').toggle();
-     
-    });
+   
 
-$('#inputTitre').keydown(()=>{
-   // chercherFilmsParTitre($(this).attr('value'));
-    // alert($(this).attr('value'));
-    // alert("fs");
-});
-
-    $('#btnModifierFilm').click(()=>{
+    // $('#btnModifierFilm').click(()=>{
     
-        $(this).toggle();
-    });
+    //     $(this).toggle();
+    // });
   
     
 
 });
+
+
 
 /*
 function update(idFilm){

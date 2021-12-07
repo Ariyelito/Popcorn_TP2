@@ -28,7 +28,7 @@ function showUpdate(idFilm){
 
 
 function lister(){
-
+	
 	var formFilm = new FormData();
 	formFilm.append('action','lister');
     $.ajax({
@@ -92,6 +92,7 @@ function ajouterR(){
 }
 
 function updateR(idFilm){	
+	
 	var formFilm = new FormData(document.getElementById('formRegister'));
 	formFilm.append('action','update');
 	formFilm.append('idFilm',idFilm);
@@ -105,10 +106,10 @@ function updateR(idFilm){
 		dataType : 'json',
 		success : function (reponse){	
             filmsVue(reponse);
-			alert(reponse);
 		},
 		fail : function (err){
 			alert(reponse);
+			
 		} 
     });   
 }
@@ -151,5 +152,7 @@ function chercherFilmsParTitre (titre) {
 			alert(reponse);
 		} 
     });
+
+
 }
 
