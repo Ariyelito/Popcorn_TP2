@@ -110,14 +110,15 @@ function delete(){
 function update(){
 
     $idFilm =$_POST['idFilm'];
-
     global $resJSON;
-    $titre = $_POST['inputTitre'];
+    $titre = $_POST['inputTitle'];
     $date = $_POST['inputDate'];
     $langue = $_POST['langue'];
     $montant = $_POST['inputCout'];
     $duree = $_POST['inputDure'];
     $photo = "";
+    // integrer dans la requetes svp merci
+    $categories = (isset($_POST['inputCat'])) ? $_POST['inputCat'] : array();
     $idCategories = array(1,2);
     $idRealisateurs = array(1,2);
     $description = $_POST['descriptionText'];

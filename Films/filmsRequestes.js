@@ -95,7 +95,7 @@ function updateR(idFilm){
 	var formFilm = new FormData(document.getElementById('formRegister'));
 	formFilm.append('action','update');
 	formFilm.append('idFilm',idFilm);
-	var x = formFilm.get("inputTitre");
+	var x = formFilm.get("inputTitle");
 	$.ajax({
         type : 'POST',
 		url : 'Films/filmsControleur.php',

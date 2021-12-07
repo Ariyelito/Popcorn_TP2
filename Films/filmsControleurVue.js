@@ -2,7 +2,107 @@ function appendCategories(){
     // ...
 }
 // manque photo categorie et realisateur
+// to delete
+
+
+function listerF(listFilms){
+	var taille;
+	var rep=`<div id="contListFilm" class="container mt-5">
+    <h1  class="h1 text-center">Liste des films</h2>
+    <div class="input-group mb-3 ">
+        <a id="btnAjouterFilm" class="btn btn-success bg-gradient col-6 col-sm-4" >Ajouter un film</a>        
+        
+        <div id="searchBar" class="input-group-prepend">
+            <span id="spanParTitre" class="input-group-text" id="inputGroup-sizing-default">Chercher par titre : </span>
+            </div>   
+            <input id="inputTitre" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="inputTitre" value="">
+            <a id="btnSearchFilm" class="btn btn-success bg-gradient col-6 col-sm-4" >Go</a>    
+        </div>
+
+        <table class="table table-striped table-hover table-borderless">
+            <thead class="table-success"> 
+            <th scope="col">Photo</th>            
+                <th scope="col">ID</th>
+                <th scope="col">titre</th>
+                <th scope="col">duree</th>
+                <th scope="col">langue</th>
+                <th scope="col">date</th>
+                <th scope="col">montant</th>
+                <th scope="col">Actions
+
+                </th>
+            </thead>  <tbody>`;
+	
+
+	taille=listFilms.length;
+	for(var i=0; i<taille; i++){
+		rep+=`  <tr>
+        <td> <img src="${listFilms[i].photo}" class="card-img-top imgFilm" style="  width: 100px; height: 150px;" alt="poster officiel du film"></td>
+        
+		<td>${listFilms[i].idFilm}</td>
+		<td>${listFilms[i].titre}</td>
+		<td>${listFilms[i].duree}</td>
+		<td>${listFilms[i].langue}</td>
+		<td>${listFilms[i].date}</td>
+      
+		<td>${listFilms[i].montant}</td>
+       
+		<td>
+			<div class="btn-group">
+				
+				<form  action="" method="GET">
+				<input type="hidden" name="idFilm" value="${listFilms[i].idFilm}">       
+                <input id='btnDetailsFilm' class="btn bg-gradient btn-primary mb-2" value="Afficher les details">         
+				<input id='btnModifierFilm' class="btn bg-gradient btn-warning mb-2"  value="Mettre à jour" onclick='showUpdate(${listFilms[i].idFilm})'>
+				<input id='btnDeleteFilm' class="btn bg-gradient btn-danger" onclick='deleteR(${listFilms[i].idFilm})' value="Supprimer ce film">
+               
+				</form>
+			  
+				
+			</div>
+		</td>
+	</tr>`;		 
+	}
+	rep+=`    
+</div>
+`;
+    
+    $('#containerListe').html(rep);
+
+    $('#btnAjouterFilm').on("click", function() {
+        $("#contAddFilm").show();
+        $("#containerListe").hide();
+    });
+
+    $('#btnAnnulerAddFilm').on("click", function() {
+        $("#contAddFilm").hide();
+        $("#containerListe").show();
+    });
+
+    $('#btnSearchFilm').click(()=>{
+        //chercherFilmsParCateg(14);
+           chercherFilmsParTitre($('#inputTitre').val());
+         // alert($(this).attr('value'));
+          //alert($('#inputTitre').val());
+     });
+}
+
 function updateFilmShow(film){
+    $("#contListFilm").hide();
+    $("#contEditFilm").show();
+    //fonctionne pas 
+    $('#inputTitle').val(film.titre);
+    $('#inputDate').val(film.titre);
+    $('#inputCout').val(film.titre);
+    $('#inputDuree').val(film.titre);
+    $('#descriptionText').val(film.description);
+    // a faire : check les box du film
+    //$(inputCat).val(film.categories);
+    
+    $('#btnUpdateFilm').on("click", () => {
+        updateR(film.idFilm);
+    });
+
 	var rep = 
     `
     <h1 class="h1 text-center">Modifier un film</h1>
@@ -83,95 +183,7 @@ function updateFilmShow(film){
     </form>
     <button id="btnAnnulerAddFilm" class="btn btn-danger bg-gradient mt-2">Annuler</button>
 `
-
-$("#container").html(rep);
-}
-
-
-
-
-
-function listerF(listFilms){
-	var taille;
-	var rep=`<div id="contListFilm" class="container mt-5">
-    <h1  class="h1 text-center">Liste des films</h2>
-    <div class="input-group mb-3 ">
-        <a id="btnAjouterFilm" class="btn btn-success bg-gradient col-6 col-sm-4" >Ajouter un film</a>        
-        
-        <div id="searchBar" class="input-group-prepend">
-            <span id="spanParTitre" class="input-group-text" id="inputGroup-sizing-default">Chercher par titre : </span>
-            </div>   
-            <input id="inputTitre" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="inputTitre" value="">
-            <a id="btnSearchFilm" class="btn btn-success bg-gradient col-6 col-sm-4" >Go</a>    
-        </div>
-
-        <table class="table table-striped table-hover table-borderless">
-            <thead class="table-success"> 
-            <th scope="col">Photo</th>            
-                <th scope="col">ID</th>
-                <th scope="col">titre</th>
-                <th scope="col">duree</th>
-                <th scope="col">langue</th>
-                <th scope="col">date</th>
-                <th scope="col">montant</th>
-                <th scope="col">Actions
-
-                </th>
-            </thead>  <tbody>`;
-	
-
-	taille=listFilms.length;
-	for(var i=0; i<taille; i++){
-		rep+=`  <tr>
-        <td> <img src="${listFilms[i].photo}" class="card-img-top imgFilm" style="  width: 100px; height: 150px;" alt="poster officiel du film"></td>
-        
-		<td>${listFilms[i].idFilm}</td>
-		<td>${listFilms[i].titre}</td>
-		<td>${listFilms[i].duree}</td>
-		<td>${listFilms[i].langue}</td>
-		<td>${listFilms[i].date}</td>
-      
-		<td>${listFilms[i].montant}</td>
-       
-		<td>
-			<div class="btn-group">
-				
-				<form  action="" method="GET">
-				<input type="hidden" name="idFilm" value="${listFilms[i].idFilm}">       
-                <input id='btnDetailsFilm' class="btn bg-gradient btn-primary mb-2" value="Afficher les details">         
-				<input id='btnModifierFilm' class="btn bg-gradient btn-warning mb-2"  value="Mettre à jour" onclick='showUpdate(${listFilms[i].idFilm})'>
-				<input id='btnDeleteFilm' class="btn bg-gradient btn-danger" onclick='deleteR(${listFilms[i].idFilm})' value="Supprimer ce film">
-               
-				</form>
-			  
-				
-			</div>
-		</td>
-	</tr>`;		 
-	}
-	rep+=`    
-</div>
-`;
-    
-    $('#container').html(rep);
-
-    $('#btnAjouterFilm').on("click", function() {
-        $("#contAddFilm").show();
-        $("#container").hide();
-    });
-
-    
-    $('#btnAnnulerAddFilm').on("click", function() {
-        $("#contAddFilm").hide();
-        $("#container").show();
-    });
-
-    $('#btnSearchFilm').click(()=>{
-        //chercherFilmsParCateg(14);
-           chercherFilmsParTitre($('#inputTitre').val());
-         // alert($(this).attr('value'));
-          //alert($('#inputTitre').val());
-     });
+//$("#container").html(rep);
 }
 // function listerFParCateg(listFilms){
 
