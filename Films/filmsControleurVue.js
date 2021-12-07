@@ -110,33 +110,19 @@ function updateFilmShow(film){/*
 
         <div class="col-md-6 mt-3">
             <div class="form-group">
-                <label for="inputTitre" class="form-label">Titre :</label>
-                <input type="text" class="form-control" id="inputTitre" name="inputTitre" value="${film.titre}">
+                <label for="inputTitle" class="form-label">Titre :</label>
+                <input type="text" class="form-control" id="inputTitle" name="inputTitre" value="${film.titre}">
             </div>
         </div>
         <div class="col-md-6 mt-3">
             <div class="form-group">
-                <label for="inputReal" class="form-label">Réalisateur :</label>
-                                    
-                <input list="brow">
-                <datalist id="brow">
-                   <option>A</option>
-                   <option>b</option>
-                </datalist>  
-
+                <label for="inputDate" class="form-label" >Date de sortie :</label>
+                <input type="date" class="form-control" id="inputDate" name="inputDate" value="${film.date}">
             </div>
         </div>
-
         <div class="col-6 mt-3">
             <div class="form-group">
-                <label for="inputDate">Date de sortie :</label>
-                <input type="date" class="form-control" id="inputDate" name="inputDate value="${film.date}">
-            </div>
-        </div>
-
-        <div class="col-6 mt-3">
-            <div class="form-group">
-                <label for="InputLangue">Langue :</label>
+                <label for="InputLangue" class="form-label">Langue :</label>
                 <select class="form-control" id="InputLangue" name="langue">
                     <option value="1">Français</option>
                     <option value="2">Anglais</option>
@@ -144,34 +130,166 @@ function updateFilmShow(film){/*
                 </select>
             </div>
         </div>
-
-        <div class="col-6 col-sm-4 mt-3">
+        <div class="col-6 mt-3">
             <div class="form-group">
-                <label for="inputCout">Coût :</label>
+                <label for="inputCout" class="form-label">Coût :</label>
                 <input type="text" class="form-control" id="inputCout" name="inputCout" value="${film.montant}">
             </div>
         </div>
-
-        <div class="col-6 col-sm-4 mt-3">
-            <div class="form-group">
-                <label for="inputDure">Durée :</label>
-                <input type="text" class="form-control" id="inputDure" name="inputDure" value="${film.duree}">
+        <label class="form-label mt-3">Catégorie :</label>
+            <div id="categoriesBD" class="col-12">
+                <!-- a remplir avec une fonction () -->
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="1" id="flexCheckDefault1">
+                        <label class="form-check-label" for="flexCheckDefault1">
+                            Comedy
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="2" id="flexCheckChecked2">
+                        <label class="form-check-label" for="flexCheckChecked2">
+                            Fantasy
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="3" id="flexCheckChecked3">
+                        <label class="form-check-label" for="flexCheckChecked3">
+                            Crime
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="4" id="flexCheckChecked4">
+                        <label class="form-check-label" for="flexCheckChecked4">
+                            Drama
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="5" id="flexCheckChecked5">
+                        <label class="form-check-label" for="flexCheckChecked5">
+                            Music
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="6" id="flexCheckChecked6">
+                        <label class="form-check-label" for="flexCheckChecked6">
+                            Adventure
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="7" id="flexCheckChecked7">
+                        <label class="form-check-label" for="flexCheckChecked7">
+                            History
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="8" id="flexCheckChecked8">
+                        <label class="form-check-label" for="flexCheckChecked8">
+                            Thriller
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="9" id="flexCheckChecked9">
+                        <label class="form-check-label" for="flexCheckChecked9">
+                            Animation
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="10" id="flexCheckChecked10">
+                        <label class="form-check-label" for="flexCheckChecked10">
+                            Family
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="11" id="flexCheckChecked11">
+                        <label class="form-check-label" for="flexCheckChecked11">
+                            Mystery
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="12" id="flexCheckChecked12">
+                        <label class="form-check-label" for="flexCheckChecked12">
+                            Biography
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="13" id="flexCheckChecked13">
+                        <label class="form-check-label" for="flexCheckChecked13">
+                            Action
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="14" id="flexCheckChecked14">
+                        <label class="form-check-label" for="flexCheckChecked14">
+                            Film-Noir
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="15" id="flexCheckChecked15">
+                        <label class="form-check-label" for="flexCheckChecked15">
+                            Romance
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="16" id="flexCheckChecked16">
+                        <label class="form-check-label" for="flexCheckChecked16">
+                            Sci-Fi
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="17" id="flexCheckChecked17">
+                        <label class="form-check-label" for="flexCheckChecked17">
+                            War
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="18" id="flexCheckChecked18">
+                        <label class="form-check-label" for="flexCheckChecked18">
+                            Western
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="19" id="flexCheckChecked19">
+                        <label class="form-check-label" for="flexCheckChecked19">
+                            Horror
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="20" id="flexCheckChecked20">
+                        <label class="form-check-label" for="flexCheckChecked20">
+                            Musical
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="inputCat" value="21" id="flexCheckChecked21">
+                        <label class="form-check-label" for="flexCheckChecked21">
+                            Sport
+                        </label>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="col-sm-4 mt-3">
-            <div class="form-group">
-                <label for="inputCat">Catégorie :</label>
-                <select class="form-control" id="inputCat" name="inputCat">                         
-                        <option value="action"></option>
-                </select>
-            </div>
-        </div>
         <div class="col-12 mt-3">
+            <div class="form-group">
+                <label for="addReal" class="form-label">Réalisateur :</label>
+                <input type="text" class="form-control" id="addReal" name="addReal" value="" placeholder="Séparer plusieurs utilisateurs par des des virgules (,)">
+            </div>
+        </div>
+        <div class="col-6 mt-3">
             <label for="formFile" class="form-label">Poster pour le film (image) :</label>
             <input class="form-control" type="file" id="formFile">
         </div>
-        <br>
+        <div class="col-6 mt-3">
+            <div class="form-group">
+                <label for="inputDure" class="form-label">Durée :</label>
+                <input type="text" class="form-control" id="inputDure" name="inputDure" value="${film.duree}">
+            </div>
+        </div>
         <div class="col-12 mt-3">
             <label for="descriptionText" class="form-label">Description du film :</label>
             <textarea id="descriptionText" name="descriptionText" class="form-control" rows="3">${film.description}</textarea>
