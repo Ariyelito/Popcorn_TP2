@@ -87,10 +87,11 @@ function listerF(listFilms){
      });
 }
 
-function updateFilmShow(film){
+function updateFilmShow(film){/*
     $("#contListFilm").hide();
     $("#contEditFilm").show();
     //fonctionne pas 
+    document.getElementById("inputTitle").value = "Test"
     $('#inputTitle').val(film.titre);
     $('#inputDate').val(film.titre);
     $('#inputCout').val(film.titre);
@@ -102,6 +103,7 @@ function updateFilmShow(film){
     $('#btnUpdateFilm').on("click", () => {
         updateR(film.idFilm);
     });
+    */
 
 	var rep = 
     `
@@ -183,7 +185,7 @@ function updateFilmShow(film){
     </form>
     <button id="btnAnnulerAddFilm" class="btn btn-danger bg-gradient mt-2">Annuler</button>
 `
-//$("#container").html(rep);
+$("#containerListe").html(rep);
 }
 // function listerFParCateg(listFilms){
 
