@@ -6,7 +6,7 @@ $resJSON = array();
 
 function ajouter(){
    global $resJSON;
-   $titre = $_POST['inputTitre'];
+   $titre = $_POST['inputTitle'];
    $date = $_POST['inputDate'];
    $langue = $_POST['langue'];
    $montant = $_POST['inputCout'];

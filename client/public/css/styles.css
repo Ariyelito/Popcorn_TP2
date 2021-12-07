@@ -13,6 +13,11 @@
   max-width: 600px;
 }
 
+#contEditFilm {
+  display: none;
+  max-width: 600px;
+}
+
 #contListFilm {
   max-width: 2000px;
 }
@@ -154,4 +159,9 @@ p.card-text {
 #spanParTitre{
   border-top-right-radius: 0%;
   border-bottom-right-radius: 0%;
+}
+
+.form-check {
+  float:left;
+  margin-right: 15px;
 }

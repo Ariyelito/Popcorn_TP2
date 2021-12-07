@@ -20,7 +20,6 @@ function updateFilmShow(film){
                    <option>A</option>
                    <option>b</option>
                 </datalist>  
-                      
 
             </div>
         </div>
@@ -90,16 +89,12 @@ $("#container").html(rep);
 
 
 function listerF(listFilms){
-   //alert("sfg");
 	var taille;
-// previous on click = ajouterForm()
 	var rep=`<div id="contListFilm" class="container mt-5">
     <h1  class="h1 text-center">Liste des films</h2>
     <div class="input-group mb-3 ">
         <a id="btnAjouterFilm" class="btn btn-success bg-gradient col-6 col-sm-4" >Ajouter un film</a>        
         
-
-    
         <div id="searchBar" class="input-group-prepend">
             <span id="spanParTitre" class="input-group-text" id="inputGroup-sizing-default">Chercher par titre : </span>
             </div>   
@@ -116,7 +111,6 @@ function listerF(listFilms){
                 <th scope="col">langue</th>
                 <th scope="col">date</th>
                 <th scope="col">montant</th>
-              
                 <th scope="col">Actions
 
                 </th>
