@@ -4,6 +4,11 @@ require_once("../db/connexion.inc.php");
 require_once("../db/modeles.inc.php");
 $resJSON = array();
 
+function getCategories(){
+    // a faire svp les amis
+    //$resJSON['listeCategories']
+}
+
 function ajouter(){
    global $resJSON;
    $titre = $_POST['inputTitle'];
@@ -172,7 +177,6 @@ $action = $_POST['action'];
 
 	switch($action){
 		case "ajouter" :
-           
 			ajouter();
 		break;
 		case "lister" :        
@@ -189,14 +193,14 @@ $action = $_POST['action'];
 		break;
         case "chercherCat" : 
             chercherFilmsParCategorie();
-            break;
-            case "chercherParTitre" : 
-                chercherFilmsParTitre();
-                break;
+        break;
+        case "chercherParTitre" : 
+            chercherFilmsParTitre();
+        break;
+        case "getCategories":
+            getCategories();
+
 	}
 
-
-
 echo json_encode($resJSON);
-
 ?>

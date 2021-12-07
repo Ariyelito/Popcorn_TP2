@@ -103,11 +103,6 @@
 // */
 
 $(document).ready(function () {
-    $('#btnAjouterFilm').on("click", function() {
-        alert("ton bec");
-        //$("#contAddFilm").show();
-       // $("#container").hide();
-    });
     // acueil est la liste des films
     lister();
     //$('#btnFilms').click();

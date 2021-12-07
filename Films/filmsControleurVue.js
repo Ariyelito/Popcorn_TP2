@@ -1,3 +1,6 @@
+function appendCategories(){
+    // ...
+}
 // manque photo categorie et realisateur
 function updateFilmShow(film){
 	var rep = 
@@ -277,8 +280,7 @@ var filmsVue=function(reponse){
 			break;
 		case "update" :			
 			updateF(reponse.msg);
-		
-		break;
+		    break;
 		case "lister" :		
 		case "chercherCat":
         case "chercherParTitre" : 
@@ -287,9 +289,10 @@ var filmsVue=function(reponse){
 		
 		case "updateFilmShow" :
 			updateFilmShow(reponse.film);
-		break;
-      
-		
+		    break;
+        case "appendCategories" :
+            appendCategories()
+            break;
 	}
 }
 	/*$('#messages').html(reponse.msg);

@@ -1,3 +1,9 @@
+function getCategories(){
+	// a faire svp merci mes amis
+	//var formFilm = new FormData();
+	//formFilm.append('action','appendCategories');
+}
+
 function showUpdate(idFilm){
 
 	var formFilm = new FormData();
