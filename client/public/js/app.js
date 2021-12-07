@@ -63,7 +63,7 @@
 // }
 
 // /*
-// $('#btnHome').click(()=>{
+// $('.btnHome').click(()=>{
 //     $("#contLogIn").hide();
 //     $("#contCards").show();
 //     $("#contRegister").hide();
@@ -105,7 +105,11 @@
 $(document).ready(function () {
     // acueil est la liste des films
     lister();
-    //$('#btnFilms').click();
+    $('.btnHome').click(()=>{
+        $("#contAddFilm").hide();
+        $("#contEditFilm").hide();
+        $("#containerListe").show();
+    });
    
     
   

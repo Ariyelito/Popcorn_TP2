@@ -4,10 +4,11 @@ function appendCategories(){
 // manque photo categorie et realisateur
 // to delete
 
-
+//var movies;
 function listerF(listFilms){
+    //movies = listFilms;
 	var taille;
-	var rep=`<div id="contListFilm" class="container mt-5">
+	var rep=`
     <h1  class="h1 text-center">Liste des films</h2>
     <div class="input-group mb-3 ">
         <a id="btnAjouterFilm" class="btn btn-success bg-gradient col-6 col-sm-4" >Ajouter un film</a>        
@@ -63,9 +64,6 @@ function listerF(listFilms){
 		</td>
 	</tr>`;		 
 	}
-	rep+=`    
-</div>
-`;
     
 $('#containerListe').html(rep);
 
@@ -88,7 +86,7 @@ $('#btnSearchFilm').click(()=>{
 }
 
 function updateFilmShow(film){/*
-    $("#contListFilm").hide();
+    $("#containerListe").hide();
     $("#contEditFilm").show();
     //fonctionne pas 
     document.getElementById("inputTitle").value = "Test"
@@ -185,6 +183,7 @@ function updateFilmShow(film){/*
     </form>
     <button id="btnAnnulerEditFilm" class="btn btn-danger bg-gradient mt-2">Annuler</button>
 `
+
 // show update form
 $("#containerListe").hide();
 $('#contEditFilm').html(rep);
