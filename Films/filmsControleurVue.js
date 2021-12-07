@@ -21,14 +21,14 @@ function listerF(listFilms){
         </div>
 
         <table class="table table-striped table-hover table-borderless">
-            <thead class="table-success"> 
-            <th scope="col">Photo</th>            
-                <th scope="col">ID</th>
-                <th scope="col">titre</th>
-                <th scope="col">duree</th>
-                <th scope="col">langue</th>
-                <th scope="col">date</th>
-                <th scope="col">montant</th>
+            <thead class="table-success text-center"> 
+            <th scope="col">Poster</th>            
+                <th scope="col">#</th>
+                <th id="thTitre" scope="col">Titre</th>
+                <th scope="col">Durée</th>
+                <th id="thLangue" scope="col">Langue</th>
+                <th id="thDate" scope="col">Date</th>
+                <th scope="col">$</th>
                 <th scope="col">Actions
 
                 </th>
@@ -40,22 +40,22 @@ function listerF(listFilms){
 		rep+=`  <tr>
         <td> <img src="${listFilms[i].photo}" class="card-img-top imgFilm" style="  width: 100px; height: 150px;" alt="poster officiel du film"></td>
         
-		<td>${listFilms[i].idFilm}</td>
-		<td>${listFilms[i].titre}</td>
-		<td>${listFilms[i].duree}</td>
-		<td>${listFilms[i].langue}</td>
-		<td>${listFilms[i].date}</td>
+		<td class="text-center">${listFilms[i].idFilm}</td>
+		<td class="text-center">${listFilms[i].titre}</td>
+		<td class="text-center">${listFilms[i].duree}</td>
+		<td class="text-center">${listFilms[i].langue}</td>
+		<td class="text-center">${listFilms[i].date}</td>
       
-		<td>${listFilms[i].montant}</td>
+		<td class="text-center">${listFilms[i].montant}</td>
        
 		<td>
 			<div class="btn-group">
 				
 				<form  action="" method="GET">
 				<input type="hidden" name="idFilm" value="${listFilms[i].idFilm}">       
-                <input id='btnDetailsFilm' class="btn bg-gradient btn-primary mb-2" value="Afficher les details">         
-				<input id='btnModifierFilm' class="btn bg-gradient btn-warning mb-2"  value="Mettre à jour" onclick='showUpdate(${listFilms[i].idFilm})'>
-				<input id='btnDeleteFilm' class="btn bg-gradient btn-danger" onclick='deleteR(${listFilms[i].idFilm})' value="Supprimer ce film">
+                <input id='btnDetailsFilm' class="btn bg-gradient btn-outline-primary mb-2 disabled" value="Afficher les details">         
+				<input id='btnModifierFilm' class="btn bg-gradient btn-outline-warning mb-2"  value="Mettre à jour" onclick='showUpdate(${listFilms[i].idFilm})'>
+				<input id='btnDeleteFilm' class="btn bg-gradient btn-outline-danger" onclick='deleteR(${listFilms[i].idFilm})' value="Supprimer ce film">
                
 				</form>
 			  
@@ -64,7 +64,7 @@ function listerF(listFilms){
 		</td>
 	</tr>`;		 
 	}
-    
+
 $('#containerListe').html(rep);
 
 $('#btnAjouterFilm').on("click", function() {
