@@ -73,6 +73,10 @@ p.card-text {
   margin-left: 20%;
 }
 
+#btnUpdateFilm, #btnAnnulerEditFilm {
+  width: 100%;
+}
+
 #btnConnecter {
   width: 100%;
 }

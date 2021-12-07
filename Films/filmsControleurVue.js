@@ -67,24 +67,24 @@ function listerF(listFilms){
 </div>
 `;
     
-    $('#containerListe').html(rep);
+$('#containerListe').html(rep);
 
-    $('#btnAjouterFilm').on("click", function() {
-        $("#contAddFilm").show();
-        $("#containerListe").hide();
+$('#btnAjouterFilm').on("click", function() {
+    $("#contAddFilm").show();
+    $("#containerListe").hide();
+});
+
+$('#btnAnnulerAddFilm').on("click", function() {
+    $("#contAddFilm").hide();
+    $("#containerListe").show();
+});
+
+$('#btnSearchFilm').click(()=>{
+    //chercherFilmsParCateg(14);
+        chercherFilmsParTitre($('#inputTitre').val());
+        // alert($(this).attr('value'));
+        //alert($('#inputTitre').val());
     });
-
-    $('#btnAnnulerAddFilm').on("click", function() {
-        $("#contAddFilm").hide();
-        $("#containerListe").show();
-    });
-
-    $('#btnSearchFilm').click(()=>{
-        //chercherFilmsParCateg(14);
-           chercherFilmsParTitre($('#inputTitre').val());
-         // alert($(this).attr('value'));
-          //alert($('#inputTitre').val());
-     });
 }
 
 function updateFilmShow(film){/*
@@ -183,9 +183,18 @@ function updateFilmShow(film){/*
 
         </div>
     </form>
-    <button id="btnAnnulerAddFilm" class="btn btn-danger bg-gradient mt-2">Annuler</button>
+    <button id="btnAnnulerEditFilm" class="btn btn-danger bg-gradient mt-2">Annuler</button>
 `
-$("#containerListe").html(rep);
+// show update form
+$("#containerListe").hide();
+$('#contEditFilm').html(rep);
+$('#contEditFilm').show();
+// button event
+$('#btnAnnulerEditFilm').on("click", () => {
+    $("#containerListe").show();
+    $("#contEditFilm").hide();
+});
+
 }
 // function listerFParCateg(listFilms){
 
