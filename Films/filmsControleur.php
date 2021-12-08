@@ -121,7 +121,9 @@ function update(){
     $langue = $_POST['langue'];
     $montant = $_POST['inputCout'];
     $duree = $_POST['inputDure'];
-   
+    $photo = "";
+         
+     
     // integrer dans la requetes svp merci
     $categories = (isset($_POST['inputCat'])) ? $_POST['inputCat'] : array();
     $idCategories = array(1,2);
@@ -129,9 +131,11 @@ function update(){
     $description = $_POST['descriptionText'];
     $resJSON['action']="update";
     try{      
-
-    $requete="UPDATE  films SET titre = ?, duree = ?, langue = ?, date = ?, montant = ?, description=?  WHERE idFilm=?";
-    $filmModel = new filmsModele($requete,array($titre , $duree, $langue,$date,$montant,$description, $idFilm));      
+    // if($photo === "")
+    // $requete="UPDATE  films SET titre = ?, duree = ?, langue = ?, date = ?, montant = ?, description=?  WHERE idFilm=?"; $_FILES['photoFile']
+    // $filmModel = new filmsModele($requete,array($titre , $duree, $langue,$date,$montant,$description, $idFilm));  else 
+    $requete="UPDATE  films SET titre = ?, duree = ?, langue = ?, date = ?, montant = ?, photo= ?, description=?  WHERE idFilm=?";
+    $filmModel = new filmsModele($requete,array($titre , $duree, $langue,$date,$montant,$photo,$description, $idFilm));      
      $stmt=$filmModel->executer();
  
      $resJSON['msg'] = "Film bien modifier";   

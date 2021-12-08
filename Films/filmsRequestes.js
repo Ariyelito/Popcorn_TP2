@@ -111,7 +111,7 @@ function updateR(idFilm){
 		dataType : 'json',
 		success : function (reponse){	
             filmsVue(reponse);
-
+			
 		},
 		fail : function (err){
 			alert(reponse);
