@@ -5,8 +5,10 @@ function appendCategories(){
 // to delete
 
 //var movies;
-function listerF(listFilms){
+
+function listerF(listFilms,listeCategories){
     //movies = listFilms;
+ 
 	var taille;
 	var rep=`
     <h1  class="h1 text-center">Liste des films</h2>
@@ -19,7 +21,7 @@ function listerF(listFilms){
             <input id="inputTitre" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="inputTitre" value="">
             <a id="btnSearchFilm" class="btn btn-success bg-gradient col-6 col-sm-4" >Go</a>    
         </div>
-
+    
         <table class="table table-striped table-hover table-borderless">
             <thead class="table-success text-center"> 
             <th scope="col">Poster</th>            
@@ -34,8 +36,9 @@ function listerF(listFilms){
                 </th>
             </thead>  <tbody>`;
 	
-
+    
 	taille=listFilms.length;
+
 	for(var i=0; i<taille; i++){
 		rep+=`  <tr>
         <td> <img src="${listFilms[i].photo}" class="card-img-top imgFilm" style="  width: 100px; height: 150px;" alt="poster officiel du film"></td>
@@ -434,7 +437,7 @@ var filmsVue=function(reponse){
 		case "lister" :		
 		case "chercherCat":
         case "chercherParTitre" : 
-            listerF(reponse.listeFilms);
+            listerF(reponse.listeFilms,reponse.listeCategories);
             break;
 		
 		case "updateFilmShow" :

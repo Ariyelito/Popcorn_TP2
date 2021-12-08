@@ -65,6 +65,7 @@ function listerFilms(){
          while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
             $resJSON['listeFilms'][]=$ligne;
         }
+        getAllCategories();
     }catch(Exception $e)
     {
    
@@ -178,32 +179,30 @@ function  chercherFilmsParTitre(){
          while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
             $resJSON['listeFilms'][]=$ligne;
         }
+       
     }catch(Exception $e)
     {
    
     }
 }
 
-// function getAllCategories(){
-//     global $resJSON;
-
-//     $resJSON['action']="getAllCategories";
-  
-//     $requete="SELECT c.nomCategorie FROM `categories`";
+function getAllCategories(){
+    global $resJSON;
+    $requete="SELECT * FROM `categories`";
    
-//     try{
-//          $filmModel=new filmsModele($requete,array());
-//          $stmt=$filmModel->executer();
-//          $resJSON['listeCategories']=array();
-//          while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
-//             $resJSON['listeCategories'][]=$ligne;
-//         }
-//         echo json_encode($resJSON);
-//     }catch(Exception $e)
-//     {
+    try{
+         $filmModel=new filmsModele($requete,array());
+         $stmt=$filmModel->executer();
+         $resJSON['listeCategories']=array();
+         while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+            $resJSON['listeCategories'][]=$ligne;
+        }
+        
+    }catch(Exception $e)
+    {
    
-//     }
-// }
+    }
+}
 
 $action = $_POST['action'];
 
