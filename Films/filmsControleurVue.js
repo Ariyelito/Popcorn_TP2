@@ -85,7 +85,9 @@ $('#btnSearchFilm').click(()=>{
     });
 }
 
-function updateFilmShow(film){/*
+function updateFilmShow(film){
+
+    /*
     $("#containerListe").hide();
     $("#contEditFilm").show();
     //fonctionne pas 
@@ -111,7 +113,7 @@ function updateFilmShow(film){/*
         <div class="col-md-6 mt-3">
             <div class="form-group">
                 <label for="inputTitle" class="form-label">Titre :</label>
-                <input type="text" class="form-control" id="inputTitle" name="inputTitre" value="${film.titre}">
+                <input type="text" class="form-control" id="inputTitle" name="inputTitle" value="${film.titre}">
             </div>
         </div>
         <div class="col-md-6 mt-3">
@@ -287,7 +289,7 @@ function updateFilmShow(film){/*
         <div class="col-6 mt-3">
             <div class="form-group">
                 <label for="inputDure" class="form-label">Durée :</label>
-                <input type="text" class="form-control" id="inputDure" name="inputDure" value="${film.duree}">
+                <input type="number" class="form-control" id="inputDure" name="inputDure" value="${film.duree}">
             </div>
         </div>
         <div class="col-12 mt-3">
@@ -295,7 +297,7 @@ function updateFilmShow(film){/*
             <textarea id="descriptionText" name="descriptionText" class="form-control" rows="3">${film.description}</textarea>
         </div>
         <div class="col-12 mt-3">
-            <button id="btnUpdateFilm" onclick='updateR(${film.idFilm})' class="btn btn-success bg-gradient">Modifier</button>
+            <label id="btnUpdateFilm" onclick='updateR(${film.idFilm})' class="btn btn-success bg-gradient">Modifier</label>
 
         </div>
        

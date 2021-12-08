@@ -18,7 +18,7 @@
 //     return etat;
 // }
 
-// let validerMembre = () => {
+// function validerMembre (){
 //     let etat = true;
 
 //     let nom = document.querySelector('#inputNom').value;

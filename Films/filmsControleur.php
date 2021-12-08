@@ -21,6 +21,7 @@ function ajouter(){
    $idRealisateurs = array(1,2);
    $description = $_POST['descriptionText'];
    $resJSON['action']="ajouter";
+   
    try{
     $requete="INSERT INTO films VALUES(0,?,?,?,?,?,?,?)";	    
     $filmModel = new filmsModele($requete,array($titre , $duree, $langue,$date,$montant,$photo,$description));  
@@ -29,7 +30,7 @@ function ajouter(){
     $resJSON['msg'] = "Film bien eregistré";
    }
     catch(Exception $e){
-        $resJSON['msg'] = $e;
+        $resJSON['msg'] = "Problem d'enregistrement";
     }
   
 }
@@ -108,7 +109,11 @@ function delete(){
 }
 
 function update(){
-   
+  
+    //    global $resJSON;
+    // $resJSON['msg'] ="enter";
+    // $resJSON['action']="update";
+
     $idFilm =$_POST['idFilm'];
     global $resJSON;
     $titre = $_POST['inputTitle'];
@@ -125,11 +130,11 @@ function update(){
     $resJSON['action']="update";
     try{      
 
-     $requete="UPDATE  films SET titre = ?, duree = ?, langue = ?, date = ?, montant = ?, photo= ?, description=?  WHERE idFilm=?";
-     $filmModel = new filmsModele($requete,array($titre , $duree, $langue,$date,$montant,$photo,$description, $idFilm));       
-     $stmt=$filmModel->executer();
+    // $requete="UPDATE  films SET titre = ?, duree = ?, langue = ?, date = ?, montant = ?, photo= ?, description=?  WHERE idFilm=?";
+    // $filmModel = new filmsModele($requete,array($titre , $duree, $langue,$date,$montant,$photo,$description, $idFilm));      
+    //  $stmt=$filmModel->executer();
  
-     $resJSON['msg'] = "Film bien modifier";   
+     $resJSON['msg'] =  "duree:".$duree;   
      }
      catch(Exception $e){      
        // echo $e->getMessage(); 
