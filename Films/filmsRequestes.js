@@ -62,6 +62,7 @@ function deleteR(idFilm){
 		success : function (reponse){
 			
             filmsVue(reponse);
+			lister();
 		},
 		fail : function (err){
 		
@@ -97,10 +98,10 @@ function ajouterR(){
 
 function updateR(idFilm){	
 	
-	var formFilm = new FormData(document.getElementById('formRegister'));
+	var formFilm = new FormData(document.getElementById('formModifier'));
 	formFilm.append('action','update');
 	formFilm.append('idFilm',idFilm);
-	var x = formFilm.get("inputTitle");
+
 	$.ajax({
         type : 'POST',
 		url : 'Films/filmsControleur.php',
@@ -110,6 +111,7 @@ function updateR(idFilm){
 		dataType : 'json',
 		success : function (reponse){	
             filmsVue(reponse);
+
 		},
 		fail : function (err){
 			alert(reponse);
@@ -156,6 +158,7 @@ function chercherFilmsParTitre (titre) {
 			alert(reponse);
 		} 
     });
+	
 
 
 }

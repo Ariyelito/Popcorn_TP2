@@ -83,6 +83,10 @@ $('#btnSearchFilm').click(()=>{
         // alert($(this).attr('value'));
         //alert($('#inputTitre').val());
     });
+    // $('#btnDeleteFilm').click(()=>{
+    //     lister();
+    //     });
+ 
 }
 
 function updateFilmShow(film){
@@ -108,7 +112,7 @@ function updateFilmShow(film){
 	var rep = 
     `
     <h1 class="h1 text-center">Modifier un film</h1>
-    <form id="formRegister" class="row">
+    <form id="formModifier" class="row">
 
         <div class="col-md-6 mt-3">
             <div class="form-group">
@@ -284,7 +288,7 @@ function updateFilmShow(film){
         </div>
         <div class="col-6 mt-3">
             <label for="formFile" class="form-label">Poster pour le film (image) :</label>
-            <input class="form-control" type="file" id="formFile">
+            <input class="form-control" type="file" id="formFile" value="${film.photo}">
         </div>
         <div class="col-6 mt-3">
             <div class="form-group">
@@ -387,14 +391,15 @@ $('#btnAnnulerEditFilm').on("click", () => {
 // }
 
 function deleteF(msg){
-    alert(msg);
+    initialiser(msg);
 }
 function ajouterF(msg){
 	alert(msg);
+    initialiser(msg);
 }
 
 function updateF(msg){
-	alert(msg);
+	initialiser(msg);
 } 
 
 function getStatut(statut)
@@ -421,6 +426,7 @@ var filmsVue=function(reponse){
 			break;
 		case "delete" :		
 					deleteF(reponse.msg);
+                    
 			break;
 		case "update" :			
 			updateF(reponse.msg);
