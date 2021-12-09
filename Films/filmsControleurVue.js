@@ -81,14 +81,11 @@ $('#btnAnnulerAddFilm').on("click", function() {
 });
 
 $('#btnSearchFilm').click(()=>{
-    //chercherFilmsParCateg(14);
+   
         chercherFilmsParTitre($('#inputTitre').val());
-        // alert($(this).attr('value'));
-        //alert($('#inputTitre').val());
+       
     });
-    // $('#btnDeleteFilm').click(()=>{
-    //     lister();
-    //     });
+  
  
 }
 
