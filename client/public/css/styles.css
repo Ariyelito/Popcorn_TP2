@@ -185,3 +185,7 @@ p.card-text {
   margin-left: 60px;
   margin-right: 60px;
 }
+
+#toast{
+  position: fixed;
+}
