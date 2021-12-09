@@ -14,9 +14,10 @@ function listerF(listFilms , listeCategories){
     <h1  class="h1 text-center">Liste des films</h2>
     <div class="input-group mb-3 ">
         <a id="btnAjouterFilm" class="btn btn-success bg-gradient col-6 col-sm-4" >Ajouter un film</a>        
-    <select onchange="chercherFilmsParCateg(this.value)">`;
-    var tailleCat
-    tailleCat=listeCategories.length;
+        
+  <select onchange="chercherFilmsParCateg(this.value)">`;
+  var tailleCat
+  tailleCat=listeCategories.length;
 
 	for(var i=0; i<tailleCat; i++){
         rep+=`<option value="${listeCategories[i].idCategorie}">${listeCategories[i].nomCategorie}</option>`;
