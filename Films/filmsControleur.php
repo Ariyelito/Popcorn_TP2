@@ -65,7 +65,7 @@ function listerFilms(){
          while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
             $resJSON['listeFilms'][]=$ligne;
         }
-        getAllCategories();
+       
     }catch(Exception $e)
     {
    
@@ -160,6 +160,7 @@ function chercherFilmsParCategorie(){
          while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
             $resJSON['listeFilms'][]=$ligne;
         }
+        
     }catch(Exception $e)
     {
    
@@ -212,6 +213,7 @@ $action = $_POST['action'];
 		break;
 		case "lister" :        
 			listerFilms();
+            getAllCategories();
 		break;
 		case "delete" :         
 			delete();
@@ -224,9 +226,11 @@ $action = $_POST['action'];
 		break;
         case "chercherCat" : 
             chercherFilmsParCategorie();
+            getAllCategories();
         break;
         case "chercherParTitre" : 
             chercherFilmsParTitre();
+            getAllCategories();
         break;
         case "getCategories":
             getCategories();

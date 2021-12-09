@@ -6,7 +6,7 @@ function appendCategories(){
 
 //var movies;
 
-function listerF(listFilms,listeCategories){
+function listerF(listFilms , listeCategories){
     //movies = listFilms;
  
 	var taille;
@@ -15,7 +15,15 @@ function listerF(listFilms,listeCategories){
     <div class="input-group mb-3 ">
         <a id="btnAjouterFilm" class="btn btn-success bg-gradient col-6 col-sm-4" >Ajouter un film</a>        
         
-        <div id="searchBar" class="input-group-prepend">
+  <select onchange="chercherFilmsParCateg(this.value)">`;
+  var tailleCat
+  tailleCat=listeCategories.length;
+
+	for(var i=0; i<tailleCat; i++){
+        rep+=`<option value="${listeCategories[i].idCategorie}">${listeCategories[i].nomCategorie}</option>`;
+    }
+   
+        rep+=`</select><div id="searchBar" class="input-group-prepend">
             <span id="spanParTitre" class="input-group-text" id="inputGroup-sizing-default">Chercher par titre : </span>
             </div>   
             <input id="inputTitre" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="inputTitre" value="">
