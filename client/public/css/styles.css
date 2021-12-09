@@ -168,7 +168,7 @@ p.card-text {
 }
 
 #searchBar{
-  margin-left: 30%;
+  margin-left: 10px;
 }
 
 #spanParTitre{
@@ -179,4 +179,9 @@ p.card-text {
 .form-check {
   float:left;
   margin-right: 15px;
+}
+
+#comboBox {
+  margin-left: 60px;
+  margin-right: 60px;
 }

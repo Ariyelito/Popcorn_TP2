@@ -15,7 +15,7 @@ function listerF(listFilms , listeCategories){
     <div class="input-group mb-3 ">
         <a id="btnAjouterFilm" class="btn btn-success bg-gradient col-6 col-sm-4" >Ajouter un film</a>        
         
-  <select class="form-select" onchange="chercherFilmsParCateg(this.value)">`;
+  <select id="comboBox" class="form-select" onchange="chercherFilmsParCateg(this.value)">`;
   var tailleCat
   tailleCat=listeCategories.length;
 
