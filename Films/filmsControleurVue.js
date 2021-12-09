@@ -15,7 +15,7 @@ function listerF(listFilms , listeCategories){
     <div class="input-group mb-3 ">
         <a id="btnAjouterFilm" class="btn btn-success bg-gradient col-6 col-sm-4" >Ajouter un film</a>        
         
-  <select onchange="chercherFilmsParCateg(this.value)">`;
+  <select class="form-select" onchange="chercherFilmsParCateg(this.value)">`;
   var tailleCat
   tailleCat=listeCategories.length;
 
@@ -61,16 +61,12 @@ function listerF(listFilms , listeCategories){
        
 		<td>
 			<div class="btn-group">
-				
 				<form  action="" method="GET">
 				<input type="hidden" name="idFilm" value="${listFilms[i].idFilm}">       
                 <input id='btnDetailsFilm' type="button" class="btn bg-gradient btn-outline-primary mb-2" value="Afficher les details">         
 				<input id='btnModifierFilm' type="button" class="btn bg-gradient btn-outline-warning mb-2"  value="Mettre à jour" onclick='showUpdate(${listFilms[i].idFilm})'>
-				<input id='btnDeleteFilm' type="button" class="btn bg-gradient btn-outline-danger" onclick='deleteR(${listFilms[i].idFilm})' value="Supprimer ce film">
-               
+				<input id='btnDeleteFilm' type="button" class="btn bg-gradient btn-outline-danger" onclick='deleteR(${listFilms[i].idFilm})' value="Supprimer ce film">   
 				</form>
-			  
-				
 			</div>
 		</td>
 	</tr>`;		 
