@@ -49,7 +49,6 @@ function show(idFilm){
 
 
 function lister(){
-	
 	var formFilm = new FormData();
 	formFilm.append('action','lister');
     $.ajax({
